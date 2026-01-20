@@ -125,7 +125,7 @@
 /* Button Classes */
 .btn-primary {
   display: flex;
-  padding: 16px 24px;
+  padding: 14px 24px;
   flex-direction: row;
   justify-content: center;
   align-items: center;

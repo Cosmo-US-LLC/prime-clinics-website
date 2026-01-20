@@ -7,7 +7,7 @@ function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
-        {/* <Route path="/" element={<Home />} /> */}
+        <Route index element={<DEXAScanWaitlist />} />
         <Route path="/waitlist-dexa-scan" element={<DEXAScanWaitlist />} />
       </Route>
     </Routes>
