@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import "./assets/styles/images.css";
-// import Home from "./pages/Home";
 import DEXAScanWaitlist from "./pages/Waitlist/DEXAScanWaitlist";
 import Layout from "./components/Layouts";
 
