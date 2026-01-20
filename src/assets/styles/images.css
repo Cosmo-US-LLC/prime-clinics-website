@@ -5,10 +5,23 @@
     background-repeat: no-repeat;
     width: 100%;
   }
-  
+.dont_train_in_the_dark{
+    background-image: url("../images/waitlist/dont_train/dont_train_desktop.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+  }
+
+
+
+
   @media (max-width: 768px) {
     .DEXA_scan_hero {
       background-image: url("../images/waitlist/DEXA_hero/DEXAScan_hero_mobile.webp");
+    }
+    .dont_train_in_the_dark {
+      background-image: url("../images/waitlist/dont_train/dont_train_mobile.webp");
     }
      
   }
