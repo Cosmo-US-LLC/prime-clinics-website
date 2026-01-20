@@ -1,46 +1,35 @@
 function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center p-8">
-      <div className="max-w-4xl space-y-8">
-        {/* Headings automatically use Oswald */}
-        <h1 className="text-5xl font-bold text-center">
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="text-center space-y-6">
+        {/* Method 1: Using Tailwind font-sans (Manrope) - default */}
+        <h1 className="text-4xl font-bold font-sans">
           Prime Clinics Website
         </h1>
         
-        <h2 className="text-3xl font-semibold">
-          Our Services
+        {/* Method 2: Using Tailwind font-display (Oswald) */}
+        <h2 className="text-3xl font-bold font-display">
+          Using Oswald Display Font
         </h2>
         
-        {/* Body text automatically uses Manrope */}
-        <p className="text-lg text-muted-foreground">
-          Welcome to Prime Clinics, your trusted healthcare partner. We provide 
-          comprehensive medical services with a focus on patient care and comfort.
+        {/* Method 3: Explicitly using font-sans (Manrope) */}
+        <p className="text-lg text-muted-foreground font-sans">
+          Welcome to your new React + Vite + Tailwind + shadcn/ui project
         </p>
         
-        <h3 className="text-2xl font-bold">
-          About Us
-        </h3>
-        
-        <p className="text-base leading-relaxed">
-          Our team of experienced healthcare professionals is dedicated to providing 
-          the highest quality medical care. We use state-of-the-art technology and 
-          evidence-based practices to ensure the best outcomes for our patients.
-        </p>
-        
-        <div className="space-y-4">
-          <h4 className="text-xl font-semibold">
-            Contact Information
-          </h4>
-          <p className="text-sm">
-            Phone: (555) 123-4567 | Email: info@primeclinics.com
-          </p>
+        {/* Method 4: Different font weights */}
+        <div className="space-y-2">
+          <p className="font-sans font-light">Light (300) - Manrope</p>
+          <p className="font-sans font-normal">Regular (400) - Manrope</p>
+          <p className="font-sans font-medium">Medium (500) - Manrope</p>
+          <p className="font-sans font-semibold">SemiBold (600) - Manrope</p>
+          <p className="font-sans font-bold">Bold (700) - Manrope</p>
+          <p className="font-sans font-extrabold">ExtraBold (800) - Manrope</p>
         </div>
         
-        {/* You can still override if needed */}
-        <div className="border-t pt-4">
-          <p className="text-sm font-medium">
-            Note: All headings use Oswald font automatically, while body text uses Manrope.
-          </p>
+        {/* Method 5: Using CSS custom property directly */}
+        <div style={{ fontFamily: 'var(--font-display)' }} className="text-2xl">
+          Direct CSS Variable - Oswald
         </div>
       </div>
     </div>

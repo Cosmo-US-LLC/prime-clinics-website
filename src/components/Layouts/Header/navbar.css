@@ -1,0 +1,44 @@
+.navbar-container {
+  position: relative;
+}
+
+.navbarWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  height: 84px;
+  overflow: visible;
+  background-color: #00000012;
+  backdrop-filter: blur(9.5px);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.5s ease-in-out;
+}
+
+.navbarWrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: height 0.6s ease-in-out;
+  z-index: -1;
+}
+
+.navbarWrapper.scrolled::before {
+  height: 100%;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .navbarWrapper {
+    height: 70px;
+  }
+
+  .navbarWrapper::before {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+}
