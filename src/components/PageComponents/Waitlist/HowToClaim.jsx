@@ -53,7 +53,7 @@ function HowToClaim({
               <span className="text-[#2463D8]">{headingHighlight}</span>
             </h2>
           </div>
-          <button className="btn-primary w-full md:w-auto">
+          <button className="btn-primary w-full md:w-auto max-w-[300px]">
             {buttonText}
           </button>
         </div>
@@ -76,7 +76,7 @@ function HowToClaim({
                     </div>
                     {/* Connecting Line (except after last item) */}
                     {!isLast && (
-                      <div className="h-[127px] w-0.5 border-l-2 border-dashed border-[#2463D8] opacity-30 my-2"></div>
+                      <div className="h-[97px] w-0.5 border-l-2 border-dashed border-[#2463D8] opacity-30 my-2"></div>
                     )}
                   </React.Fragment>
                 );
