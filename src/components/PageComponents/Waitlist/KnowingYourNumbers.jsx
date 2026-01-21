@@ -1,19 +1,22 @@
 import React from "react";
+import StopGuessingIcon from "@/assets/images/waitlist/knowing_your_numbers/icon1.svg";
+import TrackRealProgressIcon from "@/assets/images/waitlist/knowing_your_numbers/icon2.svg";
+import IdentifyHealthRisksIcon from "@/assets/images/waitlist/knowing_your_numbers/icon3.svg";
 
 function KnowingYourNumbers() {
   const features = [
     {
-      icon: "https://www.figma.com/api/mcp/asset/c74848c5-14f0-4ddc-8d52-2d91be85331e",
+      icon: StopGuessingIcon,
       title: "Stop Guessing",
       description: "Know exactly how much muscle you need to gain and how much fat you need to lose.",
     },
     {
-      icon: "https://www.figma.com/api/mcp/asset/f690fdc8-00de-473c-a275-c077aee5c836",
+      icon: TrackRealProgressIcon,
       title: "Track Real Progress",
       description: "Measure improvements in body composition, hormones, and performance.",
     },
     {
-      icon: "https://www.figma.com/api/mcp/asset/323a13d0-10a4-4868-a420-6245682c3541",
+      icon: IdentifyHealthRisksIcon,
       title: "Identify Health Risks",
       description: "Detect visceral fat, bone health issues, and other critical factors that scales or mirrors can't reveal.",
     },
@@ -22,10 +25,10 @@ function KnowingYourNumbers() {
   return (
     <section className="w-full bg-white py-16 md:py-20">
       <div className="max-w-[1280px] w-full mx-auto px-4 md:px-8">
-        <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-8 md:gap-10">
           {/* Heading with Description */}
           <div className="flex flex-col gap-4 items-center text-center max-w-[800px] mx-auto">
-            <h2 className="font-display text-[36px] md:text-[48px] font-bold leading-[44px] md:leading-[56px] text-[#040A16] uppercase">
+            <h2 className="font-display text-[32px] md:text-[48px] font-bold leading-[40px] md:leading-[56px] text-[#040A16] uppercase">
               <span className="text-[#2463D8]">Knowing Your Numbers</span>{" "}
               Is{" "}
               the First Step to Changing Them
@@ -47,7 +50,7 @@ function KnowingYourNumbers() {
                   <img
                     src={feature.icon}
                     alt={feature.title}
-                    className="w-[42px] h-[42px] object-contain"
+                    className="w-[36px] h-[36px] object-contain"
                   />
                 </div>
 

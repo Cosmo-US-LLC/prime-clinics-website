@@ -6,28 +6,32 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import BodyFatPercentageImage from "@/assets/images/waitlist/dexa_scan/scan_image1.webp";
+import LeanMuscleMassImage from "@/assets/images/waitlist/dexa_scan/scan_image2.webp";
+import VisceralFatImage from "@/assets/images/waitlist/dexa_scan/scan_image3.webp";
+// import BoneDensityImage from "@/assets/images/waitlist/dexa_scan/scan_image4.webp";
 
 function WhatIsDEXAScan() {
   const cards = [
     {
       title: "Body Fat Percentage",
       description: "Total body fat and exactly where it is stored.",
-      image: "https://www.figma.com/api/mcp/asset/cd440022-0bb8-41eb-9d92-2b217f0257e7",
+      image: BodyFatPercentageImage,
     },
     {
       title: "Lean Muscle Mass",
       description: "Measurement of muscle in each arm, leg, and your torso.",
-      image: "https://www.figma.com/api/mcp/asset/c4efb9c1-fb2a-4698-89c7-230accff6212",
+      image: LeanMuscleMassImage,
     },
     {
       title: "Visceral Fat",
       description: 'The dangerous "hidden" fat around your organs that impacts hormones.',
-      image: "https://www.figma.com/api/mcp/asset/4b45bf17-4903-4d50-9e6f-6b6c10e5de12",
+      image: VisceralFatImage,
     },
     {
       title: "Bone Density",
       description: "Critical data for long-term health and injury prevention.",
-      image: "https://www.figma.com/api/mcp/asset/45eb88b5-1143-4cd1-80b8-09310eab9fe6",
+      image: null,
     },
   ];
 
@@ -41,12 +45,12 @@ function WhatIsDEXAScan() {
           }}
           className="w-full"
         >
-          <div className="flex flex-col gap-12">
-            {/* Heading with Description and Arrows */}
+          <div className="flex flex-col gap-8 md:gap-10">
+            
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
-              {/* Left Side - Heading */}
+            
               <div className="flex flex-col gap-4 items-center md:items-start text-center md:text-left max-w-[736px]">
-                <h2 className="font-display text-[36px] md:text-[48px] font-bold leading-[44px] md:leading-[56px] text-[#040A16] uppercase">
+                <h2 className="font-display text-[32px] md:text-[48px] font-bold leading-[40px] md:leading-[56px] text-[#040A16] uppercase">
                   What is a{" "}
                   <span className="text-[#2463D8]">DEXA Scan?</span>
                 </h2>
@@ -57,8 +61,8 @@ function WhatIsDEXAScan() {
 
               {/* Right Side - Navigation Arrows */}
               <div className="flex gap-4 items-center shrink-0">
-                <CarouselPrevious className="static top-auto left-auto right-auto rounded-full w-[85px] h-[85px] border-[#030712] hover:bg-[#f9fafb]" />
-                <CarouselNext className="static top-auto left-auto right-auto rounded-full w-[85px] h-[85px] border-[#030712] hover:bg-[#f9fafb]" />
+                <CarouselPrevious className="static top-auto left-auto right-auto rounded-full w-[65px] h-[65px] border-[#030712] hover:bg-[#f9fafb]" />
+                <CarouselNext className="static top-auto left-auto right-auto rounded-full w-[65px] h-[65px] border-[#030712] hover:bg-[#f9fafb]" />
               </div>
             </div>
 
@@ -85,7 +89,7 @@ function WhatIsDEXAScan() {
                           <h3 className="font-display text-[20px] md:text-[24px] font-bold leading-[28px] md:leading-[32px] text-[#2463D8] uppercase">
                             {card.title}
                           </h3>
-                          <p className="font-sans text-[14px] md:text-[16px] font-normal leading-[20px] md:leading-[24px] text-black">
+                          <p className="font-sans text-[14px] md:text-[16px] font-normal leading-[20px] md:leading-[22px] text-[#000]">
                             {card.description}
                           </p>
                         </div>

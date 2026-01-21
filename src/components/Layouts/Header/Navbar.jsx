@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
+import Logo from "@/assets/icons/prime_clinic_logo.svg";
 
 // You can replace this with your actual logo path
 // For now, using a placeholder - update this path to your logo
@@ -28,26 +29,22 @@ function Navbar() {
             to="/"
             className="flex items-center select-none [-webkit-user-select:none] [-webkit-touch-callout:none]"
           >
-            {/* Replace with your actual logo */}
-            <div className="md:w-[196px] w-[140px] h-auto flex items-center">
-              <span className="text-white text-xl font-display font-bold">
-                Prime Clinics
-              </span>
-              {/* Or use an img tag:
+             
+            <div className="w-[140px] h-auto flex items-center">              
               <img
                 src={Logo}
                 alt="Prime Clinics Logo"
                 className="w-full h-auto cursor-pointer z-20 select-none [-webkit-user-select:none] [-webkit-user-drag:none]"
                 draggable="false"
               />
-              */}
+             
             </div>
           </Link>
 
           {/* Button */}
           <div className="flex items-center">
             <button className="btn-primary">
-              Get Started
+            Claim Free DEXA Scan
             </button>
           </div>
         </div>
