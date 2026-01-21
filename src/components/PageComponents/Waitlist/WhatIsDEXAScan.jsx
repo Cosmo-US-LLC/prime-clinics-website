@@ -45,7 +45,7 @@ function WhatIsDEXAScan() {
           }}
           className="w-full"
         >
-          <div className="flex flex-col gap-8 md:gap-10">
+          <div className="flex flex-col gap-0 md:gap-10">
             
             <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
             
@@ -61,8 +61,8 @@ function WhatIsDEXAScan() {
 
               {/* Right Side - Navigation Arrows */}
               <div className="flex gap-4 items-center shrink-0">
-                <CarouselPrevious className="static top-auto left-auto right-auto rounded-full w-[65px] h-[65px] border-[#030712] hover:bg-[#f9fafb]" />
-                <CarouselNext className="static top-auto left-auto right-auto rounded-full w-[65px] h-[65px] border-[#030712] hover:bg-[#f9fafb]" />
+                <CarouselPrevious className="static mt-6 md:mt-0 top-auto left-auto right-auto rounded-full w-[50px] h-[50px] border-[#030712] hover:bg-[#000] hover:text-white" />
+                <CarouselNext className="static mt-6 md:mt-0 top-auto left-auto right-auto rounded-full w-[50px] h-[50px] border-[#030712] hover:bg-[#000] hover:text-white" />
               </div>
             </div>
 
