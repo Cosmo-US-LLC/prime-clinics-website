@@ -24,7 +24,7 @@
 }
 
 .footer-column-logo {
-  width: 380px;
+  width: 350px;
   min-width: 280px;
   flex: 0 0 auto;
 }
@@ -41,7 +41,7 @@
 }
 
 .footer-column-cta {
-  width: 290px;
+  width: 260px;
   min-width: 250px;
   flex: 0 0 auto;
 }
@@ -80,13 +80,13 @@
 /* Social Media */
 .social-media {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   align-items: center;
 }
 
 .social-icon {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border: 1px solid #FFFFFF;
   border-radius: 25px;
   display: flex;

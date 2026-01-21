@@ -18,7 +18,7 @@ function FAQ({
   const beforeHighlight = headingParts[0].trim();
 
   return (
-    <section className="bg-[#F9FAFB] flex flex-col gap-12 items-center px-4 md:px-12 py-20 w-full">
+    <section className="bg-[#F9FAFB] flex flex-col gap-12 items-center py-20 w-full px-4 md:px-8">
       {/* Heading */}
       <h2 className="font-display text-[36px] md:text-[48px] font-bold leading-[44px] md:leading-[56px] text-[#040A16] text-center uppercase">
         {beforeHighlight}
@@ -27,7 +27,7 @@ function FAQ({
       </h2>
 
       {/* FAQ Accordion */}
-      <div className="w-full max-w-[800px]">
+      <div className="w-full max-w-[900px]">
         <Accordion
           type="single"
           collapsible

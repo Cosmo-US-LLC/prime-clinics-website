@@ -43,8 +43,8 @@ function HowToClaim({
   buttonText = "Claim My Free DEXA Scan"
 }) {
   return (
-    <section className="bg-white flex gap-10 md:gap-20 items-center justify-center px-4 md:px-15 py-20 w-full">
-      <div className="max-w-[1280px] w-full mx-auto flex flex-col md:flex-row gap-10 md:gap-20">
+    <section className="bg-white flex gap-10 md:gap-20 items-center justify-center py-20 w-full">
+      <div className="max-w-[1280px] w-full mx-auto px-4 md:px-8 flex flex-col md:flex-row gap-10 md:gap-20">
         {/* Left Side - Heading and CTA */}
         <div className="flex flex-col gap-6 flex-1 min-w-0">
           <div className="flex flex-col gap-4">
@@ -61,7 +61,7 @@ function HowToClaim({
         {/* Right Side - Steps Timeline */}
         <div className="flex gap-6 items-start flex-1 min-w-0">
           {/* Vertical Line with Numbers */}
-          <div className="flex flex-col items-center relative shrink-0">
+          <div className="flex flex-col items-center justify-center h-full relative shrink-0">
             {/* Number Circles with Connecting Line */}
             <div className="relative flex flex-col items-center">
               {stepsData.map((step, index) => {
@@ -76,7 +76,7 @@ function HowToClaim({
                     </div>
                     {/* Connecting Line (except after last item) */}
                     {!isLast && (
-                      <div className="h-[97px] w-0.5 border-l-2 border-dashed border-[#2463D8] opacity-30 my-2"></div>
+                      <div className="h-[84px] w-0.5 border-l-2 border-dashed border-[#2463D8] opacity-30 my-2"></div>
                     )}
                   </React.Fragment>
                 );
@@ -95,15 +95,15 @@ function HowToClaim({
                 >
                   {/* Icon */}
                   <div className="bg-[#E9EFFB] rounded-full size-16 flex items-center justify-center p-2 shrink-0">
-                    <IconComponent className="size-[42px] text-[#2463D8]" />
+                    <IconComponent className="size-[30px] text-[#2463D8]" />
                   </div>
 
                   {/* Content */}
-                  <div className="flex flex-col gap-2 flex-1 min-w-0">
-                    <h3 className="font-display text-2xl font-bold leading-8 text-[#030712] uppercase">
+                  <div className="flex flex-col gap-1 flex-1 min-w-0">
+                    <h3 className="font-display text-[20px] font-bold md:text-[24px] leading-[32px] md:leading-[32px] text-[#030712] uppercase">
                       {step.title}
                     </h3>
-                    <p className="font-sans text-base font-normal leading-6 text-[#1F2937]">
+                    <p className="font-sans text-[14px] md:text-[16px] font-normal leading-[22px] md:leading-[24px] text-[#1F2937]">
                       {step.description}
                     </p>
                   </div>
