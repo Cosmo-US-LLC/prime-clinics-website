@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import ScanImage from "@/assets/images/waitlist/what_will_happen/what_will_happen.webp";
+import min_15 from "@/assets/images/waitlist/what_will_happen/15_min.webp";
+import min_35 from "@/assets/images/waitlist/what_will_happen/35_min.webp";
 
 function WhatWillHappenInYourScan() {
   const [activeStep, setActiveStep] = useState(0);
@@ -12,13 +14,13 @@ function WhatWillHappenInYourScan() {
     },
     {
       title: "15-Minute DEXA Scan",
-      description: "Our advanced DEXA scanner provides precise body composition analysis.",
-      image: ScanImage,
+      description: "Lie comfortably as our advanced scanner measures your fat, muscle, and bone composition with precision.",
+      image: min_15,
     },
     {
       title: "35-Minute Assessment Review",
-      description: "We review your results and create a personalized optimization plan.",
-      image: ScanImage,
+      description: "Meet with our specialists to go over your results, understand your numbers, and receive actionable recommendations for improving your health, strength, and longevity.",
+      image: min_35,
     },
   ];
 
@@ -86,9 +88,20 @@ function WhatWillHappenInYourScan() {
             </div>
           </div>
         </div>
-      </div>
+        {/* CTA Section */}
+        <div className="flex flex-col gap-3.5 items-start justify-start -mt-[90px]">
+            <button className="btn-primary">
+                Enter to Win a Free Scan
+            </button>
+            <p className="font-sans text-sm font-normal leading-5 text-[#030712]">
+                <span className="font-extrabold">Only</span>{" "}
+                <span className="font-extrabold">50</span>{" "}
+                <span className="font-normal">spots available</span>
+            </p>
+        </div>
+    </div>
     </section>
-  );
+  );8
 }
 
 export default WhatWillHappenInYourScan;

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Instagram, Facebook, Youtube } from "lucide-react";
 import "./footer.css";
-import Logo from "@/assets/icons/prime_clinic_logo.svg";
+import Logo from "@/assets/icons/Prime_Logo.svg";
 
 function Footer() {
   const currentYear = new Date().getFullYear();

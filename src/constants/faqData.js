@@ -6,14 +6,14 @@ export const faqData = [
   },
   {
     question: "When will I get my voucher?",
-    answer: "50 winners will be randomly selected from the waitlist. If you are chosen, you will receive an email notifying you that your free DEXA scan is secured.",
+    answer: "Digital vouchers will be emailed to winners 15 days before the clinic officially opens.",
   },
   {
     question: "Is the scan safe?",
-    answer: "50 winners will be randomly selected from the waitlist. If you are chosen, you will receive an email notifying you that your free DEXA scan is secured.",
+    answer: "Yes. A DEXA scan is a quick, non-invasive, and low-radiation imaging process that takes less than 10 minutes.",
   },
   {
     question: "Do I have to pay anything if I win?",
-    answer: "50 winners will be randomly selected from the waitlist. If you are chosen, you will receive an email notifying you that your free DEXA scan is secured.",
+    answer: "No. The 50 lucky winners receive the DEXA scan completely free. no hidden fees or charges.",
   },
 ];
