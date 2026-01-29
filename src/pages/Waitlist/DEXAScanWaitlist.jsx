@@ -7,17 +7,21 @@ import KnowingYourNumbers from '@/components/PageComponents/Waitlist/KnowingYour
 import PrimeExperience from '@/components/PageComponents/Waitlist/PrimeExperience'
 import WhatIsDEXAScan from '@/components/PageComponents/Waitlist/WhatIsDEXAScan'
 import WhatWillHappenInYourScan from '@/components/PageComponents/Waitlist/WhatWillHappenInYourScan'
+import NewWhatIsDEXAScan from '@/components/PageComponents/Waitlist/NewWhatIsDEXAScan'
+import HowItWorks from '@/components/PageComponents/Waitlist/HowItWorks'
 import { faqData } from '@/constants/faqData'
 
 function DEXAScanWaitlist() {
   return (
     <div className="min-h-screen">
       <DEXAScanHero />
-      <WhatIsDEXAScan />
+      <NewWhatIsDEXAScan/>
+      {/* <WhatIsDEXAScan /> */}
+      {/* <KnowingYourNumbers /> */}
       <WhatWillHappenInYourScan />
-      <KnowingYourNumbers />
       <PrimeExperience />
-      <HowToClaim />    
+      <HowItWorks/>
+      {/* <HowToClaim />     */}
       <FAQ faqData={faqData} defaultOpenIndex={0} />
       <DontTrainInTheDark />
     </div>

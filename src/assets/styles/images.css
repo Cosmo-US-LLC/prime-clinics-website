@@ -5,6 +5,15 @@
     background-repeat: no-repeat;
     width: 100%;
   }
+
+.DEXA_scan_new{
+    background-image: url("../images/waitlist/New_DEXA_SCAN/DEXA_Scan.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+  } 
+
 .dont_train_in_the_dark{
     background-image: url("../images/waitlist/dont_train/dont_train_desktop.webp");
     background-size: cover;

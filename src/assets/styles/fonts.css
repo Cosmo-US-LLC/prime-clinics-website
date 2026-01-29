@@ -162,3 +162,29 @@
   outline: 2px solid var(--ring);
   outline-offset: 2px;
 }
+
+.btn-primary-2 {
+  display: flex;
+  padding: 14px 24px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #2463D8;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  /* border: 2px solid #2463D8; */
+  border-radius: 8px;
+  background-color: #FFF;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.btn-primary-2:hover {
+  background-color: #e0e6f2;
+  /* border: 2px solid #2463D8; */
+  color: #2463D8;
+}
