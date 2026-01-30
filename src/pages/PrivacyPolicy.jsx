@@ -39,16 +39,16 @@ function PrivacyPolicy() {
           
           {/* Effective Date */}
           <p className="font-[Manrope] text-[16px] font-normal leading-[26px] text-[#314158] mb-8">
-            Effective Date: January 30, 2026
+            <span className='font-[700]'>Effective Date:</span> January 30, 2026
           </p>
 
           {/* Introduction */}
           <div className="mb-8">
             <p className="font-[Manrope] text-[16px] font-normal leading-[26px] text-[#314158] mb-4">
-              Prime Clinics ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information and personal health information when you use our website, mobile applications, and other online services (collectively, the "Services").
+              Prime Clinics and its affiliates (collectively, "Prime Clinics," "we," "us," or "our") are committed to protecting your privacy. This Privacy Policy describes how we collect, use, disclose, and safeguard your personal information and personal health information when you use our website, mobile applications, and any other online services (collectively, the "Services").
             </p>
             <p className="font-[Manrope] text-[16px] font-normal leading-[26px] text-[#314158]">
-              By using our Services, you agree to the collection and use of information in accordance with this Privacy Policy. If you do not agree with this policy, please do not use our Services.
+              By accessing or using our Services, you agree to the practices described in this Privacy Policy. If you do not agree with this policy, please do not use our Services.
             </p>
           </div>
 
