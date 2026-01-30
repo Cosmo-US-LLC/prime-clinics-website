@@ -6,7 +6,8 @@ function WinaFree$300Hero() {
   return (
     <section id="hero-section" className="relative w-full h-[1040px] md:h-[770px] Wina_Free_hero overflow-hidden flex items-end justify-start">
       <div className="relative z-20 w-full py-12 md:py-16 lg:py-20 px-4 md:px-8 max-w-[1280px] mx-auto">
-        <div className="flex flex-col h-full lg:flex-row gap-8 lg:gap-12 items-start md:items-center justify-between">
+        <div className="flex flex-col h-full lg:flex-row gap-8 lg:gap-6 items-start 
+        md:items-center justify-between">
           {/* Left Content */}
           <div className="flex flex-col gap-6 w-full h-full max-w-full md:max-w-[590px]">
             <div className="flex flex-col gap-4">
@@ -24,7 +25,7 @@ function WinaFree$300Hero() {
           </div>
 
           {/* Right Form */}
-          <div className="w-full lg:w-auto lg:shrink-0">
+          <div className="w-full lg:w-auto lg:shrink-0 md:min-w-[500px]">
             <WinForm />
           </div>
         </div>

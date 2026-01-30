@@ -118,10 +118,12 @@ function FeaturedCards() {
                         />
                       </div>
                       <div className="flex flex-col gap-2 px-2">
-                        <h3 className="font-[Oswald] text-[20px] font-bold leading-[28px] text-[#040A16] uppercase">
+                        <h3 className="font-[Oswald] md:text-[24px] text-[20px] font-bold 
+                        leading-[28px] text-[#040A16] uppercase">
                           {feature.title}
                         </h3>
-                        <p className="font-[Manrope] text-[14px] font-normal leading-[20px] text-[#040A16]">
+                        <p className="font-[Manrope] md:text-[16px] text-[14px] font-normal 
+                        leading-[20px] text-[#040A16]">
                           {feature.description}
                         </p>
                       </div>
