@@ -8,9 +8,9 @@ function WinaFree$300Hero() {
       <div className="relative z-20 w-full py-12 md:py-16 lg:py-20 px-4 md:px-8 max-w-[1280px] mx-auto">
         <div className="flex flex-col h-full lg:flex-row gap-8 lg:gap-12 items-start md:items-center justify-between">
           {/* Left Content */}
-          <div className="flex flex-col gap-6 w-full h-full max-w-full md:max-w-[610px] lg:max-w-[650px]">
+          <div className="flex flex-col gap-6 w-full h-full max-w-full md:max-w-[590px]">
             <div className="flex flex-col gap-4">
-              <h1 className="font-[Oswald] text-[42px] md:text-[56px] lg:text-[64px] font-bold leading-[50px] md:leading-[64px] lg:leading-[72px] text-white uppercase m-0 drop-shadow-[0px_0px_4px_rgba(0,0,0,0.25)] tracking-normal">
+              <h1 className="font-[Oswald] text-[42px] md:text-[56px] lg:text-[64px] font-bold leading-[50px] md:leading-[64px] text-white uppercase m-0 drop-shadow-[0px_0px_4px_rgba(0,0,0,0.25)] tracking-normal">
                 <span className="bg-linear-to-r from-[#2463D8] via-[#60A5FA] to-[#BFDBFE] bg-clip-text text-transparent">
                   Win a Free $300{" "}
                 </span>
