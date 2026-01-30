@@ -18,4 +18,10 @@ export default defineConfig({
     include: [],
     exclude: [],
   },
+  preview: {
+    allowedHosts: [
+      "primeclinics.ca",
+      "www.primeclinics.ca"
+    ]
+  }
 });
