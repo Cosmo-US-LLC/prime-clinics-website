@@ -40,7 +40,7 @@ function TermsAndConditions() {
           
           {/* Effective Date */}
           <p className="font-[Manrope] text-[16px] font-normal leading-[26px] text-[#314158] mb-8">
-            Effective Date: January 30, 2026
+            <span className='font-[700]'>Effective Date:</span> January 30, 2026
           </p>
 
           {/* Important Notice */}
@@ -69,7 +69,7 @@ function TermsAndConditions() {
                 Overview of the Services
               </h3>
               <p className="font-[Manrope] text-[16px] font-normal leading-[26px] text-[#314158]">
-                The Services may include (i) providing individuals with information on health care and wellness; (ii) providing individuals with access to technology-oriented tools for addressing certain health issues; (iii) development and gathering of health care records and information, with retention for use in healthcare provider appointments and communications, all provided by third-party unaffiliated providers; (iv) administrative support for scheduling and payment for health care provider services; (v) telecommunications support for direct access to a health care provider for communication, consultations, and assessments.
+               The Services may include (i) providing individuals with information on health care and wellness; (ii) providing individuals with access to technology-oriented tools for addressing certain health issues; (iii) development and gathering of health care records and health care information with retention of the same for use in healthcare provider appointments and communications, all of which are provided by third-party unaffiliated providers; (iv) administrative support in connection with scheduling and payment for health care provider services; and (v) telecommunications support for using the Services as a means of direct access to a health care provider for communication, consultations, and assessments.
               </p>
             </div>
 
@@ -78,7 +78,7 @@ function TermsAndConditions() {
                 Availability
               </h3>
               <p className="font-[Manrope] text-[16px] font-normal leading-[26px] text-[#314158]">
-                The Services are currently available only to individuals in certain Canadian provinces. Prime Clinics is based in Canada, and the Services are for persons located in Canada. We make no claims that the Services or any of their content are accessible or appropriate outside of Canada. If you access the Services from outside Canada, you do so on your own initiative and are responsible for compliance with local laws, including export laws.
+               Certain of our Services are currently only available to individuals located in certain Canadian provinces. Prime Clinics is based in Canada. We provide the Services for use only by persons located in Canada. We make no claims or representations that the Services or any material included in the Services are accessible or appropriate outside of Canada. Access to the Services may not be legal by certain persons or in certain countries. If you access the Services from outside Canada, you do so at your own risk and you are solely responsible for compliance with local laws, including export laws as applicable.
               </p>
             </div>
 
@@ -87,11 +87,11 @@ function TermsAndConditions() {
                 Eligibility
               </h3>
               <p className="font-[Manrope] text-[16px] font-normal leading-[26px] text-[#314158] mb-3">
-                The Services are intended for users 18 years of age or over. To qualify to use the Services, the following must be true:
+              Our Services are intended for use by you only if you are 18 years of age or over. To qualify to use the Services, the following must be true, and by accessing or using the Services, you represent and warrant that they are true:
               </p>
               <div className="ml-4 space-y-2">
                 <p className="font-[Manrope] text-[16px] font-normal leading-[26px] text-[#314158]">
-                  You are age 18 or over or, if you are accessing the Services in violation of the Eligibility requirement related to age, you otherwise have the express consent of your parent or legal guardian.
+                 You are age 18 or over or, if you are accessing the Services in violation of the Eligibility requirement related to age, you otherwise have the express consent of your parent or legal guardian.
                 </p>
                 <p className="font-[Manrope] text-[16px] font-normal leading-[26px] text-[#314158]">
                   You are located in a province where we operate.
@@ -101,7 +101,7 @@ function TermsAndConditions() {
                 </p>
               </div>
               <p className="font-[Manrope] text-[16px] font-normal leading-[26px] text-[#314158] mt-3">
-                Meeting the above requirements does not necessarily mean you will qualify to use the Services. Prime Clinics and affiliated entities reserve the right to change or add new requirements at any time, without prior notice.
+             You understand and agree that satisfying the above requirements does not guarantee that you will receive Services. In addition to the above requirements, Prime Clinics and certain affiliated professional entities reserve the right to change or include new requirements as deemed appropriate in their sole discretion without providing prior notice to you.
               </p>
             </div>
           </div>
