@@ -5,6 +5,12 @@ import therapypathways from "../../../assets/images/waitlist/Prime_Experience/th
 import totaldiscretion from "../../../assets/images/waitlist/Prime_Experience/total_discretion.webp";
 
 function PrimeExperience() {
+  const scrollToHero = () => {
+    const heroSection = document.getElementById('hero-section');
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   const cards = [
     {
       title: "Real\nData",
@@ -50,7 +56,7 @@ function PrimeExperience() {
             <div className="w-[300px] pt-[30px] max-md:hidden">
               {/* CTA Section */}
               <div className="flex flex-col gap-3.5 items-end justify-end">
-                <button className="btn-primary">
+                <button className="btn-primary" onClick={scrollToHero}>
                   Enter to Win a Free Scan
                 </button>
               </div>
@@ -104,7 +110,7 @@ function PrimeExperience() {
           items-center justify-center mx-auto">
               {/* CTA Section */}
               <div className="flex flex-col gap-3.5 items-center justify-center">
-                <button className="btn-primary">
+                <button className="btn-primary" onClick={scrollToHero}>
                   Enter to Win a Free Scan
                 </button>
               </div>

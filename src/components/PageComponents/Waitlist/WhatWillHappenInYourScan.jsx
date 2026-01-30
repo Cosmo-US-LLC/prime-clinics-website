@@ -5,6 +5,13 @@ import min_35 from "@/assets/images/waitlist/what_will_happen/35_min.webp";
 
 function WhatWillHappenInYourScan() {
   const [activeStep, setActiveStep] = useState(0);
+  
+  const scrollToHero = () => {
+    const heroSection = document.getElementById('hero-section');
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   const steps = [
     {
@@ -76,7 +83,7 @@ function WhatWillHappenInYourScan() {
               })}
             </div>
             <div className="md:hidden flex flex-col gap-3.5 items-center justify-center w-[100%] -mt-[90px]">
-            <button className="btn-primary">
+            <button className="btn-primary" onClick={scrollToHero}>
                 Enter to Win a Free Scan
             </button>
             <p className="font-sans text-sm font-normal leading-5 text-[#030712]">
@@ -100,7 +107,7 @@ function WhatWillHappenInYourScan() {
         </div>
         {/* CTA Section */}
         <div className="md:flex hidden flex-col gap-3.5 items-start justify-start -mt-[90px]">
-            <button className="btn-primary">
+            <button className="btn-primary" onClick={scrollToHero}>
                 Enter to Win a Free Scan
             </button>
             <p className="font-sans text-sm font-normal leading-5 text-[#030712]">

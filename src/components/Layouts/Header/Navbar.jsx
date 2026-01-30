@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./navbar.css";
 import Logo from "@/assets/icons/prime_clinic_logo.svg";
 
@@ -9,6 +9,7 @@ import Logo from "@/assets/icons/prime_clinic_logo.svg";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +20,21 @@ function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Determine CTA text based on route
+  const getCTAText = () => {
+    if (location.pathname === "/free-dexa-scan-and-longevity-assessment") {
+      return "Claim My Assessment Spot";
+    }
+    return "Enter to Win a Free Scan";
+  };
+
+  const scrollToHero = () => {
+    const heroSection = document.getElementById('hero-section');
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="navbar-container">
@@ -43,8 +59,8 @@ function Navbar() {
 
           {/* Button */}
           <div className="flex items-center">
-            <button className="btn-primary">
-            Enter to Win a Free Scan
+            <button className="btn-primary" onClick={scrollToHero}>
+            {getCTAText()}
             </button>
           </div>
         </div>
