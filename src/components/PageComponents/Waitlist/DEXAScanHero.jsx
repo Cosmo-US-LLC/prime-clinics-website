@@ -92,9 +92,9 @@ import ZapIcon from "@/assets/images/waitlist/DEXA_hero/zap.svg";
 
 function DEXAScanHero() {
   return (
-    <section className="relative w-full pt-[35px] h-[640px] md:h-[700px] DEXA_scan_hero overflow-hidden">
+    <section className="relative w-full pt-[35px] h-[1035px] md:h-[700px] DEXA_scan_hero overflow-hidden">
 
-      <div className="relative z-20 w-full h-full py-12 md:py-20 px-4 md:px-8 max-w-[1280px] mx-auto flex items-center">
+      <div className="relative z-20 w-full h-full py-12 md:py-20 px-4 md:px-8 max-w-[1280px] mx-auto flex md:items-center items-end">
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full items-center">
 
@@ -102,7 +102,7 @@ function DEXAScanHero() {
           <div className="flex flex-col gap-6 max-w-full md:max-w-[680px]">
 
             <div className="flex flex-col gap-4">
-              <h1 className="font-display text-[42px] md:text-[64px] font-bold leading-[56px] md:leading-[72px] text-white uppercase m-0 drop-shadow-[0px_0px_4px_rgba(0,0,0,0.25)] tracking-normal">
+              <h1 className="font-display text-[42px] md:text-[64px] font-bold leading-[119.048%] md:leading-[72px] text-white uppercase m-0 drop-shadow-[0px_0px_4px_rgba(0,0,0,0.25)] tracking-normal">
                 Get a{" "}
                 <span className="bg-gradient-to-r from-[#2463D8] via-[#60A5FA] to-[#BFDBFE] bg-clip-text text-transparent">
                   Free $145{" "} <br />
