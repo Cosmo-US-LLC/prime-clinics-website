@@ -41,7 +41,8 @@ function WinForm() {
   };
 
   return (
-    <div className="bg-white border border-[#f1f5f9] rounded-2xl shadow-[0px_25px_50px_-12px_rgba(30,58,138,0.1)] p-8 w-full max-w-[450px]">
+    <div className="bg-white border border-[#f1f5f9] rounded-2xl 
+    shadow-[0px_25px_50px_-12px_rgba(30,58,138,0.1)] p-8 !w-full !max-w-[500px] !min-h-[510px]">
       {/* Header */}
       <div className="flex flex-col items-center gap-1 mb-6">
         <h3 className="font-[Oswald] text-[24px] font-bold leading-[32px] text-[#0f172a] uppercase text-center">
