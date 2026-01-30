@@ -35,17 +35,19 @@ function PrimeExperience() {
           {/* Heading with Description */}
           <div className="w-full flex flex-row">
             <div className="w-full">
-               <div className="flex flex-col gap-4 items-start justify-start mx-auto">
-                  <h2 className="font-display text-[36px] md:text-[48px] font-bold leading-[44px] md:leading-[56px] text-[#040A16] uppercase">
+               <div className="flex flex-col gap-4 md:items-start items-center md:justify-start justify-center mx-auto">
+                  <h2 className="font-display text-[36px] md:text-[48px] font-bold
+                   leading-[44px] md:leading-[56px] text-[#040A16] uppercase max-md:text-center">
                     The{" "}
                     <span className="text-[#2463D8]">Prime Experience</span>
                   </h2>
-                  <p className="font-sans text-[16px] md:text-[18px] font-normal leading-[24px] md:leading-[26px] max-w-[800px] text-[#030712]">
+                  <p className="font-sans text-[16px] md:text-[18px]
+                   font-normal leading-[24px] md:leading-[26px] max-md:text-center max-w-[800px] text-[#030712]">
                     Prime Clinics empowers you to boost performance, strength, vitality, and confidence while optimizing your body and mind. We combine data-driven insights with integrative therapy pathways for real results.
                   </p>
                 </div>
             </div>
-            <div className="w-[300px] pt-[30px]">
+            <div className="w-[300px] pt-[30px] max-md:hidden">
               {/* CTA Section */}
               <div className="flex flex-col gap-3.5 items-end justify-end">
                 <button className="btn-primary">
@@ -68,7 +70,7 @@ function PrimeExperience() {
             {cards.map((card, index) => (
               <div key={index} className="flex flex-col gap-4">
                 {/* Image Container */}
-                <div className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden">
+                <div className="relative h-[248px] md:h-[400px] rounded-2xl overflow-hidden">
                   <img 
                     src={card.image} 
                     alt={card.title.replace(/\n/g, " ")} 
@@ -80,16 +82,41 @@ function PrimeExperience() {
 
                 {/* Title and Description */}
                 <div className="flex flex-col gap-2">
-                  <h3 className="font-display text-[20px] md:text-[24px] font-bold leading-[28px] md:leading-[32px] text-[#1F2937] uppercase whitespace-pre-line">
-                    {card.title}
+                  <h3 className="font-display text-[20px] md:text-[24px] 
+                  font-bold leading-[28px] md:leading-[32px] text-[#1F2937] 
+                  uppercase max-md:text-center">
+                    <span className="md:hidden whitespace-normal">
+                      {card.title.replace(/\n/g, " ")}
+                    </span>
+                    <span className="hidden md:inline whitespace-pre-line">
+                      {card.title}
+                    </span>
                   </h3>
-                  <p className="font-sans text-[14px] md:text-[16px] font-normal leading-[20px] md:leading-[24px] text-[#1F2937]">
+                  <p className="font-sans text-[14px] md:text-[16px] font-normal
+                   leading-[20px] md:leading-[24px] text-[#1F2937] max-md:text-center">
                     {card.description}
                   </p>
                 </div>
               </div>
             ))}
           </div>
+          <div className="w-[300px] md:hidden flex flex-col 
+          items-center justify-center mx-auto">
+              {/* CTA Section */}
+              <div className="flex flex-col gap-3.5 items-center justify-center">
+                <button className="btn-primary">
+                  Enter to Win a Free Scan
+                </button>
+              </div>
+              <div className="flex flex-col gap-3.5 items-center justify-center pt-[15px]">
+                <p className="font-sans text-sm font-normal leading-5 text-[#030712]">
+                  <span className="font-extrabold">Only</span>{" "}
+                  <span className="font-extrabold">50</span>{" "}
+                  <span className="font-normal">spots available</span>
+                </p>
+              </div>
+              
+            </div>
 
         </div>
       </div>

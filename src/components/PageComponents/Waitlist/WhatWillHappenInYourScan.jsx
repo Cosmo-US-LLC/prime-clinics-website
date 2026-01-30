@@ -42,7 +42,7 @@ function WhatWillHappenInYourScan() {
           {/* Main Content: Steps on Left, Image on Right */}
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 items-start">
             {/* Left Side - Process Steps */}
-            <div className="flex flex-col gap-6 flex-1 min-w-0 w-full lg:w-auto">
+            <div className="flex flex-col gap-6 flex-1 min-w-0 w-full max-md:min-h-[342px] lg:w-auto">
               {steps.map((step, index) => {
                 const isActive = activeStep === index;
                 return (
@@ -75,6 +75,16 @@ function WhatWillHappenInYourScan() {
                 );
               })}
             </div>
+            <div className="md:hidden flex flex-col gap-3.5 items-center justify-center w-[100%] -mt-[90px]">
+            <button className="btn-primary">
+                Enter to Win a Free Scan
+            </button>
+            <p className="font-sans text-sm font-normal leading-5 text-[#030712]">
+                <span className="font-extrabold">Only</span>{" "}
+                <span className="font-extrabold">50</span>{" "}
+                <span className="font-normal">spots available</span>
+            </p>
+        </div>
 
             {/* Right Side - Image Container */}
             <div className="relative w-full lg:w-[600px] h-[300px] md:h-[400px] rounded-lg overflow-hidden shrink-0">
@@ -89,7 +99,7 @@ function WhatWillHappenInYourScan() {
           </div>
         </div>
         {/* CTA Section */}
-        <div className="flex flex-col gap-3.5 items-start justify-start -mt-[90px]">
+        <div className="md:flex hidden flex-col gap-3.5 items-start justify-start -mt-[90px]">
             <button className="btn-primary">
                 Enter to Win a Free Scan
             </button>
