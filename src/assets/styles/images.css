@@ -25,12 +25,12 @@
   .Wina_Free_hero{
     background-image: url("../images/WinaFree$300/HeroWin/win_hero_img.webp");
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     width: 100%;
   }
   .dont_train_in_the_dark_win{
-    background-image: url("../images/WinaFree$300/ReadytoReclaim/ReadytoReclaim.webp");
+    background-image: url("../images/WinaFree$300/ReadytoReclaim/ready_to_reclaim_bg_desktop.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -46,6 +46,8 @@
     .dont_train_in_the_dark {
       background-image: url("../images/waitlist/dont_train/dont_train_mobile.webp");
     }
-     
+    .dont_train_in_the_dark_win{
+      background-image: url("../images/WinaFree$300/ReadytoReclaim/ready_to_reclaim_bg_mobile.webp");
+    }
   }
   

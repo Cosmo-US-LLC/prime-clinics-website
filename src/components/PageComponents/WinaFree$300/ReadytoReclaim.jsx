@@ -4,7 +4,7 @@ import React from "react";
 function ReadytoReclaim() {
   return (
     <section className="relative w-full h-[600px] dont_train_in_the_dark_win overflow-hidden flex">
-      <div className="relative z-10 max-w-[1280px] w-full mx-auto px-4 md:px-8 flex items-center justify-start">
+      <div className="relative z-10 max-w-[1280px] w-full mx-auto py-6 px-4 md:px-8 flex md:items-center items-end justify-start">
         <div className="bg-white max-w-[640px] rounded-lg shadow-[0px_0px_24px_0px_rgba(0,0,0,0.05)] p-8 flex flex-col gap-6">
           {/* Heading */}
           <div className="flex flex-col gap-4">
@@ -17,7 +17,7 @@ function ReadytoReclaim() {
       
           <div className="flex flex-col gap-3.5">
             <button className="btn-primary w-full md:w-auto max-w-[258px]">
-              Claim My Free DEXA Scan
+            Claim My Assessment Spot
             </button>
             
             <p className="font-[Manrope] text-[14px] font-normal leading-5 text-[#030712]">

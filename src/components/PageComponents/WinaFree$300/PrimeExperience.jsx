@@ -13,12 +13,12 @@ function PrimeExperience() {
     },
     {
       title: "Track Your\nProgress",
-      description: "Monitor your health, performance, and recovery through our integrated app.",
+      description: "Monitor your health, track your performance, and optimize your recovery for a stronger, healthier, and more resilient body.",
       image: card_img_2,
     },
     {
       title: "Integrative Therapy Pathways",
-      description: "Evidence-based medical treatments, lifestyle strategies, and advanced technologies work together in synergy to target root causes, accelerate results, and optimize your body and mind.",
+      description: "Medical treatments, lifestyle strategies, and advanced technologies work together to target root causes and optimize body and mind.",
       image: card_img_3,
     },
     {
@@ -29,11 +29,14 @@ function PrimeExperience() {
   ];
 
   return (
-    <section className="w-full bg-[#fff] py-16 md:py-20">
+    <section className="w-full bg-[#F9FAFB] py-16 md:py-20">
       <div className="max-w-[1280px] w-full mx-auto px-4 md:px-8">
         <div className="flex flex-col gap-12">
           {/* Heading with Description */}
-          <div className="flex flex-col gap-4 items-center text-center max-w-[800px] mx-auto">
+          <div className="flex md:flex-row flex-col gap-6 items-center justify-between">
+
+         
+          <div className="flex flex-col gap-4 items-start justify-start max-w-[800px]">
             <h2 className="font-display text-[36px] md:text-[48px] font-bold leading-[44px] md:leading-[56px] text-[#040A16] uppercase">
               The{" "}
               <span className="text-[#2463D8]">Prime Experience</span>
@@ -41,6 +44,19 @@ function PrimeExperience() {
             <p className="font-sans text-[16px] md:text-[18px] font-normal leading-[24px] md:leading-[26px] text-[#030712]">
              Prime Clinics empowers you to boost performance, strength, vitality, and confidence while optimizing your body and mind. We combine data-driven insights with integrative therapy pathways for real results.
             </p>
+          </div>
+
+          <div className="flex flex-col gap-3.5 items-center justify-center">
+            <button className="btn-primary">
+            Claim My Assessment Spot
+            </button>
+            <p className="font-sans text-sm font-normal leading-5 text-[#030712]">
+            <span className="font-normal">Limited to</span> {" "}
+                        <span className="font-extrabold">5</span>{" "}
+                        <span className="font-extrabold">winners</span>{" "}
+            </p>
+          </div>
+
           </div>
 
           {/* Cards Grid */}
@@ -70,18 +86,8 @@ function PrimeExperience() {
               </div>
             ))}
           </div>
-
-          {/* CTA Section */}
-          <div className="flex flex-col gap-3.5 items-center justify-center">
-            <button className="btn-primary">
-              Claim My Free DEXA Scan
-            </button>
-            <p className="font-sans text-sm font-normal leading-5 text-[#030712]">
-              <span className="font-normal">Limited to</span>{" "}
-              <span className="font-extrabold">5 </span>{" "}
-              <span className="font-extrabold">winners</span>{" "}
-            </p>
-          </div>
+ 
+          
         </div>
       </div>
     </section>
