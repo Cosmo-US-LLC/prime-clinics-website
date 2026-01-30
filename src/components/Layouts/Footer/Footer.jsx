@@ -118,7 +118,7 @@ function Footer() {
             <p className="copyright">
               © {currentYear} All rights reserved
             </p>
-            <div className="footer-links">
+            <div className="footer-links max-md:flex justify-center items-center gap-4">
               <Link to="/privacy-policy" className="footer-bottom-link">
                 Privacy Policy
               </Link>
