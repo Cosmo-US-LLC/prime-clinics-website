@@ -1,6 +1,12 @@
 import React from "react";
 
 function HowItWorks() {
+    const scrollToHero = () => {
+        const heroSection = document.getElementById('hero-section');
+        if (heroSection) {
+            heroSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
     const steps = [
         {
             id: 1,
@@ -69,7 +75,7 @@ function HowItWorks() {
                         {/* CTA Section inside card */}
                         <div className="flex flex-col max-w-[234px] mx-auto gap-3.5 items-center justify-center mt-8 pt-6
                          ">
-                            <button className="btn-primary w-full">
+                            <button className="btn-primary w-full" onClick={scrollToHero}>
                                 Enter to Win a Free Scan
                             </button>
                             <p className="font-sans text-sm font-normal leading-5 text-[#030712]">
@@ -119,7 +125,7 @@ function HowItWorks() {
 
                 {/* Desktop CTA Section */}
                 <div className="hidden md:flex flex-col gap-3.5 items-center justify-center mt-8">
-                    <button className="btn-primary">
+                    <button className="btn-primary" onClick={scrollToHero}>
                         Enter to Win a Free Scan
                     </button>
                     <p className="font-sans text-sm font-normal leading-5 text-[#030712]">

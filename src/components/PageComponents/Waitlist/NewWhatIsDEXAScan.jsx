@@ -2,6 +2,12 @@ import React, {useState} from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 
 function NewWhatIsDEXAScan() {
+    const scrollToHero = () => {
+        const heroSection = document.getElementById('hero-section');
+        if (heroSection) {
+            heroSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
     const TABS = [
         {
         key: "bodyfat",
@@ -159,7 +165,7 @@ function NewWhatIsDEXAScan() {
 
             {/* CTA Section */}
             <div className="flex flex-col gap-3.5 items-center justify-center">
-                <button className="btn-primary">
+                <button className="btn-primary" onClick={scrollToHero}>
                     Enter to Win a Free Scan
                 </button>
                 <p className="font-sans text-sm font-normal leading-5 text-[#030712]">

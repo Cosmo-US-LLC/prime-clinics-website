@@ -9,8 +9,8 @@ function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<DEXAScanWaitlist />} />
-        <Route path="/waitlist-dexa-scan" element={<DEXAScanWaitlist />} />
-        <Route path="/free-dexa-scan" element={<WinaFree$300 />} />
+        <Route path="/free-dexa-scan" element={<DEXAScanWaitlist />} />
+        <Route path="/free-dexa-scan-and-longevity-assessment" element={<WinaFree$300 />} />
       </Route>
     </Routes>
   );

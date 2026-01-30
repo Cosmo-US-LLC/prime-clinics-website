@@ -1,6 +1,12 @@
 import React from "react";
 
 function DontTrainInTheDark() {
+  const scrollToHero = () => {
+    const heroSection = document.getElementById('hero-section');
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
     <section className="relative w-full h-[450px] bg-[#2463D8] overflow-hidden flex">
       <div className="relative z-10 max-w-[1280px] w-full mx-auto px-4 md:px-8 flex items-center justify-center">
@@ -14,7 +20,7 @@ function DontTrainInTheDark() {
 
       
           <div className="flex flex-col gap-3.5 items-center justify-center pt-[8px]">
-            <button className="btn-primary-2 w-full md:w-auto max-w-[300px]">
+            <button className="btn-primary-2 w-full md:w-auto max-w-[300px]" onClick={scrollToHero}>
               Enter to Win a Free Scan
             </button>
             

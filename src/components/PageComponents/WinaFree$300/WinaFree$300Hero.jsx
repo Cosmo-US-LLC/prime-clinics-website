@@ -4,7 +4,7 @@ import WinForm from "./WinForm";
 
 function WinaFree$300Hero() {
   return (
-    <section className="relative w-full h-[1040px] md:h-[770px] Wina_Free_hero overflow-hidden flex items-end justify-start">
+    <section id="hero-section" className="relative w-full h-[1040px] md:h-[770px] Wina_Free_hero overflow-hidden flex items-end justify-start">
       <div className="relative z-20 w-full py-12 md:py-16 lg:py-20 px-4 md:px-8 max-w-[1280px] mx-auto">
         <div className="flex flex-col h-full lg:flex-row gap-8 lg:gap-12 items-start md:items-center justify-between">
           {/* Left Content */}
