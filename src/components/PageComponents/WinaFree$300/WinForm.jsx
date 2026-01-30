@@ -1,24 +1,43 @@
 import React from "react";
+import { useForm } from "react-hook-form";
+import { submitFormResponse } from "@/lib/forms";
 
 function WinForm() {
-  const [formData, setFormData] = React.useState({
-    fullName: "",
-    email: "",
-    phone: "",
+  const [status, setStatus] = React.useState({ state: "idle", message: "" });
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    defaultValues: {
+      fullName: "",
+      email: "",
+      phone: "",
+    },
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  const onSubmit = async (data) => {
+    setStatus({ state: "loading", message: "" });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    try {
+      await submitFormResponse({
+        formKey: "win-form",
+        data,
+      });
+      setStatus({
+        state: "success",
+        message: "Thanks! You're entered to win.",
+      });
+      reset();
+    } catch (error) {
+      setStatus({
+        state: "error",
+        message:
+          error?.message || "We couldn't submit the form. Please try again.",
+      });
+    }
   };
 
   return (
@@ -34,7 +53,7 @@ function WinForm() {
       </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
         {/* Full Name Field */}
         <div className="flex flex-col gap-1">
           <label
@@ -47,12 +66,22 @@ function WinForm() {
             type="text"
             id="fullName"
             name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
             placeholder="John Doe"
-            required
+            aria-invalid={errors.fullName ? "true" : "false"}
+            {...register("fullName", {
+              required: "Full name is required.",
+              minLength: {
+                value: 2,
+                message: "Please enter at least 2 characters.",
+              },
+            })}
             className="bg-white border border-[#cbd5e1] rounded-lg px-[17px] py-[13px] font-[Manrope] text-[16px] font-normal leading-[24px] text-[#1f2937] placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#2463D8] focus:border-transparent transition-all"
           />
+          {errors.fullName ? (
+            <p className="text-[12px] text-red-500">
+              {errors.fullName.message}
+            </p>
+          ) : null}
         </div>
 
         {/* Email Address Field */}
@@ -67,12 +96,22 @@ function WinForm() {
             type="email"
             id="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
             placeholder="john@example.com"
-            required
+            aria-invalid={errors.email ? "true" : "false"}
+            {...register("email", {
+              required: "Email address is required.",
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "Enter a valid email address.",
+              },
+            })}
             className="bg-white border border-[#cbd5e1] rounded-lg px-[17px] py-[13px] font-[Manrope] text-[16px] font-normal leading-[24px] text-[#1f2937] placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#2463D8] focus:border-transparent transition-all"
           />
+          {errors.email ? (
+            <p className="text-[12px] text-red-500">
+              {errors.email.message}
+            </p>
+          ) : null}
         </div>
 
         {/* Phone Field (Optional) */}
@@ -87,20 +126,43 @@ function WinForm() {
             type="tel"
             id="phone"
             name="phone"
-            value={formData.phone}
-            onChange={handleChange}
             placeholder="(555) 123-4567"
+            aria-invalid={errors.phone ? "true" : "false"}
+            {...register("phone", {
+              pattern: {
+                value: /^[0-9()+\-\s]{7,20}$/,
+                message: "Enter a valid phone number.",
+              },
+            })}
             className="bg-white border border-[#cbd5e1] rounded-lg px-[17px] py-[13px] font-[Manrope] text-[16px] font-normal leading-[24px] text-[#1f2937] placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#2463D8] focus:border-transparent transition-all"
           />
+          {errors.phone ? (
+            <p className="text-[12px] text-red-500">
+              {errors.phone.message}
+            </p>
+          ) : null}
         </div>
 
         {/* Submit Button */}
         <button
           type="submit"
-          className="btn-primary w-full md:w-auto whitespace-nowrap py-5 px-8 md:py-4 md:px-6"
+          className="btn-primary w-full md:w-auto whitespace-nowrap py-5 px-8 md:py-4 md:px-6 disabled:opacity-70"
+          disabled={status.state === "loading" || isSubmitting}
         >
-          Claim My Assessment Spot
+          {status.state === "loading" || isSubmitting
+            ? "Submitting..."
+            : "Claim My Assessment Spot"}
         </button>
+
+        {status.message ? (
+          <p
+            className={`font-[Manrope] text-[12px] text-center ${
+              status.state === "error" ? "text-red-500" : "text-green-600"
+            }`}
+          >
+            {status.message}
+          </p>
+        ) : null}
       </form>
 
       {/* Footer Text */}

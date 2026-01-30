@@ -1,6 +1,6 @@
 import React from "react";
-import { Zap } from "lucide-react";
-import ZapIcon from "@/assets/images/waitlist/DEXA_hero/zap.svg";
+import { useForm } from "react-hook-form";
+import { submitFormResponse } from "@/lib/forms";
 
 // function DEXAScanHero() {
 //   return (
@@ -91,6 +91,43 @@ import ZapIcon from "@/assets/images/waitlist/DEXA_hero/zap.svg";
 // export default DEXAScanHero;
 
 function DEXAScanHero() {
+  const [status, setStatus] = React.useState({ state: "idle", message: "" });
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting },
+  } = useForm({
+    defaultValues: {
+      fullName: "",
+      email: "",
+      phone: "",
+    },
+  });
+
+  const onSubmit = async (data) => {
+    setStatus({ state: "loading", message: "" });
+
+    try {
+      await submitFormResponse({
+        formKey: "dexa-scan-hero",
+        data,
+      });
+      setStatus({
+        state: "success",
+        message: "Thanks! You're entered to win.",
+      });
+      reset();
+    } catch (error) {
+      setStatus({
+        state: "error",
+        message:
+          error?.message || "We couldn't submit the form. Please try again.",
+      });
+    }
+  };
+
   return (
     <section className="relative w-full pt-[35px] h-[1035px] md:h-[700px] DEXA_scan_hero overflow-hidden">
 
@@ -148,16 +185,30 @@ function DEXAScanHero() {
                 Join the pool for a free DEXA Scan
               </p>
 
-              <form className="flex flex-col gap-4">
+              <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
                 <div className="flex flex-col gap-1">
                   <label className="font-sans text-sm font-medium text-gray-700">
                     Full Name
                   </label>
                   <input
                     type="text"
+                    name="fullName"
                     placeholder="John Doe"
+                    aria-invalid={errors.fullName ? "true" : "false"}
+                    {...register("fullName", {
+                      required: "Full name is required.",
+                      minLength: {
+                        value: 2,
+                        message: "Please enter at least 2 characters.",
+                      },
+                    })}
                     className="border rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
+                  {errors.fullName ? (
+                    <p className="text-[12px] text-red-500">
+                      {errors.fullName.message}
+                    </p>
+                  ) : null}
                 </div>
 
                 <div className="flex flex-col gap-1">
@@ -166,9 +217,23 @@ function DEXAScanHero() {
                   </label>
                   <input
                     type="email"
+                    name="email"
                     placeholder="john@example.com"
+                    aria-invalid={errors.email ? "true" : "false"}
+                    {...register("email", {
+                      required: "Email address is required.",
+                      pattern: {
+                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                        message: "Enter a valid email address.",
+                      },
+                    })}
                     className="border rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
+                  {errors.email ? (
+                    <p className="text-[12px] text-red-500">
+                      {errors.email.message}
+                    </p>
+                  ) : null}
                 </div>
 
                 <div className="flex flex-col gap-1">
@@ -177,17 +242,45 @@ function DEXAScanHero() {
                   </label>
                   <input
                     type="tel"
+                    name="phone"
                     placeholder="(555) 123-4567"
+                    aria-invalid={errors.phone ? "true" : "false"}
+                    {...register("phone", {
+                      pattern: {
+                        value: /^[0-9()+\-\s]{7,20}$/,
+                        message: "Enter a valid phone number.",
+                      },
+                    })}
                     className="border rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
+                  {errors.phone ? (
+                    <p className="text-[12px] text-red-500">
+                      {errors.phone.message}
+                    </p>
+                  ) : null}
                 </div>
 
                 <button
                   type="submit"
-                  className="bg-[#2563EB] hover:bg-[#1D4ED8] text-[18px] text-white py-3 rounded-lg font-sans font-semibold transition mt-2"
+                  className="bg-[#2563EB] hover:bg-[#1D4ED8] text-[18px] text-white py-3 rounded-lg font-sans font-semibold transition mt-2 disabled:opacity-70"
+                  disabled={status.state === "loading" || isSubmitting}
                 >
-                  Enter to Win a Free Scan
+                  {status.state === "loading" || isSubmitting
+                    ? "Submitting..."
+                    : "Enter to Win a Free Scan"}
                 </button>
+
+                {status.message ? (
+                  <p
+                    className={`font-sans text-[12px] text-center ${
+                      status.state === "error"
+                        ? "text-red-500"
+                        : "text-green-600"
+                    }`}
+                  >
+                    {status.message}
+                  </p>
+                ) : null}
 
                 <p className="font-sans text-[12px] text-[#94A3B8] text-center mt-2">
                   By entering, you agree to our Terms. We respect your privacy.
