@@ -74,16 +74,16 @@ function PrimeExperience() {
           {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {cards.map((card, index) => (
-              <div key={index} className="flex flex-col gap-4">
+              <div key={index} className="flex flex-col gap-4 group">
                 {/* Image Container */}
-                <div className="relative h-[248px] md:h-[400px] rounded-2xl overflow-hidden">
+                <div className="relative h-[248px] md:h-[400px] rounded-2xl overflow-hidden cursor-pointer">
                   <img 
                     src={card.image} 
                     alt={card.title.replace(/\n/g, " ")} 
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                   />
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20"></div>
+                  <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/20"></div>
                 </div>
 
                 {/* Title and Description */}

@@ -107,14 +107,14 @@ function FeaturedCards() {
                 {features.map((feature, index) => (
                   <CarouselItem 
                     key={index} 
-                    className="pl-2 md:pl-4 basis-[85%] sm:basis-[70%] md:basis-[40%]"
+                    className="pl-2 md:pl-4 basis-[85%] sm:basis-[70%] md:basis-[40%] group"
                   >
                     <div className="bg-white flex flex-col gap-4 pb-6 pt-2 px-2 rounded-2xl shadow-[0 0 16px 0 rgba(0, 0, 0, 0.10)] border border-[#E5E7EB]">
-                      <div className="h-[220px] w-full rounded-lg overflow-hidden">
+                      <div className="h-[220px] w-full rounded-lg overflow-hidden cursor-pointer">
                         <img
                           src={feature.image}
                           alt={feature.title}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
                         />
                       </div>
                       <div className="flex flex-col gap-2 px-2">

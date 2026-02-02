@@ -1,5 +1,32 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+
+const TABS = [
+    {
+    key: "bodyfat",
+    label: "BODY FAT PERCENTAGE",
+    title: "Body Fat Percentage",
+    desc: "Total body fat and exactly where it is stored.",
+    },
+    {
+    key: "muscle",
+    label: "LEAN MUSCLE MASS",
+    title: "Lean Muscle Mass",
+    desc: "Measurement of muscle in each arm, leg, and your torso.",
+    },
+    {
+    key: "visceral",
+    label: "VISCERAL FAT",
+    title: "Visceral Fat",
+    desc: "The dangerous hidden fat around your organs that impacts hormones.",
+    },
+    {
+    key: "bone",
+    label: "BONE DENSITY",
+    title: "Bone Density",
+    desc: "Critical data for long-term health and injury prevention.",
+    },
+];
 
 function NewWhatIsDEXAScan() {
     const scrollToHero = () => {
@@ -8,34 +35,32 @@ function NewWhatIsDEXAScan() {
             heroSection.scrollIntoView({ behavior: 'smooth' });
         }
     };
-    const TABS = [
-        {
-        key: "bodyfat",
-        label: "BODY FAT PERCENTAGE",
-        title: "Body Fat Percentage",
-        desc: "Total body fat and exactly where it is stored.",
-        },
-        {
-        key: "muscle",
-        label: "LEAN MUSCLE MASS",
-        title: "Lean Muscle Mass",
-        desc: "Measurement of muscle in each arm, leg, and your torso.",
-        },
-        {
-        key: "visceral",
-        label: "VISCERAL FAT",
-        title: "Visceral Fat",
-        desc: "The dangerous hidden fat around your organs that impacts hormones.",
-        },
-        {
-        key: "bone",
-        label: "BONE DENSITY",
-        title: "Bone Density",
-        desc: "Critical data for long-term health and injury prevention.",
-        },
-    ];
     const [active, setActive] = useState(TABS[0]);
     const [api, setApi] = useState(null);
+    const [isHovered, setIsHovered] = useState(false);
+
+    // Auto-rotate through cards every 3 seconds
+    useEffect(() => {
+        if (isHovered) return; // Pause on hover
+
+        const autoRotate = setInterval(() => {
+            setActive((current) => {
+                const currentIndex = TABS.findIndex(tab => tab.key === current.key);
+                const nextIndex = (currentIndex + 1) % TABS.length;
+                return TABS[nextIndex];
+            });
+        }, 3000); // Change every 3 seconds
+
+        return () => clearInterval(autoRotate);
+    }, [isHovered]);
+
+    // Sync mobile carousel with active card
+    useEffect(() => {
+        if (api && !isHovered) {
+            const currentIndex = TABS.findIndex(tab => tab.key === active.key);
+            api.scrollTo(currentIndex);
+        }
+    }, [active, api, isHovered]);
   return (
     <section className="w-full bg-white py-16 md:py-20">
       <div className="max-w-[1280px] w-full mx-auto px-4 md:px-8">
@@ -57,7 +82,11 @@ function NewWhatIsDEXAScan() {
                 <div className="relative w-full h-[420px] md:h-[600px] rounded-lg DEXA_scan_new object-cover">
                     <div className="absolute bottom-0 left-0 w-full px-4 pb-3">
                         {/* Desktop Layout - Flex Grid */}
-                        <div className="hidden md:flex gap-3">
+                        <div 
+                            className="hidden md:flex gap-3"
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                        >
                             {TABS.map((tab) => {
                             const isActive = active.key === tab.key;
 
@@ -87,7 +116,7 @@ function NewWhatIsDEXAScan() {
 
                                         {/* Description (active only) */}
                                         {isActive && (
-                                        <p className="font-sans text-[16px] text-[#000] mt-1 leading-[20px]">
+                                        <p className="font-sans text-[16px] text-black mt-1 leading-[20px]">
                                             {tab.desc}
                                         </p>
                                         )}
@@ -98,7 +127,11 @@ function NewWhatIsDEXAScan() {
                         </div>
 
                         {/* Mobile Layout - Carousel */}
-                        <div className="md:hidden">
+                        <div 
+                            className="md:hidden"
+                            onTouchStart={() => setIsHovered(true)}
+                            onTouchEnd={() => setIsHovered(false)}
+                        >
                             <Carousel
                                 opts={{
                                     align: "start",
@@ -146,7 +179,7 @@ function NewWhatIsDEXAScan() {
 
                                                     {/* Description (active only) */}
                                                     {isActive && (
-                                                    <p className="font-sans text-[14px] sm:text-[16px] text-[#000] mt-1 leading-[20px]">
+                                                    <p className="font-sans text-[14px] sm:text-[16px] text-black mt-1 leading-[20px]">
                                                         {tab.desc}
                                                     </p>
                                                     )}
