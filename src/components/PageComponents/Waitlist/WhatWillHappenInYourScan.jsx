@@ -1,10 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ScanImage from "@/assets/images/waitlist/what_will_happen/what_will_happen.webp";
 import min_15 from "@/assets/images/waitlist/what_will_happen/15_min.webp";
 import min_35 from "@/assets/images/waitlist/what_will_happen/35_min.webp";
 
+const steps = [
+  {
+    title: "10-Minute Intake",
+    description: "We collect your health history, lifestyle information, and goals.",
+    image: ScanImage,
+  },
+  {
+    title: "15-Minute DEXA Scan",
+    description: "Lie comfortably as our advanced scanner measures your fat, muscle, and bone composition with precision.",
+    image: min_15,
+  },
+  {
+    title: "35-Minute Assessment Review",
+    description: "Meet with our specialists to go over your results, understand your numbers, and receive actionable recommendations for improving your health, strength, and longevity.",
+    image: min_35,
+  },
+];
+
 function WhatWillHappenInYourScan() {
   const [activeStep, setActiveStep] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
   
   const scrollToHero = () => {
     const heroSection = document.getElementById('hero-section');
@@ -13,23 +32,16 @@ function WhatWillHappenInYourScan() {
     }
   };
 
-  const steps = [
-    {
-      title: "10-Minute Intake",
-      description: "We collect your health history, lifestyle information, and goals.",
-      image: ScanImage,
-    },
-    {
-      title: "15-Minute DEXA Scan",
-      description: "Lie comfortably as our advanced scanner measures your fat, muscle, and bone composition with precision.",
-      image: min_15,
-    },
-    {
-      title: "35-Minute Assessment Review",
-      description: "Meet with our specialists to go over your results, understand your numbers, and receive actionable recommendations for improving your health, strength, and longevity.",
-      image: min_35,
-    },
-  ];
+  // Auto-rotate through steps every 3 seconds
+  useEffect(() => {
+    if (isHovered) return; // Pause on hover
+
+    const autoRotate = setInterval(() => {
+      setActiveStep((current) => (current + 1) % steps.length);
+    }, 5000); // Change every 3 seconds
+
+    return () => clearInterval(autoRotate);
+  }, [isHovered]);
 
   return (
     <section className="w-full bg-[#f9fafb] py-16 md:py-20">
@@ -49,7 +61,11 @@ function WhatWillHappenInYourScan() {
           {/* Main Content: Steps on Left, Image on Right */}
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 items-start">
             {/* Left Side - Process Steps */}
-            <div className="flex flex-col gap-6 flex-1 min-w-0 w-full max-md:min-h-[342px] lg:w-auto">
+            <div 
+              className="flex flex-col gap-6 flex-1 min-w-0 w-full max-md:min-h-[342px] lg:w-auto"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
               {steps.map((step, index) => {
                 const isActive = activeStep === index;
                 return (
@@ -82,7 +98,7 @@ function WhatWillHappenInYourScan() {
                 );
               })}
             </div>
-            <div className="md:hidden flex flex-col gap-3.5 items-center justify-center w-[100%] -mt-[90px]">
+            <div className="md:hidden flex flex-col gap-3.5 items-center justify-center w-full -mt-[90px]">
             <button className="btn-primary" onClick={scrollToHero}>
                 Enter to Win a Free Scan
             </button>
@@ -94,7 +110,7 @@ function WhatWillHappenInYourScan() {
         </div>
 
             {/* Right Side - Image Container */}
-            <div className="relative w-full lg:w-[600px] h-[300px] md:h-[400px] rounded-lg overflow-hidden shrink-0">
+            <div className="relative w-full md:w-[550px] h-[300px] md:h-[420px] rounded-lg overflow-hidden shrink-0">
               <img
                 src={steps[activeStep].image}
                 alt={steps[activeStep].title}
@@ -118,7 +134,7 @@ function WhatWillHappenInYourScan() {
         </div>
     </div>
     </section>
-  );8
+  );
 }
 
 export default WhatWillHappenInYourScan;
