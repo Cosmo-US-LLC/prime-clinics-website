@@ -43,11 +43,11 @@ function SuccessModal({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
-        className="h-screen w-screen overflow-hidden max-w-none p-0 rounded-none border-0 sm:h-auto sm:w-[90vw] sm:max-w-[700px] sm:rounded-xl z-999999"
+        className="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] grid grid-rows-[auto_1fr] w-[calc(100%-2rem)] max-w-[420px] sm:max-w-[700px] sm:w-[90vw] max-h-[90vh] overflow-hidden p-0 rounded-xl border shadow-lg z-999999"
         showCloseButton={false}
       >
         {/* Hero Image */}
-        <div className="relative h-[50vh] md:h-[350px] w-full">
+        <div className="relative h-[35vh] md:h-[300px] w-full">
           <img
             src={imageSrc}
             alt={imageAlt}
