@@ -4,6 +4,7 @@ import { submitFormResponse } from "@/lib/forms";
 import SuccessModal from "../Waitlist/SuccessModal";
 import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
+import dexaSuccessImage from "@/assets/images/success_modal/success_bg_free_dexa.webp";
 
 // Email validation constants
 const popularProviders = [
@@ -224,9 +225,15 @@ function WinForm() {
       </p>
 
       {/* Success Modal */}
-      <SuccessModal 
-        open={showSuccessModal} 
-        onOpenChange={setShowSuccessModal} 
+      <SuccessModal
+        open={!showSuccessModal}
+        onOpenChange={setShowSuccessModal}
+        image={dexaSuccessImage}
+        titleHighlight="Thanks"
+        titleRest=" for Entering the Pool!"
+        description="You’re on the list to win a free DEXA + Performance and Longevity Assessment. Winners will receive a digital voucher 15 days before our official launch. Use it to book your priority session as soon as our calendar opens."
+        buttonText="Back to Home Page"
+        imageAlt="Win a free $300 success"
       />
     </div>
   );

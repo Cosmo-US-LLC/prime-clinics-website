@@ -348,9 +348,14 @@ function DEXAScanHero() {
       </div>
 
       {/* Success Modal */}
-      <SuccessModal 
-        open={showSuccessModal} 
-        onOpenChange={setShowSuccessModal} 
+      <SuccessModal
+        open={showSuccessModal}
+        onOpenChange={setShowSuccessModal}
+        titleHighlight="Thanks"
+        titleRest=" for Entering the Pool!"
+        description="You’re on the list to win a free DEXA scan. Winners will receive a digital voucher 15 days before our official launch. Use it to book your priority scan as soon as our calendar opens and take the first step toward peak performance and longevity."
+        buttonText="Back to Home Page"
+        imageAlt="DEXA scan waitlist success"
       />
     </section>
   );

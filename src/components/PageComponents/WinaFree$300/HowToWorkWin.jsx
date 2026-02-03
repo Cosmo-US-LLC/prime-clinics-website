@@ -42,7 +42,7 @@ function HowItWorksWin() {
                     <div className="bg-white rounded-lg">
                         <div className="relative flex flex-col gap-8">
                             {/* Dashed vertical connector line */}
-                            <div className="absolute left-[20px] max-h-[240px] top-[40px] bottom-[40px] 
+                            <div className="absolute left-[20px] max-h-[270px] top-[40px] bottom-[40px] 
                             w-[2px] border-l-2 border-dashed border-[#000]" />
 
                             {steps.map((step, index) => (
@@ -56,7 +56,7 @@ function HowItWorksWin() {
                                     </div>
 
                                     {/* Content */}
-                                    <div className="flex-1 flex flex-col gap-3 -mt-[4px]">
+                                    <div className="flex-1 flex flex-col gap-3 pt-2">
                                         {/* Title */}
                                         <h3 className="font-display leading-[110%] text-[20px] 
                                         font-bold uppercase text-[#0B0F19]">
