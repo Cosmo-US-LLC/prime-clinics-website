@@ -135,7 +135,7 @@ function NewWhatIsDEXAScan() {
                             <Carousel
                                 opts={{
                                     align: "start",
-                                    loop: false,
+                                    loop: true,
                                     dragFree: true,
                                 }}
                                 setApi={setApi}

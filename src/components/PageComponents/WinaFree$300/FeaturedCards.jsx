@@ -23,29 +23,20 @@ function FeaturedCards() {
   React.useEffect(() => {
     if (!api) return;
 
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap());
+    setCount(4); // Always 4 cards
+    setCurrent(api.selectedScrollSnap() % 4); // Keep index within 0-3 range
 
     api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
+      setCurrent(api.selectedScrollSnap() % 4); // Keep index within 0-3 range
     });
   }, [api]);
 
-  // Auto-scroll functionality
+  // Auto-scroll functionality with circular loop
   React.useEffect(() => {
     if (!api || isHovered) return;
 
     const autoScroll = setInterval(() => {
-      const currentIndex = api.selectedScrollSnap();
-      const lastIndex = api.scrollSnapList().length - 1;
-
-      if (currentIndex === lastIndex) {
-        // Go back to first slide
-        api.scrollTo(0);
-      } else {
-        // Go to next slide
-        api.scrollNext();
-      }
+      api.scrollNext(); // Automatically loops back to first slide
     }, 3000); // Auto-scroll every 3 seconds
 
     return () => clearInterval(autoScroll);
@@ -102,7 +93,7 @@ function FeaturedCards() {
               setApi={setApi}
               opts={{
                 align: "start",
-                loop: false,
+                loop: true,
               }}
               className="w-full"
               onMouseEnter={() => setIsHovered(true)}
