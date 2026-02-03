@@ -56,7 +56,7 @@ function HowItWorks() {
                                     </div>
 
                                     {/* Content */}
-                                    <div className="flex-1 flex flex-col gap-4 ">
+                                    <div className="flex-1 flex flex-col gap-4 -mt-[3px]">
                                         {/* Title */}
                                         <h3 className="font-display leading-[110%] text-[20px] 
                                         font-bold uppercase text-[#0B0F19]">
