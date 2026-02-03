@@ -226,7 +226,7 @@ function WinForm() {
 
       {/* Success Modal */}
       <SuccessModal
-        open={!showSuccessModal}
+        open={showSuccessModal}
         onOpenChange={setShowSuccessModal}
         image={dexaSuccessImage}
         titleHighlight="Thanks"
