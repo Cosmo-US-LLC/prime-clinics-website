@@ -5,9 +5,15 @@ import card_img_3 from "@/assets/images/WinaFree$300/PrimeExperience/image (3).w
 import card_img_4 from "@/assets/images/WinaFree$300/PrimeExperience/image (4).webp";
 
 function PrimeExperience() {
+  const scrollToHero = () => {
+    const heroSection = document.getElementById('hero-section');
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   const cards = [
     {
-      title: "Real\nData",
+      title: `Real\nData`,
       description: "Advanced diagnostics identify exactly what your body needs, from hormones to biomarkers.",
       image: card_img_1,
     },
@@ -36,18 +42,18 @@ function PrimeExperience() {
           <div className="flex md:flex-row flex-col gap-6 items-center justify-between">
 
          
-          <div className="flex flex-col gap-4 items-start justify-start max-w-[800px]">
-            <h2 className="font-display text-[36px] md:text-[48px] font-bold leading-[44px] md:leading-[56px] text-[#040A16] uppercase">
+          <div className="flex flex-col gap-4 items-center md:items-start justify-start max-w-[800px]">
+            <h2 className="font-display text-[32px] text-center md:text-left md:text-[48px] font-bold leading-[44px] md:leading-[56px] text-[#040A16] uppercase">
               The{" "}
               <span className="text-[#2463D8]">Prime Experience</span>
             </h2>
-            <p className="font-sans text-[16px] md:text-[18px] font-normal leading-[24px] md:leading-[26px] text-[#030712]">
+            <p className="font-sans text-[16px] text-center md:text-left md:text-[18px] font-normal leading-[24px] md:leading-[26px] text-[#030712]">
              Prime Clinics empowers you to boost performance, strength, vitality, and confidence while optimizing your body and mind. We combine data-driven insights with integrative therapy pathways for real results.
             </p>
           </div>
 
-          <div className="flex flex-col gap-3.5 items-center justify-center">
-            <button className="btn-primary">
+          <div className="flex flex-col gap-3.5 items-center justify-center max-md:hidden">
+            <button className="btn-primary" onClick={scrollToHero}>
             Claim My Assessment Spot
             </button>
             <p className="font-sans text-sm font-normal leading-5 text-[#030712]">
@@ -76,10 +82,12 @@ function PrimeExperience() {
 
                 {/* Title and Description */}
                 <div className="flex flex-col gap-2">
-                  <h3 className="font-[Oswald] text-[20px] md:text-[24px] font-bold leading-[28px] md:leading-[32px] text-[#1F2937] uppercase whitespace-pre-line">
-                    {card.title}
+                  <h3 className="font-[Oswald] text-[20px] text-center md:text-left md:text-[24px] font-bold leading-[28px] md:leading-[32px] text-[#1F2937] uppercase md:whitespace-pre-line">
+                    {/* Mobile: Show without line breaks, Desktop: Show with line breaks */}
+                    <span className="md:hidden">{card.title.replace(/\n/g, " ")}</span>
+                    <span className="hidden md:inline">{card.title}</span>
                   </h3>
-                  <p className="font-[Manrope] text-[14px] md:text-[16px] font-normal leading-[20px] md:leading-[24px] text-[#1F2937]">
+                  <p className="font-[Manrope] text-[14px] text-center md:text-left md:text-[16px] font-normal leading-[20px] md:leading-[24px] text-[#1F2937]">
                     {card.description}
                   </p>
                 </div>
@@ -87,7 +95,16 @@ function PrimeExperience() {
             ))}
           </div>
  
-          
+          <div className="flex flex-col gap-3.5 items-center justify-center md:hidden">
+            <button className="btn-primary" onClick={scrollToHero}>
+            Claim My Assessment Spot
+            </button>
+            <p className="font-sans text-sm font-normal leading-5 text-[#030712]">
+            <span className="font-normal">Limited to</span> {" "}
+                        <span className="font-extrabold">5</span>{" "}
+                        <span className="font-extrabold">winners</span>{" "}
+            </p>
+          </div>
         </div>
       </div>
     </section>

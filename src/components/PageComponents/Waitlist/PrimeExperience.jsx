@@ -42,7 +42,7 @@ function PrimeExperience() {
           <div className="w-full flex flex-row">
             <div className="w-full">
                <div className="flex flex-col gap-4 md:items-start items-center md:justify-start justify-center mx-auto">
-                  <h2 className="font-display text-[36px] md:text-[48px] font-bold
+                  <h2 className="font-display text-[32px] md:text-[48px] font-bold
                    leading-[44px] md:leading-[56px] text-[#040A16] uppercase max-md:text-center">
                     The{" "}
                     <span className="text-[#2463D8]">Prime Experience</span>

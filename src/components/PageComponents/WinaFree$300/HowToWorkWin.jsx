@@ -1,6 +1,12 @@
 import React from "react";
 
 function HowItWorksWin() {
+    const scrollToHero = () => {
+        const heroSection = document.getElementById('hero-section');
+        if (heroSection) {
+            heroSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
     const steps = [
         {
             id: 1,
@@ -36,7 +42,7 @@ function HowItWorksWin() {
                     <div className="bg-white rounded-lg">
                         <div className="relative flex flex-col gap-8">
                             {/* Dashed vertical connector line */}
-                            <div className="absolute left-[20px] max-h-[250px] top-[40px] bottom-[40px] 
+                            <div className="absolute left-[20px] max-h-[240px] top-[40px] bottom-[40px] 
                             w-[2px] border-l-2 border-dashed border-[#000]" />
 
                             {steps.map((step, index) => (
@@ -50,7 +56,7 @@ function HowItWorksWin() {
                                     </div>
 
                                     {/* Content */}
-                                    <div className="flex-1 flex flex-col gap-4 ">
+                                    <div className="flex-1 flex flex-col gap-3 -mt-[3px]">
                                         {/* Title */}
                                         <h3 className="font-display leading-[110%] text-[20px] 
                                         font-bold uppercase text-[#0B0F19]">
@@ -67,7 +73,7 @@ function HowItWorksWin() {
                         </div>
 
                         {/* CTA Section inside card */}
-                        <div className="flex flex-col max-w-[234px] mx-auto gap-3.5 items-center justify-center mt-8 pt-6
+                        {/* <div className="flex flex-col max-w-[234px] mx-auto gap-3.5 items-center justify-center mt-8 pt-6
                          ">
                             <button className="btn-primary w-full">
                                 Enter to Win a Free Scan
@@ -77,7 +83,7 @@ function HowItWorksWin() {
                                 <span className="font-extrabold">50</span>{" "}
                                 <span className="font-normal">spots available</span>
                             </p>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -118,8 +124,8 @@ function HowItWorksWin() {
                 </div>
 
                 {/* Desktop CTA Section */}
-                <div className="flex flex-col gap-3.5 items-center justify-center">
-                    <button className="btn-primary">
+                <div className="flex flex-col gap-3.5 items-center justify-center mt-12 md:mt-0">
+                    <button className="btn-primary" onClick={scrollToHero}>
                     Claim My Assessment Spot
                     </button>
                     <p className="font-sans text-sm font-normal leading-5 text-[#030712]">

@@ -1,9 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { submitFormResponse } from "@/lib/forms";
+import SuccessModal from "../Waitlist/SuccessModal";
 
 function WinForm() {
   const [status, setStatus] = React.useState({ state: "idle", message: "" });
+  const [showSuccessModal, setShowSuccessModal] = React.useState(false);
 
   const {
     register,
@@ -30,6 +32,7 @@ function WinForm() {
         state: "success",
         message: "Thanks! You're entered to win.",
       });
+      setShowSuccessModal(true);
       reset();
     } catch (error) {
       setStatus({
@@ -170,6 +173,12 @@ function WinForm() {
       <p className="font-[Manrope] text-[12px] font-normal leading-[18px] text-[#94a3b8] text-center mt-6">
         By entering, you agree to our Terms. We respect your privacy.
       </p>
+
+      {/* Success Modal */}
+      <SuccessModal 
+        open={showSuccessModal} 
+        onOpenChange={setShowSuccessModal} 
+      />
     </div>
   );
 }

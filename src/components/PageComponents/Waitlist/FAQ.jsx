@@ -20,7 +20,7 @@ function FAQ({
   return (
     <section className="bg-[#F9FAFB] flex flex-col gap-12 items-center py-20 w-full px-4 md:px-8">
       {/* Heading */}
-      <h2 className="font-display text-[36px] md:text-[48px] font-bold leading-[44px] md:leading-[56px] text-[#040A16] text-center uppercase">
+      <h2 className="font-display text-[32px] md:text-[48px] font-bold leading-[44px] md:leading-[56px] text-[#040A16] text-center uppercase">
         {beforeHighlight}
         {beforeHighlight && " "}
         <span className="text-[#2463D8]">{headingHighlight}</span>
@@ -56,7 +56,7 @@ function FAQ({
                 </div>
               </AccordionTrigger>
               {faq.answer && (
-                <AccordionContent className="pt-4 pb-0">
+                <AccordionContent className="pt-0 pb-0">
                   <p className="font-sans text-base font-normal leading-6 text-[#1F2937]">
                     {faq.answer}
                   </p>
