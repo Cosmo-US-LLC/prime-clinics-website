@@ -2,6 +2,62 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { submitFormResponse } from "@/lib/forms";
 import SuccessModal from "./SuccessModal";
+import { PhoneInput } from "react-international-phone";
+import "react-international-phone/style.css";
+
+// Email validation constants
+const popularProviders = [
+  // Google
+  "gmail.com",
+  // Microsoft
+  "outlook.com",
+  "hotmail.com",
+  "live.com",
+  "msn.com",
+  // Yahoo
+  "yahoo.com",
+  // Apple
+  "icloud.com",
+  "me.com",
+  "mac.com",
+  // AOL
+  "aol.com",
+  // Zoho
+  "zoho.com",
+  // Proton
+  "protonmail.com",
+  // GMX
+  "gmx.com",
+  // Yandex
+  "yandex.com"
+];
+
+const blockedTlds = ["con", "comm", "cim", "cmo", "vom", "xom", "c"];
+
+const isValidEmail = (email) => {
+  // Basic structure
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,24}$/;
+
+  if (!regex.test(email)) return false;
+
+  const domain = email.split("@")[1].toLowerCase();
+  const tld = domain.split(".").pop();
+
+  // Block typo TLDs everywhere
+  if (blockedTlds.includes(tld)) return false;
+
+  // Popular providers → only allow exact .com domains
+  if (popularProviders.includes(domain)) return true;
+
+  const providerRoot = domain.split(".").slice(-2).join(".");
+  const popularRoots = popularProviders.map(p => p.split(".")[0]);
+
+  if (popularRoots.includes(providerRoot.split(".")[0])) {
+    return false;
+  }
+
+  return true;
+};
 
 // function DEXAScanHero() {
 //   return (
@@ -94,6 +150,7 @@ import SuccessModal from "./SuccessModal";
 function DEXAScanHero() {
   const [status, setStatus] = React.useState({ state: "idle", message: "" });
   const [showSuccessModal, setShowSuccessModal] = React.useState(false);
+  const [phone, setPhone] = React.useState("");
 
   const {
     register,
@@ -114,7 +171,10 @@ function DEXAScanHero() {
     try {
       await submitFormResponse({
         formKey: "dexa-scan-hero",
-        data,
+        data: {
+          ...data,
+          phone: phone, // Use international phone value
+        },
       });
       setStatus({
         state: "success",
@@ -122,6 +182,7 @@ function DEXAScanHero() {
       });
       setShowSuccessModal(true); // Open modal on success
       reset();
+      setPhone(""); // Reset phone number
     } catch (error) {
       setStatus({
         state: "error",
@@ -225,10 +286,7 @@ function DEXAScanHero() {
                     aria-invalid={errors.email ? "true" : "false"}
                     {...register("email", {
                       required: "Email address is required.",
-                      pattern: {
-                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                        message: "Enter a valid email address.",
-                      },
+                      validate: (value) => isValidEmail(value) || "Please enter a valid email address.",
                     })}
                     className="border rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
@@ -243,24 +301,16 @@ function DEXAScanHero() {
                   <label className="font-sans text-sm font-medium text-gray-700">
                     Phone (Optional)
                   </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="(555) 123-4567"
-                    aria-invalid={errors.phone ? "true" : "false"}
-                    {...register("phone", {
-                      pattern: {
-                        value: /^[0-9()+\-\s]{7,20}$/,
-                        message: "Enter a valid phone number.",
-                      },
-                    })}
-                    className="border rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  <PhoneInput
+                    defaultCountry="us"
+                    value={phone}
+                    onChange={(phone) => setPhone(phone)}
+                    className="react-international-phone-input"
+                    inputClassName="!bg-white !border   !rounded-r-lg !px-4 !py-[22px] !font-sans !text-sm !font-normal !text-[#1f2937] placeholder:!text-[#9ca3af] focus:!outline-none focus:!ring-2 focus:!ring-blue-500 focus:!border-transparent !transition-all !w-full"
+                    countrySelectorStyleProps={{
+                      buttonClassName: "  !rounded-l-lg !px-3 !py-[22px]",
+                    }}
                   />
-                  {errors.phone ? (
-                    <p className="text-[12px] text-red-500">
-                      {errors.phone.message}
-                    </p>
-                  ) : null}
                 </div>
 
                 <button

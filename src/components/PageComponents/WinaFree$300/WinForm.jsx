@@ -2,10 +2,67 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { submitFormResponse } from "@/lib/forms";
 import SuccessModal from "../Waitlist/SuccessModal";
+import { PhoneInput } from "react-international-phone";
+import "react-international-phone/style.css";
+
+// Email validation constants
+const popularProviders = [
+  // Google
+  "gmail.com",
+  // Microsoft
+  "outlook.com",
+  "hotmail.com",
+  "live.com",
+  "msn.com",
+  // Yahoo
+  "yahoo.com",
+  // Apple
+  "icloud.com",
+  "me.com",
+  "mac.com",
+  // AOL
+  "aol.com",
+  // Zoho
+  "zoho.com",
+  // Proton
+  "protonmail.com",
+  // GMX
+  "gmx.com",
+  // Yandex
+  "yandex.com"
+];
+
+const blockedTlds = ["con", "comm", "cim", "cmo", "vom", "xom", "c"];
+
+const isValidEmail = (email) => {
+  // Basic structure
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,24}$/;
+
+  if (!regex.test(email)) return false;
+
+  const domain = email.split("@")[1].toLowerCase();
+  const tld = domain.split(".").pop();
+
+  // Block typo TLDs everywhere
+  if (blockedTlds.includes(tld)) return false;
+
+  // Popular providers → only allow exact .com domains
+  if (popularProviders.includes(domain)) return true;
+
+  const providerRoot = domain.split(".").slice(-2).join(".");
+  const popularRoots = popularProviders.map(p => p.split(".")[0]);
+
+  if (popularRoots.includes(providerRoot.split(".")[0])) {
+    return false;
+  }
+
+  return true;
+};
 
 function WinForm() {
   const [status, setStatus] = React.useState({ state: "idle", message: "" });
   const [showSuccessModal, setShowSuccessModal] = React.useState(false);
+  const [phone, setPhone] = React.useState("");
 
   const {
     register,
@@ -26,7 +83,10 @@ function WinForm() {
     try {
       await submitFormResponse({
         formKey: "win-form",
-        data,
+        data: {
+          ...data,
+          phone: phone, // Use international phone value
+        },
       });
       setStatus({
         state: "success",
@@ -34,6 +94,7 @@ function WinForm() {
       });
       setShowSuccessModal(true);
       reset();
+      setPhone(""); // Reset phone number
     } catch (error) {
       setStatus({
         state: "error",
@@ -45,7 +106,7 @@ function WinForm() {
 
   return (
     <div className="bg-white border border-[#f1f5f9] rounded-2xl 
-    shadow-[0px_25px_50px_-12px_rgba(30,58,138,0.1)] p-8 !w-full !max-w-[500px] !min-h-[510px]">
+    shadow-[0px_25px_50px_-12px_rgba(30,58,138,0.1)] p-8 w-full! max-w-[500px]! min-h-[510px]!">
       {/* Header */}
       <div className="flex flex-col items-center gap-1 mb-6">
         <h3 className="font-[Oswald] text-[24px] font-bold leading-[32px] text-[#0f172a] uppercase text-center">
@@ -104,10 +165,7 @@ function WinForm() {
             aria-invalid={errors.email ? "true" : "false"}
             {...register("email", {
               required: "Email address is required.",
-              pattern: {
-                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                message: "Enter a valid email address.",
-              },
+              validate: (value) => isValidEmail(value) || "Please enter a valid email address.",
             })}
             className="bg-white border border-[#cbd5e1] rounded-lg px-[17px] py-[13px] font-[Manrope] text-[16px] font-normal leading-[24px] text-[#1f2937] placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#2463D8] focus:border-transparent transition-all"
           />
@@ -126,25 +184,16 @@ function WinForm() {
           >
             Phone (Optional)
           </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="(555) 123-4567"
-            aria-invalid={errors.phone ? "true" : "false"}
-            {...register("phone", {
-              pattern: {
-                value: /^[0-9()+\-\s]{7,20}$/,
-                message: "Enter a valid phone number.",
-              },
-            })}
-            className="bg-white border border-[#cbd5e1] rounded-lg px-[17px] py-[13px] font-[Manrope] text-[16px] font-normal leading-[24px] text-[#1f2937] placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#2463D8] focus:border-transparent transition-all"
+          <PhoneInput
+            defaultCountry="us"
+            value={phone}
+            onChange={(phone) => setPhone(phone)}
+            className="react-international-phone-input"
+            inputClassName="!bg-white !border !border-[#cbd5e1] !rounded-r-lg !px-[17px] !py-[24px] !font-[Manrope] !text-[16px] !font-normal !leading-[24px] !text-[#1f2937] placeholder:!text-[#9ca3af] focus:!outline-none focus:!ring-2 focus:!ring-[#2463D8] focus:!border-transparent !transition-all !w-full"
+            countrySelectorStyleProps={{
+              buttonClassName: "!border-[#cbd5e1] !rounded-l-lg !px-3 !py-[24px]",
+            }}
           />
-          {errors.phone ? (
-            <p className="text-[12px] text-red-500">
-              {errors.phone.message}
-            </p>
-          ) : null}
         </div>
 
         {/* Submit Button */}
