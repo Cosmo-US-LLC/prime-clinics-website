@@ -46,7 +46,7 @@ function Navbar() {
             className="flex items-center select-none [-webkit-user-select:none] [-webkit-touch-callout:none]"
           >
              
-            <div className="w-[90px] md:w-[140px] pt-[4px] h-auto flex items-center">              
+            <div className="w-[80px] md:w-[140px] pt-[4px] h-auto flex items-center">              
               <img
                 src={Logo}
                 alt="Prime Clinics Logo"

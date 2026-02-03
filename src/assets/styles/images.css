@@ -49,5 +49,8 @@
     .dont_train_in_the_dark_win{
       background-image: url("../images/WinaFree$300/ReadytoReclaim/ready_to_reclaim_bg_mobile.webp");
     }
+    .Wina_Free_hero{
+      background-image: url("../images/WinaFree$300/HeroWin/win_hero_img_mobile.webp");
+    }
   }
   

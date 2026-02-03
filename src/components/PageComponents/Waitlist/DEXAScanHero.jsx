@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { submitFormResponse } from "@/lib/forms";
+import SuccessModal from "./SuccessModal";
 
 // function DEXAScanHero() {
 //   return (
@@ -92,6 +93,7 @@ import { submitFormResponse } from "@/lib/forms";
 
 function DEXAScanHero() {
   const [status, setStatus] = React.useState({ state: "idle", message: "" });
+  const [showSuccessModal, setShowSuccessModal] = React.useState(false);
 
   const {
     register,
@@ -118,6 +120,7 @@ function DEXAScanHero() {
         state: "success",
         message: "Thanks! You're entered to win.",
       });
+      setShowSuccessModal(true); // Open modal on success
       reset();
     } catch (error) {
       setStatus({
@@ -141,13 +144,13 @@ function DEXAScanHero() {
             <div className="flex flex-col gap-4">
               <h1 className="font-display text-[42px] md:text-[64px] font-bold leading-[119.048%] md:leading-[72px] text-white uppercase m-0 drop-shadow-[0px_0px_4px_rgba(0,0,0,0.25)] tracking-normal">
                 Get a{" "}
-                <span className="bg-gradient-to-r from-[#2463D8] via-[#60A5FA] to-[#BFDBFE] bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-[#2463D8] via-[#60A5FA] to-[#BFDBFE] bg-clip-text text-transparent">
                   Free $145{" "} <br />
                 </span>
                 DEXA Body Scan
               </h1>
 
-              <p className="font-sans text-[18px] md:text-[20px] font-normal leading-[26px] md:leading-[28px] text-[#fff] m-0">
+              <p className="font-sans text-[18px] md:text-[20px] font-normal leading-[26px] md:leading-[28px] text-white m-0">
                 Join the Prime Clinics waitlist today and secure one of 50
                 complimentary DEXA scans. Gain gold-standard insights into your
                 body composition, biomarkers, and performance potential.
@@ -293,6 +296,12 @@ function DEXAScanHero() {
 
         </div>
       </div>
+
+      {/* Success Modal */}
+      <SuccessModal 
+        open={showSuccessModal} 
+        onOpenChange={setShowSuccessModal} 
+      />
     </section>
   );
 }

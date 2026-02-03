@@ -14,7 +14,12 @@ function FeaturedCards() {
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
   const [isHovered, setIsHovered] = React.useState(false);
-
+  const scrollToHero = () => {
+    const heroSection = document.getElementById('hero-section');
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   React.useEffect(() => {
     if (!api) return;
 
@@ -79,7 +84,7 @@ function FeaturedCards() {
         <div className="flex flex-col gap-8 md:gap-10">
           {/* Heading with Description */}
           <div className="flex flex-col gap-4 items-center text-center max-w-[900px] mx-auto">
-            <h2 className="font-[Oswald] text-[32px] md:text-[48px] font-bold leading-[40px] md:leading-[56px] text-[#040A16] uppercase">
+            <h2 className="font-[Oswald] text-[32px] text-center md:text-left md:text-[48px] font-bold leading-[40px] md:leading-[56px] text-[#040A16] uppercase">
               <span className="text-[#2463D8]">What is the $300 DEXA</span>
               {` + Performance and Longevity Assessment?`}
             </h2>
@@ -118,12 +123,10 @@ function FeaturedCards() {
                         />
                       </div>
                       <div className="flex flex-col gap-2 px-2">
-                        <h3 className="font-[Oswald] md:text-[24px] text-[20px] font-bold 
-                        leading-[28px] text-[#040A16] uppercase">
+                        <h3 className="font-[Oswald] md:h-[60px] h-[60px] md:text-[24px] text-[20px] font-bold leading-[28px] text-[#040A16] uppercase">
                           {feature.title}
                         </h3>
-                        <p className="font-[Manrope] md:text-[16px] text-[14px] font-normal 
-                        leading-[20px] text-[#040A16]">
+                        <p className="font-[Manrope] md:h-[80px] h-[110px] md:text-[16px] text-[14px] font-normal leading-[20px] text-[#040A16]">
                           {feature.description}
                         </p>
                       </div>
@@ -146,7 +149,7 @@ function FeaturedCards() {
 
           {/* CTA Section */}
           <div className="flex flex-col items-center gap-4">
-            <button className="btn-primary w-full md:w-auto whitespace-nowrap py-5 px-8 md:py-4 md:px-6">
+            <button className="btn-primary w-full md:w-auto whitespace-nowrap py-5 px-8 md:py-4 md:px-6" onClick={scrollToHero}>
               Claim My Assessment Spot
             </button>
             <p className="font-[Manrope] text-center font-normal text-[14px] leading-[20px]">
