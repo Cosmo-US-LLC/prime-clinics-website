@@ -356,6 +356,7 @@ function DEXAScanHero() {
         description="You’re on the list to win a free DEXA scan. Winners will receive a digital voucher 15 days before our official launch. Use it to book your priority scan as soon as our calendar opens and take the first step toward peak performance and longevity."
         buttonText="Back to Home Page"
         imageAlt="DEXA scan waitlist success"
+        hashOnOpen="thank-you"
       />
     </section>
   );

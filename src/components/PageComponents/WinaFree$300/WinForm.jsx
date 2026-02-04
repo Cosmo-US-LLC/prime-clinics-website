@@ -234,6 +234,7 @@ function WinForm() {
         description="You’re on the list to win a free DEXA + Performance and Longevity Assessment. Winners will receive a digital voucher 15 days before our official launch. Use it to book your priority session as soon as our calendar opens."
         buttonText="Back to Home Page"
         imageAlt="Win a free $300 success"
+        hashOnOpen="thank-you"
       />
     </div>
   );

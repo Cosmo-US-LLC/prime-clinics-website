@@ -29,7 +29,20 @@ function SuccessModal({
   buttonText = "Back to Home Page",
   onButtonClick,
   imageAlt = "Success",
+  hashOnOpen = null, // e.g. "free-dexa-scan-thank-you" - adds #hash to URL when modal opens
 }) {
+  React.useEffect(() => {
+    if (!hashOnOpen) return;
+    if (open) {
+      const url = `${window.location.pathname}#${hashOnOpen}`;
+      window.history.pushState(null, "", url);
+    } else {
+      if (window.location.hash === `#${hashOnOpen}`) {
+        window.history.replaceState(null, "", window.location.pathname);
+      }
+    }
+  }, [open, hashOnOpen]);
+
   const handleButtonClick = () => {
     if (onButtonClick) {
       onButtonClick();
