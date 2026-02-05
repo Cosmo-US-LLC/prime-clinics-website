@@ -2,8 +2,17 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { submitFormResponse } from "@/lib/forms";
 import SuccessModal from "../Waitlist/SuccessModal";
-import { PhoneInput } from "react-international-phone";
+import {
+  PhoneInput,
+  defaultCountries,
+  parseCountry,
+} from "react-international-phone";
 import "react-international-phone/style.css";
+
+const canadaOnlyCountries = defaultCountries.filter((country) => {
+  const { iso2 } = parseCountry(country);
+  return iso2 === "ca";
+});
 import dexaSuccessImage from "@/assets/images/success_modal/success_bg_free_dexa.webp";
 
 // Email validation constants
@@ -64,6 +73,7 @@ function WinForm() {
   const [status, setStatus] = React.useState({ state: "idle", message: "" });
   const [showSuccessModal, setShowSuccessModal] = React.useState(false);
   const [phone, setPhone] = React.useState("");
+  const [phoneError, setPhoneError] = React.useState("");
 
   const {
     register,
@@ -79,7 +89,14 @@ function WinForm() {
   });
 
   const onSubmit = async (data) => {
+    setPhoneError("");
     setStatus({ state: "loading", message: "" });
+
+    if (!phone || phone.replace(/\D/g, "").length < 10) {
+      setPhoneError("Phone number is required.");
+      setStatus({ state: "idle", message: "" });
+      return;
+    }
 
     try {
       await submitFormResponse({
@@ -177,24 +194,31 @@ function WinForm() {
           ) : null}
         </div>
 
-        {/* Phone Field (Optional) */}
+        {/* Phone Field (Required) */}
         <div className="flex flex-col gap-1">
           <label
             htmlFor="phone"
             className="font-[Manrope] text-[14px] font-semibold leading-[20px] text-[#334155]"
           >
-            Phone (Optional)
+            Phone
           </label>
           <PhoneInput
-            defaultCountry="us"
+            defaultCountry="ca"
+            countries={canadaOnlyCountries}
             value={phone}
-            onChange={(phone) => setPhone(phone)}
+            onChange={(phone) => {
+              setPhone(phone);
+              if (phoneError) setPhoneError("");
+            }}
             className="react-international-phone-input"
             inputClassName="!bg-white !border !border-[#cbd5e1] !rounded-r-lg !px-[17px] !py-[24px] !font-[Manrope] !text-[16px] !font-normal !leading-[24px] !text-[#1f2937] placeholder:!text-[#9ca3af] focus:!outline-none focus:!ring-2 focus:!ring-[#2463D8] focus:!border-transparent !transition-all !w-full"
             countrySelectorStyleProps={{
               buttonClassName: "!border-[#cbd5e1] !rounded-l-lg !px-3 !py-[24px]",
             }}
           />
+          {phoneError ? (
+            <p className="text-[12px] text-red-500">{phoneError}</p>
+          ) : null}
         </div>
 
         {/* Submit Button */}

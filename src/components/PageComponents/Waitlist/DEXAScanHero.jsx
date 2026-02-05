@@ -2,8 +2,17 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { submitFormResponse } from "@/lib/forms";
 import SuccessModal from "./SuccessModal";
-import { PhoneInput } from "react-international-phone";
+import {
+  PhoneInput,
+  defaultCountries,
+  parseCountry,
+} from "react-international-phone";
 import "react-international-phone/style.css";
+
+const canadaOnlyCountries = defaultCountries.filter((country) => {
+  const { iso2 } = parseCountry(country);
+  return iso2 === "ca";
+});
 
 // Email validation constants
 const popularProviders = [
@@ -151,6 +160,7 @@ function DEXAScanHero() {
   const [status, setStatus] = React.useState({ state: "idle", message: "" });
   const [showSuccessModal, setShowSuccessModal] = React.useState(false);
   const [phone, setPhone] = React.useState("");
+  const [phoneError, setPhoneError] = React.useState("");
 
   const {
     register,
@@ -166,7 +176,14 @@ function DEXAScanHero() {
   });
 
   const onSubmit = async (data) => {
+    setPhoneError("");
     setStatus({ state: "loading", message: "" });
+
+    if (!phone || phone.replace(/\D/g, "").length < 10) {
+      setPhoneError("Phone number is required.");
+      setStatus({ state: "idle", message: "" });
+      return;
+    }
 
     try {
       await submitFormResponse({
@@ -299,18 +316,25 @@ function DEXAScanHero() {
 
                 <div className="flex flex-col gap-1">
                   <label className="font-sans text-sm font-medium text-gray-700">
-                    Phone (Optional)
+                    Phone
                   </label>
                   <PhoneInput
-                    defaultCountry="us"
+                    defaultCountry="ca"
+                    countries={canadaOnlyCountries}
                     value={phone}
-                    onChange={(phone) => setPhone(phone)}
+                    onChange={(phone) => {
+                      setPhone(phone);
+                      if (phoneError) setPhoneError("");
+                    }}
                     className="react-international-phone-input"
                     inputClassName="!bg-white !border   !rounded-r-lg !px-4 !py-[22px] !font-sans !text-sm !font-normal !text-[#1f2937] placeholder:!text-[#9ca3af] focus:!outline-none focus:!ring-2 focus:!ring-blue-500 focus:!border-transparent !transition-all !w-full"
                     countrySelectorStyleProps={{
                       buttonClassName: "  !rounded-l-lg !px-3 !py-[22px]",
                     }}
                   />
+                  {phoneError ? (
+                    <p className="text-[12px] text-red-500">{phoneError}</p>
+                  ) : null}
                 </div>
 
                 <button
