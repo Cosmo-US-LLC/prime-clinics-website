@@ -322,6 +322,7 @@ function DEXAScanHero() {
                     defaultCountry="ca"
                     countries={canadaOnlyCountries}
                     hideDropdown
+                    forceDialCode
                     value={phone}
                     onChange={(phone) => {
                       setPhone(phone);
