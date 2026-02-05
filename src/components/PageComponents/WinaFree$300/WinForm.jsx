@@ -206,6 +206,7 @@ function WinForm() {
             defaultCountry="ca"
             countries={canadaOnlyCountries}
             hideDropdown
+            forceDialCode
             value={phone}
             onChange={(phone) => {
               setPhone(phone);
