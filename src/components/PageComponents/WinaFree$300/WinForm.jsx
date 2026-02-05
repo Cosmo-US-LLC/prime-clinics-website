@@ -205,6 +205,7 @@ function WinForm() {
           <PhoneInput
             defaultCountry="ca"
             countries={canadaOnlyCountries}
+            hideDropdown
             value={phone}
             onChange={(phone) => {
               setPhone(phone);
