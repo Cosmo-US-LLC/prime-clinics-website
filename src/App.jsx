@@ -21,7 +21,7 @@ function App() {
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           
         </Route>
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
