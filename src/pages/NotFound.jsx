@@ -10,11 +10,11 @@ function NotFound() {
           <span className="text-[120px] md:text-[160px] font-bold leading-none text-[#0F172B]">0</span>
           4
         </h1>
-        <h2 className="font-[Oswald] text-[24px] md:text-[32px] font-bold uppercase text-[#0F172B] mt-4 mb-2">
-          Page Not Found
+        <h2 className="font-[Oswald] text-[24px] md:text-[40px] font-bold capitalize text-[#0F172B] mt-4 mb-2">
+          Oops, Page not found!
         </h2>
-        <p className="font-[Manrope] text-[16px] text-[#64748b] mb-8">
-          The page you're looking for doesn't exist or has been moved.
+        <p className="font-[Manrope] text-[20px] md:text-[24px] text-[#64748b] mb-8">
+          Oops! The page you're looking for doesn't exist. Let's get you back on track!
         </p>
         <Link
           to="/"
