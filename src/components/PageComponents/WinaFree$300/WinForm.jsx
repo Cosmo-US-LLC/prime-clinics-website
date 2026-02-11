@@ -106,7 +106,7 @@ function WinForm() {
 
     try {
       await submitFormResponse({
-        formKey: "free-dexa-scan-and-longevity-assessment-form",
+        formKey: "win-form",
         data: {
           ...data,
           phone: phone, // Use international phone value
