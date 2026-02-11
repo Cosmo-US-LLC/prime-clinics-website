@@ -193,7 +193,7 @@ function DEXAScanHero() {
 
     try {
       await submitFormResponse({
-        formKey: "free-dexa-scan-form",
+        formKey: "dexa-scan-hero",
         data: {
           ...data,
           phone: phone, // Use international phone value
