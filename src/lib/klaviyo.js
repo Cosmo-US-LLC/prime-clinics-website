@@ -99,7 +99,6 @@ export const klaviyoIdentifyAndTrack = async ({
     "track",
     eventName || "Win Form Submitted",
     {
-      formKey: "win-form",
       ...properties,
     },
   ]);

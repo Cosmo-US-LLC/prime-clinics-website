@@ -193,7 +193,7 @@ function DEXAScanHero() {
 
     try {
       await submitFormResponse({
-        formKey: "dexa-scan-hero",
+        formKey: "free-dexa-scan-form",
         data: {
           ...data,
           phone: phone, // Use international phone value
@@ -203,7 +203,10 @@ function DEXAScanHero() {
         email: data.email,
         phone,
         fullName: data.fullName,
-        eventName: "free-dexa-scan-form",
+        eventName: "free-dexa-scan-form Submitted",
+        properties: {
+          formKey: "free-dexa-scan-form",
+        },
       }).catch((error) => {
         console.error("Klaviyo tracking failed:", error);
       });
