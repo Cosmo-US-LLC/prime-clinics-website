@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { submitFormResponse } from "@/lib/forms";
+import { klaviyoIdentifyAndTrack } from "@/lib/klaviyo";
 import SuccessModal from "../Waitlist/SuccessModal";
 import {
   PhoneInput,
@@ -98,6 +99,11 @@ function WinForm() {
       return;
     }
 
+    console.log("Win form submit payload:", {
+      ...data,
+      phone,
+    });
+
     try {
       await submitFormResponse({
         formKey: "win-form",
@@ -105,6 +111,14 @@ function WinForm() {
           ...data,
           phone: phone, // Use international phone value
         },
+      });
+      klaviyoIdentifyAndTrack({
+        email: data.email,
+        phone,
+        fullName: data.fullName,
+        eventName: "Win Form Submitted",
+      }).catch((error) => {
+        console.error("Klaviyo tracking failed:", error);
       });
       setStatus({
         state: "success",
