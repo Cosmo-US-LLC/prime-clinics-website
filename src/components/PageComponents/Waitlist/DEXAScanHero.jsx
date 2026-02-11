@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { submitFormResponse } from "@/lib/forms";
+import { klaviyoIdentifyAndTrack } from "@/lib/klaviyo";
 import SuccessModal from "./SuccessModal";
 import {
   PhoneInput,
@@ -38,7 +39,7 @@ const popularProviders = [
   // GMX
   "gmx.com",
   // Yandex
-  "yandex.com"
+  "yandex.com",
 ];
 
 const blockedTlds = ["con", "comm", "cim", "cmo", "vom", "xom", "c"];
@@ -59,7 +60,7 @@ const isValidEmail = (email) => {
   if (popularProviders.includes(domain)) return true;
 
   const providerRoot = domain.split(".").slice(-2).join(".");
-  const popularRoots = popularProviders.map(p => p.split(".")[0]);
+  const popularRoots = popularProviders.map((p) => p.split(".")[0]);
 
   if (popularRoots.includes(providerRoot.split(".")[0])) {
     return false;
@@ -73,7 +74,7 @@ const isValidEmail = (email) => {
 //     <section className="relative w-full h-[640px] md:h-[700px] DEXA_scan_hero overflow-hidden flex items-end justify-start">
 //       <div className="relative z-20 w-full py-12 md:py-20 px-4 md:px-8 max-w-[1280px] mx-auto">
 //         <div className="flex flex-col gap-6 max-w-full md:max-w-[680px]">
-         
+
 //           <div className="flex flex-col gap-4">
 //             <h1 className="font-display text-[42px] md:text-[64px] font-bold leading-[56px] md:leading-[72px] text-white uppercase m-0 drop-shadow-[0px_0px_4px_rgba(0,0,0,0.25)] tracking-normal">
 //               Get a{" "}
@@ -83,8 +84,8 @@ const isValidEmail = (email) => {
 //               DEXA Body Scan
 //             </h1>
 //             <p className="font-sans text-[18px] md:text-[20px] font-normal leading-[26px] md:leading-[28px] text-[#fff] m-0">
-//               Join the Prime Clinics waitlist today and secure one of 50 
-//               complimentary DEXA scans. Gain gold-standard insights into your 
+//               Join the Prime Clinics waitlist today and secure one of 50
+//               complimentary DEXA scans. Gain gold-standard insights into your
 //               body composition, biomarkers, and performance potential.
 //             </p>
 //           </div>
@@ -93,7 +94,7 @@ const isValidEmail = (email) => {
 //             <button className="btn-primary w-full md:w-auto whitespace-nowrap py-5 px-8 md:py-4 md:px-6">
 //               Enter to Win a Free Scan
 //             </button>
-            
+
 //             <div className="flex gap-3 items-center py-2 px-4 bg-black/40 backdrop-blur-md border border-white/10 rounded-lg w-full md:w-auto justify-center md:justify-start">
 //               <img src={ZapIcon} alt="Zap Icon" className="text-[#2463D8] shrink-0 drop-shadow-[0_0_2px_rgba(36,99,216,0.5)]"  />
 //               <div className="flex flex-col gap-0.5">
@@ -185,6 +186,11 @@ function DEXAScanHero() {
       return;
     }
 
+    console.log("DEXA scan hero submit payload:", {
+      ...data,
+      phone,
+    });
+
     try {
       await submitFormResponse({
         formKey: "dexa-scan-hero",
@@ -192,6 +198,14 @@ function DEXAScanHero() {
           ...data,
           phone: phone, // Use international phone value
         },
+      });
+      klaviyoIdentifyAndTrack({
+        email: data.email,
+        phone,
+        fullName: data.fullName,
+        eventName: "free-dexa-scan-form",
+      }).catch((error) => {
+        console.error("Klaviyo tracking failed:", error);
       });
       setStatus({
         state: "success",
@@ -210,20 +224,19 @@ function DEXAScanHero() {
   };
 
   return (
-    <section id="hero-section" className="relative w-full pt-[35px] h-[1035px] md:h-[700px] DEXA_scan_hero overflow-hidden">
-
+    <section
+      id="hero-section"
+      className="relative w-full pt-[35px] h-[1035px] md:h-[700px] DEXA_scan_hero overflow-hidden"
+    >
       <div className="relative z-20 w-full h-full py-12 md:py-20 px-4 md:px-8 max-w-[1280px] mx-auto flex md:items-center items-end">
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full items-center">
-
           {/* LEFT */}
           <div className="flex flex-col gap-6 max-w-full md:max-w-[680px]">
-
             <div className="flex flex-col gap-4">
               <h1 className="font-display text-[42px] md:text-[64px] font-bold leading-[119.048%] md:leading-[72px] text-white uppercase m-0 drop-shadow-[0px_0px_4px_rgba(0,0,0,0.25)] tracking-normal">
                 Get a{" "}
                 <span className="bg-linear-to-r from-[#2463D8] via-[#60A5FA] to-[#BFDBFE] bg-clip-text text-transparent">
-                  Free $145{" "} <br />
+                  Free $145 <br />
                 </span>
                 DEXA Body Scan
               </h1>
@@ -257,7 +270,6 @@ function DEXAScanHero() {
           {/* RIGHT */}
           <div className="flex justify-center md:justify-end">
             <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 w-full max-w-[500px] min-h-[510px] flex flex-col justify-center">
-
               <h3 className="font-display text-xl font-bold text-[24px] text-center mb-1">
                 ENTER TO WIN
               </h3>
@@ -266,7 +278,10 @@ function DEXAScanHero() {
                 Join the pool for a free DEXA Scan
               </p>
 
-              <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="flex flex-col gap-4"
+              >
                 <div className="flex flex-col gap-1">
                   <label className="font-sans text-sm font-medium text-gray-700">
                     Full Name
@@ -303,7 +318,9 @@ function DEXAScanHero() {
                     aria-invalid={errors.email ? "true" : "false"}
                     {...register("email", {
                       required: "Email address is required.",
-                      validate: (value) => isValidEmail(value) || "Please enter a valid email address.",
+                      validate: (value) =>
+                        isValidEmail(value) ||
+                        "Please enter a valid email address.",
                     })}
                     className="border rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
@@ -364,12 +381,9 @@ function DEXAScanHero() {
                 <p className="font-sans text-[12px] text-[#94A3B8] text-center mt-2">
                   By entering, you agree to our Terms. We respect your privacy.
                 </p>
-
               </form>
-
             </div>
           </div>
-
         </div>
       </div>
 

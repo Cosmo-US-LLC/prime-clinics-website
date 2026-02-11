@@ -40,7 +40,7 @@ const popularProviders = [
   // GMX
   "gmx.com",
   // Yandex
-  "yandex.com"
+  "yandex.com",
 ];
 
 const blockedTlds = ["con", "comm", "cim", "cmo", "vom", "xom", "c"];
@@ -61,7 +61,7 @@ const isValidEmail = (email) => {
   if (popularProviders.includes(domain)) return true;
 
   const providerRoot = domain.split(".").slice(-2).join(".");
-  const popularRoots = popularProviders.map(p => p.split(".")[0]);
+  const popularRoots = popularProviders.map((p) => p.split(".")[0]);
 
   if (popularRoots.includes(providerRoot.split(".")[0])) {
     return false;
@@ -116,7 +116,7 @@ function WinForm() {
         email: data.email,
         phone,
         fullName: data.fullName,
-        eventName: "Win Form Submitted",
+        eventName: "free-dexa-scan-and-longevity-assessment-form",
       }).catch((error) => {
         console.error("Klaviyo tracking failed:", error);
       });
@@ -137,8 +137,10 @@ function WinForm() {
   };
 
   return (
-    <div className="bg-white border border-[#f1f5f9] rounded-2xl 
-    shadow-[0px_25px_50px_-12px_rgba(30,58,138,0.1)] p-8 w-full! max-w-[500px]! min-h-[510px]!">
+    <div
+      className="bg-white border border-[#f1f5f9] rounded-2xl 
+    shadow-[0px_25px_50px_-12px_rgba(30,58,138,0.1)] p-8 w-full! max-w-[500px]! min-h-[510px]!"
+    >
       {/* Header */}
       <div className="flex flex-col items-center gap-1 mb-6">
         <h3 className="font-[Oswald] text-[24px] font-bold leading-[32px] text-[#0f172a] uppercase text-center">
@@ -197,14 +199,13 @@ function WinForm() {
             aria-invalid={errors.email ? "true" : "false"}
             {...register("email", {
               required: "Email address is required.",
-              validate: (value) => isValidEmail(value) || "Please enter a valid email address.",
+              validate: (value) =>
+                isValidEmail(value) || "Please enter a valid email address.",
             })}
             className="bg-white border border-[#cbd5e1] rounded-lg px-[17px] py-[13px] font-[Manrope] text-[16px] font-normal leading-[24px] text-[#1f2937] placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#2463D8] focus:border-transparent transition-all"
           />
           {errors.email ? (
-            <p className="text-[12px] text-red-500">
-              {errors.email.message}
-            </p>
+            <p className="text-[12px] text-red-500">{errors.email.message}</p>
           ) : null}
         </div>
 
@@ -229,7 +230,8 @@ function WinForm() {
             className="react-international-phone-input"
             inputClassName="!bg-white !border !border-[#cbd5e1] !rounded-r-lg !px-[17px] !py-[24px] !font-[Manrope] !text-[16px] !font-normal !leading-[24px] !text-[#1f2937] placeholder:!text-[#9ca3af] focus:!outline-none focus:!ring-2 focus:!ring-[#2463D8] focus:!border-transparent !transition-all !w-full"
             countrySelectorStyleProps={{
-              buttonClassName: "!border-[#cbd5e1] !rounded-l-lg !px-3 !py-[24px]",
+              buttonClassName:
+                "!border-[#cbd5e1] !rounded-l-lg !px-3 !py-[24px]",
             }}
           />
           {phoneError ? (
