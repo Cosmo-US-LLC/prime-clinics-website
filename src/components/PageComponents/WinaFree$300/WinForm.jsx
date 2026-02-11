@@ -106,7 +106,7 @@ function WinForm() {
 
     try {
       await submitFormResponse({
-        formKey: "win-form",
+        formKey: "free-dexa-scan-and-longevity-assessment-form",
         data: {
           ...data,
           phone: phone, // Use international phone value
@@ -116,7 +116,10 @@ function WinForm() {
         email: data.email,
         phone,
         fullName: data.fullName,
-        eventName: "free-dexa-scan-and-longevity-assessment-form",
+        eventName: "Win Form Submitted",
+        properties: {
+          formKey: "free-dexa-scan-and-longevity-assessment-form",
+        },
       }).catch((error) => {
         console.error("Klaviyo tracking failed:", error);
       });
