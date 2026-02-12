@@ -91,10 +91,20 @@ export const klaviyoIdentifyAndTrack = async ({
     identifyPayload.$last_name = lastName;
   }
 
-  if (Object.keys(identifyPayload).length > 0) {
+  // Add custom properties to profile (for segmentation, flows, filtering)
+  if (properties && Object.keys(properties).length > 0) {
+    queue.push([
+      "identify",
+      {
+        ...identifyPayload,
+        ...properties, // saves as profile properties
+      },
+    ]);
+  } else if (Object.keys(identifyPayload).length > 0) {
     queue.push(["identify", identifyPayload]);
   }
 
+  // Track event (properties also sent as event properties)
   queue.push([
     "track",
     eventName || "Win Form Submitted",
