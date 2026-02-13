@@ -116,9 +116,9 @@ function WinForm() {
         email: data.email,
         phone,
         fullName: data.fullName,
-        eventName: "Win Form Submitted",
+        eventName: "Assessment Form Submitted",
         properties: {
-          formKey: "free-dexa-scan-and-longevity-assessment-form",
+          formKey: "Assessment",
         },
       }).catch((error) => {
         console.error("Klaviyo tracking failed:", error);
