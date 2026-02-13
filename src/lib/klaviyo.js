@@ -58,15 +58,21 @@ export const klaviyoIdentifyAndTrack = async ({
   const identifyPayload = {};
 
   if (Email) {
-    identifyPayload.Email = (Email || "").trim().toLowerCase();
+    const emailVal = (Email || "").trim().toLowerCase();
+    identifyPayload.$email = emailVal; // required for Klaviyo to create/identify profile
+    identifyPayload.Email = emailVal;
   }
 
   if ($phone_number_region) {
-    identifyPayload.$phone_number_region = ($phone_number_region || "").trim();
+    const phoneVal = ($phone_number_region || "").trim();
+    identifyPayload.$phone_number = phoneVal; // required for Klaviyo profile
+    identifyPayload.$phone_number_region = phoneVal;
   }
 
   if (firstName) {
-    identifyPayload.firstName = (firstName || "").trim();
+    const nameVal = (firstName || "").trim();
+    identifyPayload.$first_name = nameVal; // required for Klaviyo profile
+    identifyPayload.firstName = nameVal;
   }
 
   // Add custom properties to profile (for segmentation, flows, filtering)
