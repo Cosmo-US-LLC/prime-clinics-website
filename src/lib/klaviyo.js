@@ -58,7 +58,7 @@ export const klaviyoIdentifyAndTrack = async ({
   const identifyPayload = {};
 
   if (email) {
-    identifyPayload.$email = email.trim().toLowerCase();
+    identifyPayload.Email = email.trim().toLowerCase();
   }
 
   if (phone) {
