@@ -74,7 +74,7 @@ export const klaviyoIdentifyAndTrack = async ({
 
   const { firstName } = splitName(fullName);
 
-  // Klaviyo profile fields: use dashboard property names for segments/flows/emails
+  // Klaviyo profile properties (match dashboard): Email, First Name, $phone_number
   const identifyPayload = {};
 
   if (email) {
@@ -84,7 +84,6 @@ export const klaviyoIdentifyAndTrack = async ({
 
   if (phone) {
     identifyPayload.$phone_number = phone.trim();
-    identifyPayload.phone_number = phone.trim();
   }
 
   if (firstName) {
