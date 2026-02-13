@@ -72,23 +72,24 @@ export const klaviyoIdentifyAndTrack = async ({
   const queue = window._learnq || [];
   window._learnq = queue;
 
-  const { firstName, lastName } = splitName(fullName);
+  const { firstName } = splitName(fullName);
+
+  // Klaviyo profile fields: use dashboard property names for segments/flows/emails
   const identifyPayload = {};
 
   if (email) {
     identifyPayload.$email = email.trim().toLowerCase();
+    identifyPayload.Email = email.trim().toLowerCase();
   }
 
   if (phone) {
     identifyPayload.$phone_number = phone.trim();
+    identifyPayload.phone_number = phone.trim();
   }
 
   if (firstName) {
     identifyPayload.$first_name = firstName;
-  }
-
-  if (lastName) {
-    identifyPayload.$last_name = lastName;
+    identifyPayload["First Name"] = firstName;
   }
 
   // Add custom properties to profile (for segmentation, flows, filtering)

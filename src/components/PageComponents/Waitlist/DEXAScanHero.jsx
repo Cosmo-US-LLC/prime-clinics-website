@@ -203,9 +203,9 @@ function DEXAScanHero() {
         email: data.email,
         phone,
         fullName: data.fullName,
-        eventName: "free-dexa-scan-form Submitted",
+        eventName: "Free Dexa Scan Form Submitted",
         properties: {
-          formKey: "free-dexa-scan-form",
+          formKey: "Free Dexa Scan",
         },
       }).catch((error) => {
         console.error("Klaviyo tracking failed:", error);
