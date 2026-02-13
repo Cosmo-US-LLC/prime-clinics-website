@@ -65,8 +65,9 @@ export const klaviyoIdentifyAndTrack = async ({
 
   if ($phone_number_region) {
     const phoneVal = ($phone_number_region || "").trim();
-    identifyPayload.$phone_number = phoneVal; // required for Klaviyo profile
+    identifyPayload.$phone_number = phoneVal; // Klaviyo default Phone column + custom box
     identifyPayload.$phone_number_region = phoneVal;
+    identifyPayload.Phone = phoneVal; // custom profile property for custom box display
   }
 
   if (firstName) {
@@ -88,11 +89,12 @@ export const klaviyoIdentifyAndTrack = async ({
     queue.push(["identify", identifyPayload]);
   }
 
-  // Track event (properties also sent as event properties)
+  // Track event (include profile fields so Klaviyo can update profile from event)
   queue.push([
     "track",
     eventName || "Win Form Submitted",
     {
+      ...identifyPayload,
       ...properties,
     },
   ]);
