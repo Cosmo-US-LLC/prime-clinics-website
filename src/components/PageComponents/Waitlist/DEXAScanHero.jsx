@@ -200,9 +200,9 @@ function DEXAScanHero() {
         },
       });
       klaviyoIdentifyAndTrack({
-        email: data.email,
-        phone,
-        fullName: data.fullName,
+        Email: data.email,
+        $phone_number_region: phone,
+        firstName: data.fullName,
         eventName: "Free Dexa Scan Form Submitted",
         properties: {
           formKey: "Free Dexa Scan",

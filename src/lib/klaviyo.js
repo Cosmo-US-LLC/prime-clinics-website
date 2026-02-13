@@ -40,13 +40,13 @@ const loadKlaviyoScript = (() => {
 })();
 
 export const klaviyoIdentifyAndTrack = async ({
-  email,
-  phone,
-  fullName,
+  Email,
+  $phone_number_region,
+  firstName,
   eventName,
   properties,
 } = {}) => {
-  if (!email && !phone) {
+  if (!Email && !$phone_number_region) {
     return;
   }
 
@@ -57,16 +57,16 @@ export const klaviyoIdentifyAndTrack = async ({
 
   const identifyPayload = {};
 
-  if (email) {
-    identifyPayload.Email = email.trim().toLowerCase();
+  if (Email) {
+    identifyPayload.Email = (Email || "").trim().toLowerCase();
   }
 
-  if (phone) {
-    identifyPayload.$phone_number_region = phone.trim();
+  if ($phone_number_region) {
+    identifyPayload.$phone_number_region = ($phone_number_region || "").trim();
   }
 
-  if (fullName) {
-    identifyPayload.firstName = (fullName || "").trim();
+  if (firstName) {
+    identifyPayload.firstName = (firstName || "").trim();
   }
 
   // Add custom properties to profile (for segmentation, flows, filtering)
