@@ -18,7 +18,7 @@ const loadKlaviyoScript = (() => {
 
     loadPromise = new Promise((resolve, reject) => {
       const existing = document.querySelector(
-        'script[src*="klaviyo.com/onsite/js/klaviyo.js"]'
+        'script[src*="klaviyo.com/onsite/js/klaviyo.js"]',
       );
 
       if (existing) {
@@ -39,23 +39,6 @@ const loadKlaviyoScript = (() => {
   };
 })();
 
-const splitName = (fullName) => {
-  const cleaned = (fullName || "").trim();
-  if (!cleaned) {
-    return { firstName: "", lastName: "" };
-  }
-
-  const parts = cleaned.split(/\s+/);
-  if (parts.length === 1) {
-    return { firstName: parts[0], lastName: "" };
-  }
-
-  return {
-    firstName: parts[0],
-    lastName: parts.slice(1).join(" "),
-  };
-};
-
 export const klaviyoIdentifyAndTrack = async ({
   email,
   phone,
@@ -72,23 +55,18 @@ export const klaviyoIdentifyAndTrack = async ({
   const queue = window._learnq || [];
   window._learnq = queue;
 
-  const { firstName } = splitName(fullName);
-
-  // Klaviyo profile properties (match dashboard): Email, First Name, $phone_number
   const identifyPayload = {};
 
   if (email) {
     identifyPayload.$email = email.trim().toLowerCase();
-    identifyPayload.Email = email.trim().toLowerCase();
   }
 
   if (phone) {
-    identifyPayload.$phone_number = phone.trim();
+    identifyPayload.$phone_number_region = phone.trim();
   }
 
-  if (firstName) {
-    identifyPayload.$first_name = firstName;
-    identifyPayload["First Name"] = firstName;
+  if (fullName) {
+    identifyPayload.firstName = (fullName || "").trim();
   }
 
   // Add custom properties to profile (for segmentation, flows, filtering)
