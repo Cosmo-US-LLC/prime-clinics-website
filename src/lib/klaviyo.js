@@ -1,6 +1,6 @@
 const KLAVIYO_COMPANY_ID = "Wnsp3Z";
 
-const loadKlaviyoScript = (() => {
+export const loadKlaviyoScript = (() => {
   let loadPromise = null;
 
   return () => {
