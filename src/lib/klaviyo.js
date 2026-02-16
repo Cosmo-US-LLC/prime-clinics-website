@@ -1,6 +1,6 @@
 const KLAVIYO_COMPANY_ID = "Wnsp3Z";
 
-const loadKlaviyoScript = (() => {
+export const loadKlaviyoScript = (() => {
   let loadPromise = null;
 
   return () => {
@@ -72,7 +72,7 @@ export const klaviyoIdentifyAndTrack = async ({
 
   if (firstName) {
     const nameVal = (firstName || "").trim();
-    identifyPayload.$first_name = nameVal; // required for Klaviyo profile
+    identifyPayload.$first_name = nameVal;
     identifyPayload.firstName = nameVal;
   }
 
@@ -82,7 +82,7 @@ export const klaviyoIdentifyAndTrack = async ({
       "identify",
       {
         ...identifyPayload,
-        ...properties, // saves as profile properties
+        ...properties,
       },
     ]);
   } else if (Object.keys(identifyPayload).length > 0) {
