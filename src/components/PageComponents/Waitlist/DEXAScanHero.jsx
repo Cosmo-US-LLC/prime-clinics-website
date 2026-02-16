@@ -1,6 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import SuccessModal from "./SuccessModal";
 
 function DEXAScanHero() {
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const location = useLocation();
+
+  // Show modal when Klaviyo form fires submit (same page, no redirect)
+  useEffect(() => {
+    const handleKlaviyoSubmit = (e) => {
+      if (e?.detail?.type === "submit") {
+        setShowSuccessModal(true);
+      }
+    };
+    window.addEventListener("klaviyoForms", handleKlaviyoSubmit);
+    return () =>
+      window.removeEventListener("klaviyoForms", handleKlaviyoSubmit);
+  }, []);
+
+  // When Klaviyo redirects to /free-dexa-scan/thank-you or #thank-you, show modal (fixes blank page)
+  useEffect(() => {
+    const shouldShow =
+      location.pathname === "/free-dexa-scan/thank-you" ||
+      window.location.hash === "#thank-you";
+    if (!shouldShow) return;
+    const id = setTimeout(() => setShowSuccessModal(true), 0);
+    return () => clearTimeout(id);
+  }, [location.pathname]);
+
+  const handleSuccessModalOpenChange = (open) => {
+    setShowSuccessModal(open);
+    if (!open) {
+      window.location.href = "/";
+    }
+  };
+
   return (
     <section
       id="hero-section"
@@ -28,13 +62,13 @@ function DEXAScanHero() {
           </div>
 
           {/* RIGHT */}
-          <div className="flex justify-center md:justify-end">
-            <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 w-full max-w-[500px] min-h-[510px] flex flex-col justify-center">
+          <div className="flex justify-center md:justify-end md:mt-10 mt-0">
+            <div className="bg-white rounded-2xl shadow-2xl py-6 md:p-8 w-full max-w-[500px] min-h-[510px] flex flex-col justify-center">
               <h3 className="font-display text-xl font-bold text-[24px] text-center mb-1">
                 ENTER TO WIN
               </h3>
 
-              <p className="font-sans text-sm text-center text-gray-500 mb-6">
+              <p className="font-sans text-sm text-center text-gray-500 md:mb-0 mb-2">
                 Join the pool for a free DEXA Scan
               </p>
 
@@ -43,6 +77,17 @@ function DEXAScanHero() {
           </div>
         </div>
       </div>
+
+      <SuccessModal
+        open={showSuccessModal}
+        onOpenChange={handleSuccessModalOpenChange}
+        titleHighlight="Thanks"
+        titleRest=" for Entering the Pool!"
+        description="You're on the list to win a free DEXA scan. Winners will receive a digital voucher 15 days before our official launch. Use it to book your priority scan as soon as our calendar opens and take the first step toward peak performance and longevity."
+        buttonText="Back to Home Page"
+        imageAlt="DEXA scan waitlist success"
+        hashOnOpen="thank-you"
+      />
     </section>
   );
 }
