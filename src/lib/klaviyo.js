@@ -98,4 +98,44 @@ export const klaviyoIdentifyAndTrack = async ({
       ...properties,
     },
   ]);
+
+  // Subscribe profile so consent = SUBSCRIBED (fixes "Never Subscribed" and improves deliverability)
+  const emailVal = Email ? (Email || "").trim().toLowerCase() : "";
+  const phoneVal = $phone_number_region ? ($phone_number_region || "").trim() : "";
+  if (emailVal || phoneVal) {
+    const profileAttrs = {
+      ...(emailVal && { email: emailVal }),
+      ...(phoneVal && { phone_number: phoneVal }),
+      ...(firstName && { first_name: (firstName || "").trim() }),
+      ...(properties && Object.keys(properties).length > 0 && { properties }),
+    };
+    try {
+      await fetch(
+        `https://a.klaviyo.com/client/subscriptions/?company_id=${KLAVIYO_COMPANY_ID}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Revision: "2024-07-15",
+          },
+          body: JSON.stringify({
+            data: {
+              type: "subscription",
+              attributes: {
+                profile: {
+                  data: {
+                    type: "profile",
+                    attributes: profileAttrs,
+                  },
+                },
+                custom_source: eventName || "Website form",
+              },
+            },
+          }),
+        }
+      );
+    } catch (err) {
+      console.warn("Klaviyo subscribe failed:", err);
+    }
+  }
 };
