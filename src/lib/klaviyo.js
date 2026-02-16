@@ -1,4 +1,6 @@
 const KLAVIYO_COMPANY_ID = "Wnsp3Z";
+// Required for subscribe API. In Klaviyo: Audience → Lists → [your list] → ID in URL or list settings
+const KLAVIYO_LIST_ID = import.meta.env.VITE_KLAVIYO_LIST_ID || "";
 
 const loadKlaviyoScript = (() => {
   let loadPromise = null;
@@ -39,6 +41,13 @@ const loadKlaviyoScript = (() => {
   };
 })();
 
+/** Ensure Klaviyo script is loaded (e.g. for embed forms). */
+export { loadKlaviyoScript };
+
+/*
+ * Custom identify/track/subscribe — COMMENTED OUT while using Klaviyo Lead + Design embed form on DEXA scan page.
+ * Uncomment and remove the no-op below to restore custom tracking.
+ *
 export const klaviyoIdentifyAndTrack = async ({
   Email,
   $phone_number_region,
@@ -59,37 +68,35 @@ export const klaviyoIdentifyAndTrack = async ({
 
   if (Email) {
     const emailVal = (Email || "").trim().toLowerCase();
-    identifyPayload.$email = emailVal; // required for Klaviyo to create/identify profile
+    identifyPayload.$email = emailVal;
     identifyPayload.Email = emailVal;
   }
 
   if ($phone_number_region) {
     const phoneVal = ($phone_number_region || "").trim();
-    identifyPayload.$phone_number = phoneVal; // Klaviyo default Phone column + custom box
+    identifyPayload.$phone_number = phoneVal;
     identifyPayload.$phone_number_region = phoneVal;
-    identifyPayload.Phone = phoneVal; // custom profile property for custom box display
+    identifyPayload.Phone = phoneVal;
   }
 
   if (firstName) {
     const nameVal = (firstName || "").trim();
-    identifyPayload.$first_name = nameVal; // required for Klaviyo profile
+    identifyPayload.$first_name = nameVal;
     identifyPayload.firstName = nameVal;
   }
 
-  // Add custom properties to profile (for segmentation, flows, filtering)
   if (properties && Object.keys(properties).length > 0) {
     queue.push([
       "identify",
       {
         ...identifyPayload,
-        ...properties, // saves as profile properties
+        ...properties,
       },
     ]);
   } else if (Object.keys(identifyPayload).length > 0) {
     queue.push(["identify", identifyPayload]);
   }
 
-  // Track event (include profile fields so Klaviyo can update profile from event)
   queue.push([
     "track",
     eventName || "Win Form Submitted",
@@ -99,10 +106,9 @@ export const klaviyoIdentifyAndTrack = async ({
     },
   ]);
 
-  // Subscribe profile so consent = SUBSCRIBED (fixes "Never Subscribed" and improves deliverability)
   const emailVal = Email ? (Email || "").trim().toLowerCase() : "";
   const phoneVal = $phone_number_region ? ($phone_number_region || "").trim() : "";
-  if (emailVal || phoneVal) {
+  if ((emailVal || phoneVal) && KLAVIYO_LIST_ID) {
     const profileAttrs = {
       ...(emailVal && { email: emailVal }),
       ...(phoneVal && { phone_number: phoneVal }),
@@ -130,6 +136,14 @@ export const klaviyoIdentifyAndTrack = async ({
                 },
                 custom_source: eventName || "Website form",
               },
+              relationships: {
+                list: {
+                  data: {
+                    type: "list",
+                    id: KLAVIYO_LIST_ID,
+                  },
+                },
+              },
             },
           }),
         }
@@ -138,4 +152,10 @@ export const klaviyoIdentifyAndTrack = async ({
       console.warn("Klaviyo subscribe failed:", err);
     }
   }
+};
+*/
+
+/** No-op when using Klaviyo embed form (Lead + Design). Loads script only for backward compatibility. */
+export const klaviyoIdentifyAndTrack = async () => {
+  await loadKlaviyoScript();
 };
