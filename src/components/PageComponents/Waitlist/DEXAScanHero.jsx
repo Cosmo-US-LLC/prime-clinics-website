@@ -1,19 +1,16 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { submitFormResponse } from "@/lib/forms";
-import { klaviyoIdentifyAndTrack } from "@/lib/klaviyo";
-import SuccessModal from "./SuccessModal";
-import {
-  PhoneInput,
-  defaultCountries,
-  parseCountry,
-} from "react-international-phone";
-import "react-international-phone/style.css";
+import React, { useEffect } from "react";
+import { loadKlaviyoScript } from "@/lib/klaviyo";
+// Custom form + Klaviyo tracking commented out — using Klaviyo Lead + Design embed form (klaviyo-form-SRMnSE)
+// import { useForm } from "react-hook-form";
+// import { submitFormResponse } from "@/lib/forms";
+// import SuccessModal from "./SuccessModal";
+// import { PhoneInput, defaultCountries, parseCountry } from "react-international-phone";
+// import "react-international-phone/style.css";
 
-const canadaOnlyCountries = defaultCountries.filter((country) => {
-  const { iso2 } = parseCountry(country);
-  return iso2 === "ca";
-});
+// const canadaOnlyCountries = defaultCountries.filter((country) => {
+//   const { iso2 } = parseCountry(country);
+//   return iso2 === "ca";
+// });
 
 // Email validation constants
 const popularProviders = [
@@ -44,7 +41,7 @@ const popularProviders = [
 
 const blockedTlds = ["con", "comm", "cim", "cmo", "vom", "xom", "c"];
 
-const isValidEmail = (email) => {
+const _isValidEmail = (email) => {
   // Basic structure
   const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,24}$/;
 
@@ -158,73 +155,9 @@ const isValidEmail = (email) => {
 // export default DEXAScanHero;
 
 function DEXAScanHero() {
-  const [status, setStatus] = React.useState({ state: "idle", message: "" });
-  const [showSuccessModal, setShowSuccessModal] = React.useState(false);
-  const [phone, setPhone] = React.useState("");
-  const [phoneError, setPhoneError] = React.useState("");
-
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm({
-    defaultValues: {
-      fullName: "",
-      email: "",
-      phone: "",
-    },
-  });
-
-  const onSubmit = async (data) => {
-    setPhoneError("");
-    setStatus({ state: "loading", message: "" });
-
-    if (!phone || phone.replace(/\D/g, "").length < 10) {
-      setPhoneError("Phone number is required.");
-      setStatus({ state: "idle", message: "" });
-      return;
-    }
-
-    console.log("DEXA scan hero submit payload:", {
-      ...data,
-      phone,
-    });
-
-    try {
-      await submitFormResponse({
-        formKey: "dexa-scan-hero",
-        data: {
-          ...data,
-          phone: phone, // Use international phone value
-        },
-      });
-      klaviyoIdentifyAndTrack({
-        Email: data.email,
-        $phone_number_region: phone,
-        firstName: data.fullName,
-        eventName: "Free Dexa Scan Form Submitted",
-        properties: {
-          formKey: "Free Dexa Scan",
-        },
-      }).catch((error) => {
-        console.error("Klaviyo tracking failed:", error);
-      });
-      setStatus({
-        state: "success",
-        message: "Thanks! You're entered to win.",
-      });
-      setShowSuccessModal(true); // Open modal on success
-      reset();
-      setPhone(""); // Reset phone number
-    } catch (error) {
-      setStatus({
-        state: "error",
-        message:
-          error?.message || "We couldn't submit the form. Please try again.",
-      });
-    }
-  };
+  useEffect(() => {
+    loadKlaviyoScript().catch((err) => console.warn("Klaviyo script load:", err));
+  }, []);
 
   return (
     <section
@@ -270,137 +203,18 @@ function DEXAScanHero() {
             </div> */}
           </div>
 
-          {/* RIGHT */}
+          {/* RIGHT — Klaviyo Lead + Design embed form (klaviyo-form-SRMnSE) */}
           <div className="flex justify-center md:justify-end">
             <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 w-full max-w-[500px] min-h-[510px] flex flex-col justify-center">
-              <h3 className="font-display text-xl font-bold text-[24px] text-center mb-1">
-                ENTER TO WIN
-              </h3>
+              <div className="klaviyo-form-SRMnSE" />
 
-              <p className="font-sans text-sm text-center text-gray-500 mb-6">
-                Join the pool for a free DEXA Scan
-              </p>
 
-              <form
-                onSubmit={handleSubmit(onSubmit)}
-                className="flex flex-col gap-4"
-              >
-                <div className="flex flex-col gap-1">
-                  <label className="font-sans text-sm font-medium text-gray-700">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    name="fullName"
-                    placeholder="John Doe"
-                    aria-invalid={errors.fullName ? "true" : "false"}
-                    {...register("fullName", {
-                      required: "Full name is required.",
-                      minLength: {
-                        value: 2,
-                        message: "Please enter at least 2 characters.",
-                      },
-                    })}
-                    className="border rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                  {errors.fullName ? (
-                    <p className="text-[12px] text-red-500">
-                      {errors.fullName.message}
-                    </p>
-                  ) : null}
-                </div>
 
-                <div className="flex flex-col gap-1">
-                  <label className="font-sans text-sm font-medium text-gray-700">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="john@example.com"
-                    aria-invalid={errors.email ? "true" : "false"}
-                    {...register("email", {
-                      required: "Email address is required.",
-                      validate: (value) =>
-                        isValidEmail(value) ||
-                        "Please enter a valid email address.",
-                    })}
-                    className="border rounded-lg px-4 py-3 text-sm font-sans focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
-                  {errors.email ? (
-                    <p className="text-[12px] text-red-500">
-                      {errors.email.message}
-                    </p>
-                  ) : null}
-                </div>
-
-                <div className="flex flex-col gap-1">
-                  <label className="font-sans text-sm font-medium text-gray-700">
-                    Phone
-                  </label>
-                  <PhoneInput
-                    defaultCountry="ca"
-                    countries={canadaOnlyCountries}
-                    hideDropdown
-                    forceDialCode
-                    value={phone}
-                    onChange={(phone) => {
-                      setPhone(phone);
-                      if (phoneError) setPhoneError("");
-                    }}
-                    className="react-international-phone-input"
-                    inputClassName="!bg-white !border   !rounded-r-lg !px-4 !py-[22px] !font-sans !text-sm !font-normal !text-[#1f2937] placeholder:!text-[#9ca3af] focus:!outline-none focus:!ring-2 focus:!ring-blue-500 focus:!border-transparent !transition-all !w-full"
-                    countrySelectorStyleProps={{
-                      buttonClassName: "  !rounded-l-lg !px-3 !py-[22px]",
-                    }}
-                  />
-                  {phoneError ? (
-                    <p className="text-[12px] text-red-500">{phoneError}</p>
-                  ) : null}
-                </div>
-
-                <button
-                  type="submit"
-                  className="bg-[#2563EB] hover:bg-[#1D4ED8] text-[18px] text-white py-3 rounded-lg font-sans font-semibold transition mt-2 disabled:opacity-70"
-                  disabled={status.state === "loading" || isSubmitting}
-                >
-                  {status.state === "loading" || isSubmitting
-                    ? "Submitting..."
-                    : "Enter to Win a Free Scan"}
-                </button>
-
-                {status.message ? (
-                  <p
-                    className={`font-sans text-[12px] text-center ${
-                      status.state === "error"
-                        ? "text-red-500"
-                        : "text-green-600"
-                    }`}
-                  >
-                    {status.message}
-                  </p>
-                ) : null}
-
-                <p className="font-sans text-[12px] text-[#94A3B8] text-center mt-2">
-                  By entering, you agree to our Terms. We respect your privacy.
-                </p>
-              </form>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Success Modal */}
-      <SuccessModal
-        open={showSuccessModal}
-        onOpenChange={setShowSuccessModal}
-        titleHighlight="Thanks"
-        titleRest=" for Entering the Pool!"
-        description="You’re on the list to win a free DEXA scan. Winners will receive a digital voucher 15 days before our official launch. Use it to book your priority scan as soon as our calendar opens and take the first step toward peak performance and longevity."
-        buttonText="Back to Home Page"
-        imageAlt="DEXA scan waitlist success"
-        hashOnOpen="thank-you"
-      />
     </section>
   );
 }
