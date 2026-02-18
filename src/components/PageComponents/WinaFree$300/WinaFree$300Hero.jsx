@@ -4,10 +4,15 @@ import WinForm from "./WinForm";
 
 function WinaFree$300Hero() {
   return (
-    <section id="hero-section" className="relative w-full h-[1060px] md:h-[770px] Wina_Free_hero overflow-hidden flex items-end justify-start">
+    <section
+      id="hero-section"
+      className="relative w-full h-[1090px] md:h-[770px] Wina_Free_hero overflow-hidden flex items-end justify-start"
+    >
       <div className="relative z-20 w-full py-12 md:py-16 lg:py-20 px-4 md:px-8 max-w-[1280px] mx-auto">
-        <div className="flex flex-col h-full lg:flex-row gap-8 lg:gap-6 items-start 
-        md:items-center justify-between">
+        <div
+          className="flex flex-col h-full lg:flex-row gap-8 lg:gap-6 items-start 
+        md:items-center justify-between"
+        >
           {/* Left Content */}
           <div className="flex flex-col gap-6 w-full h-full max-w-full md:max-w-[590px]">
             <div className="flex flex-col gap-4">
@@ -18,10 +23,11 @@ function WinaFree$300Hero() {
                 DEXA + Performance and Longevity Assessment
               </h1>
               <p className="font-[Manrope] text-[16px] md:text-[18px] lg:text-[20px] font-normal leading-[24px] md:leading-[26px] lg:leading-[28px] text-white m-0">
-                A 2-hour physician-led session including a DEXA body scan, physical longevity testing, and personalized performance insights.
+                A 2-hour physician-led session including a DEXA body scan,
+                physical longevity testing, and personalized performance
+                insights.
               </p>
             </div>
-             
           </div>
 
           {/* Right Form */}
