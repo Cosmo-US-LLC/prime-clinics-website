@@ -3,8 +3,7 @@ import { useLocation } from "react-router-dom";
 import SuccessModal from "../Waitlist/SuccessModal";
 import dexaSuccessImage from "@/assets/images/success_modal/success_bg_free_dexa.webp";
 
-const THANK_YOU_PATH =
-  "/free-dexa-scan-and-longevity-assessment/thank-you";
+const THANK_YOU_PATH = "/free-dexa-scan-and-longevity-assessment/thank-you";
 
 function WinForm() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -42,10 +41,10 @@ function WinForm() {
   return (
     <div
       className="bg-white border border-[#f1f5f9] rounded-2xl 
-    shadow-[0px_25px_50px_-12px_rgba(30,58,138,0.1)] p-8 w-full! max-w-[500px]! min-h-[510px]!"
+    shadow-[0px_25px_50px_-12px_rgba(30,58,138,0.1)] md:p-8 py-4 w-full! max-w-[500px]! min-h-[510px]! "
     >
       {/* Header */}
-      <div className="flex flex-col items-center gap-1 mb-6">
+      <div className="flex flex-col items-center gap-1">
         <h3 className="font-[Oswald] text-[24px] font-bold leading-[32px] text-[#0f172a] uppercase text-center">
           Enter to Win
         </h3>
@@ -56,11 +55,6 @@ function WinForm() {
 
       {/* Klaviyo embedded form */}
       <div className="klaviyo-form-Szc2zf" />
-
-      {/* Footer Text */}
-      <p className="font-[Manrope] text-[12px] font-normal leading-[18px] text-[#94a3b8] text-center mt-6">
-        By entering, you agree to our Terms. We respect your privacy.
-      </p>
 
       {/* Success Modal */}
       <SuccessModal
