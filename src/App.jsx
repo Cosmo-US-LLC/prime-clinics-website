@@ -18,6 +18,10 @@ function App() {
           <Route path="/free-dexa-scan" element={<DEXAScanWaitlist />} />
           <Route path="/free-dexa-scan/thank-you" element={<DEXAScanWaitlist />} />
           <Route path="/free-dexa-scan-and-longevity-assessment" element={<WinaFree$300 />} />
+          <Route
+            path="/free-dexa-scan-and-longevity-assessment/thank-you"
+            element={<WinaFree$300 />}
+          />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
           

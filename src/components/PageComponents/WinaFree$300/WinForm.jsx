@@ -1,141 +1,41 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import { submitFormResponse } from "@/lib/forms";
-import { klaviyoIdentifyAndTrack } from "@/lib/klaviyo";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import SuccessModal from "../Waitlist/SuccessModal";
-import {
-  PhoneInput,
-  defaultCountries,
-  parseCountry,
-} from "react-international-phone";
-import "react-international-phone/style.css";
-
-const canadaOnlyCountries = defaultCountries.filter((country) => {
-  const { iso2 } = parseCountry(country);
-  return iso2 === "ca";
-});
 import dexaSuccessImage from "@/assets/images/success_modal/success_bg_free_dexa.webp";
 
-// Email validation constants
-const popularProviders = [
-  // Google
-  "gmail.com",
-  // Microsoft
-  "outlook.com",
-  "hotmail.com",
-  "live.com",
-  "msn.com",
-  // Yahoo
-  "yahoo.com",
-  // Apple
-  "icloud.com",
-  "me.com",
-  "mac.com",
-  // AOL
-  "aol.com",
-  // Zoho
-  "zoho.com",
-  // Proton
-  "protonmail.com",
-  // GMX
-  "gmx.com",
-  // Yandex
-  "yandex.com",
-];
-
-const blockedTlds = ["con", "comm", "cim", "cmo", "vom", "xom", "c"];
-
-const isValidEmail = (email) => {
-  // Basic structure
-  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,24}$/;
-
-  if (!regex.test(email)) return false;
-
-  const domain = email.split("@")[1].toLowerCase();
-  const tld = domain.split(".").pop();
-
-  // Block typo TLDs everywhere
-  if (blockedTlds.includes(tld)) return false;
-
-  // Popular providers → only allow exact .com domains
-  if (popularProviders.includes(domain)) return true;
-
-  const providerRoot = domain.split(".").slice(-2).join(".");
-  const popularRoots = popularProviders.map((p) => p.split(".")[0]);
-
-  if (popularRoots.includes(providerRoot.split(".")[0])) {
-    return false;
-  }
-
-  return true;
-};
+const THANK_YOU_PATH =
+  "/free-dexa-scan-and-longevity-assessment/thank-you";
 
 function WinForm() {
-  const [status, setStatus] = React.useState({ state: "idle", message: "" });
-  const [showSuccessModal, setShowSuccessModal] = React.useState(false);
-  const [phone, setPhone] = React.useState("");
-  const [phoneError, setPhoneError] = React.useState("");
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const location = useLocation();
 
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors, isSubmitting },
-  } = useForm({
-    defaultValues: {
-      fullName: "",
-      email: "",
-      phone: "",
-    },
-  });
+  // On Klaviyo submit: redirect to our thank-you page so our modal shows
+  useEffect(() => {
+    const handleKlaviyoSubmit = (e) => {
+      if (e?.detail?.type === "submit") {
+        window.location.replace(window.location.origin + THANK_YOU_PATH);
+      }
+    };
+    window.addEventListener("klaviyoForms", handleKlaviyoSubmit);
+    return () =>
+      window.removeEventListener("klaviyoForms", handleKlaviyoSubmit);
+  }, []);
 
-  const onSubmit = async (data) => {
-    setPhoneError("");
-    setStatus({ state: "loading", message: "" });
+  // When landing on /free-dexa-scan-and-longevity-assessment/thank-you or #thank-you, show modal
+  useEffect(() => {
+    const shouldShow =
+      location.pathname === THANK_YOU_PATH ||
+      window.location.hash === "#thank-you";
+    if (!shouldShow) return;
+    const id = setTimeout(() => setShowSuccessModal(true), 0);
+    return () => clearTimeout(id);
+  }, [location.pathname]);
 
-    if (!phone || phone.replace(/\D/g, "").length < 10) {
-      setPhoneError("Phone number is required.");
-      setStatus({ state: "idle", message: "" });
-      return;
-    }
-
-    console.log("Win form submit payload:", {
-      ...data,
-      phone,
-    });
-
-    try {
-      await submitFormResponse({
-        formKey: "win-form",
-        data: {
-          ...data,
-          phone: phone, // Use international phone value
-        },
-      });
-      klaviyoIdentifyAndTrack({
-        Email: data.email,
-        $phone_number_region: phone,
-        firstName: data.fullName,
-        eventName: "Assessment Form Submitted",
-        properties: {
-          formKey: "Assessment",
-        },
-      }).catch((error) => {
-        console.error("Klaviyo tracking failed:", error);
-      });
-      setStatus({
-        state: "success",
-        message: "Thanks! You're entered to win.",
-      });
-      setShowSuccessModal(true);
-      reset();
-      setPhone(""); // Reset phone number
-    } catch (error) {
-      setStatus({
-        state: "error",
-        message:
-          error?.message || "We couldn't submit the form. Please try again.",
-      });
+  const handleSuccessModalOpenChange = (open) => {
+    setShowSuccessModal(open);
+    if (!open) {
+      window.location.href = "/";
     }
   };
 
@@ -154,115 +54,8 @@ function WinForm() {
         </p>
       </div>
 
-      {/* Form */}
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-        {/* Full Name Field */}
-        <div className="flex flex-col gap-1">
-          <label
-            htmlFor="fullName"
-            className="font-[Manrope] text-[14px] font-semibold leading-[20px] text-[#334155]"
-          >
-            Full Name
-          </label>
-          <input
-            type="text"
-            id="fullName"
-            name="fullName"
-            placeholder="John Doe"
-            aria-invalid={errors.fullName ? "true" : "false"}
-            {...register("fullName", {
-              required: "Full name is required.",
-              minLength: {
-                value: 2,
-                message: "Please enter at least 2 characters.",
-              },
-            })}
-            className="bg-white border border-[#cbd5e1] rounded-lg px-[17px] py-[13px] font-[Manrope] text-[16px] font-normal leading-[24px] text-[#1f2937] placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#2463D8] focus:border-transparent transition-all"
-          />
-          {errors.fullName ? (
-            <p className="text-[12px] text-red-500">
-              {errors.fullName.message}
-            </p>
-          ) : null}
-        </div>
-
-        {/* Email Address Field */}
-        <div className="flex flex-col gap-1">
-          <label
-            htmlFor="email"
-            className="font-[Manrope] text-[14px] font-semibold leading-[20px] text-[#334155]"
-          >
-            Email Address
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="john@example.com"
-            aria-invalid={errors.email ? "true" : "false"}
-            {...register("email", {
-              required: "Email address is required.",
-              validate: (value) =>
-                isValidEmail(value) || "Please enter a valid email address.",
-            })}
-            className="bg-white border border-[#cbd5e1] rounded-lg px-[17px] py-[13px] font-[Manrope] text-[16px] font-normal leading-[24px] text-[#1f2937] placeholder:text-[#9ca3af] focus:outline-none focus:ring-2 focus:ring-[#2463D8] focus:border-transparent transition-all"
-          />
-          {errors.email ? (
-            <p className="text-[12px] text-red-500">{errors.email.message}</p>
-          ) : null}
-        </div>
-
-        {/* Phone Field (Required) */}
-        <div className="flex flex-col gap-1">
-          <label
-            htmlFor="phone"
-            className="font-[Manrope] text-[14px] font-semibold leading-[20px] text-[#334155]"
-          >
-            Phone
-          </label>
-          <PhoneInput
-            defaultCountry="ca"
-            countries={canadaOnlyCountries}
-            hideDropdown
-            forceDialCode
-            value={phone}
-            onChange={(phone) => {
-              setPhone(phone);
-              if (phoneError) setPhoneError("");
-            }}
-            className="react-international-phone-input"
-            inputClassName="!bg-white !border !border-[#cbd5e1] !rounded-r-lg !px-[17px] !py-[24px] !font-[Manrope] !text-[16px] !font-normal !leading-[24px] !text-[#1f2937] placeholder:!text-[#9ca3af] focus:!outline-none focus:!ring-2 focus:!ring-[#2463D8] focus:!border-transparent !transition-all !w-full"
-            countrySelectorStyleProps={{
-              buttonClassName:
-                "!border-[#cbd5e1] !rounded-l-lg !px-3 !py-[24px]",
-            }}
-          />
-          {phoneError ? (
-            <p className="text-[12px] text-red-500">{phoneError}</p>
-          ) : null}
-        </div>
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          className="btn-primary w-full md:w-auto whitespace-nowrap py-5 px-8 md:py-4 md:px-6 disabled:opacity-70"
-          disabled={status.state === "loading" || isSubmitting}
-        >
-          {status.state === "loading" || isSubmitting
-            ? "Submitting..."
-            : "Claim My Assessment Spot"}
-        </button>
-
-        {status.message ? (
-          <p
-            className={`font-[Manrope] text-[12px] text-center ${
-              status.state === "error" ? "text-red-500" : "text-green-600"
-            }`}
-          >
-            {status.message}
-          </p>
-        ) : null}
-      </form>
+      {/* Klaviyo embedded form */}
+      <div className="klaviyo-form-Szc2zf" />
 
       {/* Footer Text */}
       <p className="font-[Manrope] text-[12px] font-normal leading-[18px] text-[#94a3b8] text-center mt-6">
@@ -272,7 +65,7 @@ function WinForm() {
       {/* Success Modal */}
       <SuccessModal
         open={showSuccessModal}
-        onOpenChange={setShowSuccessModal}
+        onOpenChange={handleSuccessModalOpenChange}
         image={dexaSuccessImage}
         titleHighlight="Thanks"
         titleRest=" for Entering the Pool!"
