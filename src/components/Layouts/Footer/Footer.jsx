@@ -154,12 +154,6 @@ function Footer() {
                   lina@primeclinics.ca
                 </a>
               </div>
-              {/* <div className="contact-item">
-                <div className="contact-icon">
-                  <MapPin size={20} />
-                </div>
-                <span className="contact-link">Address</span>
-              </div> */}
             </div>
           </div>
 
