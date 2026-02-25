@@ -1,56 +1,69 @@
-.DEXA_scan_hero{
-    background-image: url("../images/waitlist/DEXA_hero/DEXAScan_hero_desktop.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
+/* Home page images */
+.home_hero {
+  background-image: url("../images/home/home_hero/home_hero_desktop.webp");
+  background-size: cover;
+  background-position: tops;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+/* Wait list page images */
+
+.DEXA_scan_hero {
+  background-image: url("../images/waitlist/DEXA_hero/DEXAScan_hero_desktop.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+.DEXA_scan_new {
+  background-image: url("../images/waitlist/New_DEXA_SCAN/DEXA_Scan.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+.dont_train_in_the_dark {
+  background-image: url("../images/waitlist/dont_train/dont_train_desktop.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+.Wina_Free_hero {
+  background-image: url("../images/WinaFree$300/HeroWin/win_hero_img.webp");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+.dont_train_in_the_dark_win {
+  background-image: url("../images/WinaFree$300/ReadytoReclaim/ready_to_reclaim_bg_desktop.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .home_hero {
+    background-image: url("../images/home/home_hero/home_hero_mobile.webp");
   }
 
-.DEXA_scan_new{
-    background-image: url("../images/waitlist/New_DEXA_SCAN/DEXA_Scan.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-  } 
-
-.dont_train_in_the_dark{
-    background-image: url("../images/waitlist/dont_train/dont_train_desktop.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
+  /* Wait list page images */
+  .DEXA_scan_hero {
+    background-image: url("../images/waitlist/DEXA_hero/DEXAScan_hero_mobile.webp");
   }
-
-  .Wina_Free_hero{
-    background-image: url("../images/WinaFree$300/HeroWin/win_hero_img.webp");
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
-    width: 100%;
+  .dont_train_in_the_dark {
+    background-image: url("../images/waitlist/dont_train/dont_train_mobile.webp");
   }
-  .dont_train_in_the_dark_win{
-    background-image: url("../images/WinaFree$300/ReadytoReclaim/ready_to_reclaim_bg_desktop.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
+  .dont_train_in_the_dark_win {
+    background-image: url("../images/WinaFree$300/ReadytoReclaim/ready_to_reclaim_bg_mobile.webp");
   }
-
-
-
-  @media (max-width: 768px) {
-    .DEXA_scan_hero {
-      background-image: url("../images/waitlist/DEXA_hero/DEXAScan_hero_mobile.webp");
-    }
-    .dont_train_in_the_dark {
-      background-image: url("../images/waitlist/dont_train/dont_train_mobile.webp");
-    }
-    .dont_train_in_the_dark_win{
-      background-image: url("../images/WinaFree$300/ReadytoReclaim/ready_to_reclaim_bg_mobile.webp");
-    }
-    .Wina_Free_hero{
-      background-image: url("../images/WinaFree$300/HeroWin/win_hero_img_mobile.webp");
-    }
+  .Wina_Free_hero {
+    background-image: url("../images/WinaFree$300/HeroWin/win_hero_img_mobile.webp");
   }
-  
+}
