@@ -65,6 +65,8 @@ function Footer() {
                 href="https://www.instagram.com/primeclinicsca/?hl=en"
                 className="social-icon"
                 aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Instagram size={18} />
               </a>
@@ -72,6 +74,8 @@ function Footer() {
                 href="https://www.facebook.com/profile.php?id=61586592020190"
                 className="social-icon"
                 aria-label="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Facebook size={18} />
               </a>
