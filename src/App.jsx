@@ -16,12 +16,12 @@ function App() {
       <ScrollToTop />
       <Routes>
         {/* Home uses landing header + footer */}
-        {/* <Route element={<LandingLayout />}>
+        <Route element={<LandingLayout />}>
           <Route index element={<Home />} />
-        </Route> */}
+        </Route>
         {/* Other routes use main Navbar + Footer */}
         <Route element={<Layout />}>
-          <Route index element={<DEXAScanWaitlist />} />
+          {/* <Route index element={<DEXAScanWaitlist />} /> */}
           <Route path="/free-dexa-scan" element={<DEXAScanWaitlist />} />
           <Route
             path="/free-dexa-scan/thank-you"
