@@ -37,6 +37,14 @@
     width: 100%;
   }
 
+  .hero_banner{
+    background-image: url("../images/hero/Hero-Banner.webp");
+    background-size: cover;
+    border-radius: 16px;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    /* width: 100%; */
+  }
 
 
   @media (max-width: 768px) {

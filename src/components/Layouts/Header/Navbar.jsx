@@ -59,6 +59,7 @@ function Navbar() {
 
           {/* Button */}
           <div className="flex items-center">
+            
             <button className="btn-primary" onClick={scrollToHero}>
             {getCTAText()}
             </button>

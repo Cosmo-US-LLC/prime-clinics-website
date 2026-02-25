@@ -7,6 +7,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route element={<Layout />}>
-          <Route index element={<DEXAScanWaitlist />} />
+          <Route index element={<Home />} />
           <Route path="/free-dexa-scan" element={<DEXAScanWaitlist />} />
           <Route path="/free-dexa-scan/thank-you" element={<DEXAScanWaitlist />} />
           <Route path="/free-dexa-scan-and-longevity-assessment" element={<WinaFree$300 />} />
