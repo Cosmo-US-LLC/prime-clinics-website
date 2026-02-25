@@ -1,6 +1,13 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Phone, Mail, MapPin, Instagram, Facebook, Youtube } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Instagram,
+  Facebook,
+  Youtube,
+} from "lucide-react";
 import "./footer.css";
 import Logo from "@/assets/icons/Prime_Logo.svg";
 
@@ -17,9 +24,9 @@ function Footer() {
   };
 
   const scrollToHero = () => {
-    const heroSection = document.getElementById('hero-section');
+    const heroSection = document.getElementById("hero-section");
     if (heroSection) {
-      heroSection.scrollIntoView({ behavior: 'smooth' });
+      heroSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -40,22 +47,35 @@ function Footer() {
             <div className="logo-section ">
               <div className="footer-logo">
                 {/* Replace with your actual logo */}
-                <img src={Logo} alt="Prime Clinics Logo" className="logo-image" />
+                <img
+                  src={Logo}
+                  alt="Prime Clinics Logo"
+                  className="logo-image"
+                />
               </div>
               <p className="footer-description">
-                Unlocking potential through science and personalized care. Join the elite community dedicated to longevity and performance.
+                Unlocking potential through science and personalized care. Join
+                the elite community dedicated to longevity and performance.
               </p>
             </div>
-            
+
             {/* Social Media Icons */}
-            {/* <div className="social-media">
-              <a href="#" className="social-icon" aria-label="Instagram">
+            <div className="social-media">
+              <a
+                href="https://www.instagram.com/primeclinicsca/?hl=en"
+                className="social-icon"
+                aria-label="Instagram"
+              >
                 <Instagram size={18} />
               </a>
-              <a href="#" className="social-icon" aria-label="Facebook">
+              <a
+                href="https://www.facebook.com/profile.php?id=61586592020190"
+                className="social-icon"
+                aria-label="Facebook"
+              >
                 <Facebook size={18} />
               </a>
-              <a href="#" className="social-icon" aria-label="YouTube">
+              {/* <a href="#" className="social-icon" aria-label="YouTube">
                 <Youtube size={18} />
               </a>
               <a href="#" className="social-icon" aria-label="Google My Business">
@@ -71,8 +91,8 @@ function Footer() {
   <path d="M3.66406 11.9883V19.453C3.66406 19.7182 3.76942 19.9726 3.95696 20.1601C4.14449 20.3476 4.39885 20.453 4.66406 20.453H19.3391C19.6043 20.453 19.8586 20.3476 20.0462 20.1601C20.2337 19.9726 20.3391 19.7182 20.3391 19.453V11.9889" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M16.7477 16.7847H18.726C18.7323 17.0458 18.6871 17.3055 18.5931 17.5492C18.499 17.7928 18.3578 18.0155 18.1777 18.2045C17.9975 18.3936 17.7819 18.5453 17.5431 18.6511C17.3043 18.7568 17.0471 18.8145 16.786 18.8208L16.7476 18.8214C16.4801 18.8214 16.2153 18.7687 15.9682 18.6663C15.7211 18.564 15.4966 18.414 15.3075 18.2248C15.1183 18.0357 14.9683 17.8112 14.866 17.5641C14.7636 17.317 14.7109 17.0522 14.7109 16.7847C14.7109 16.5173 14.7636 16.2524 14.866 16.0053C14.9683 15.7582 15.1183 15.5337 15.3075 15.3446C15.4966 15.1555 15.7211 15.0054 15.9682 14.9031C16.2153 14.8007 16.4801 14.7481 16.7476 14.7481C17.102 14.7465 17.4505 14.839 17.7576 15.0159" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-              </a>
-            </div> */}
+              </a> */}
+            </div>
           </div>
 
           {/* Middle Column - Our Services */}
@@ -103,9 +123,27 @@ function Footer() {
               </div>
               <div className="contact-item">
                 <div className="contact-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M16.6665 3.33325H3.33317C2.4127 3.33325 1.6665 4.07944 1.6665 4.99992V14.9999C1.6665 15.9204 2.4127 16.6666 3.33317 16.6666H16.6665C17.587 16.6666 18.3332 15.9204 18.3332 14.9999V4.99992C18.3332 4.07944 17.587 3.33325 16.6665 3.33325Z" stroke="currentColor" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M18.3332 5.83325L10.8582 10.5833C10.6009 10.7444 10.3034 10.8299 9.99984 10.8299C9.69624 10.8299 9.39878 10.7444 9.1415 10.5833L1.6665 5.83325" stroke="currentColor" strokeWidth="1.66667" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M16.6665 3.33325H3.33317C2.4127 3.33325 1.6665 4.07944 1.6665 4.99992V14.9999C1.6665 15.9204 2.4127 16.6666 3.33317 16.6666H16.6665C17.587 16.6666 18.3332 15.9204 18.3332 14.9999V4.99992C18.3332 4.07944 17.587 3.33325 16.6665 3.33325Z"
+                      stroke="currentColor"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    <path
+                      d="M18.3332 5.83325L10.8582 10.5833C10.6009 10.7444 10.3034 10.8299 9.99984 10.8299C9.69624 10.8299 9.39878 10.7444 9.1415 10.5833L1.6665 5.83325"
+                      stroke="currentColor"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </div>
                 <a href="mailto:lina@primeclinics.ca" className="contact-link">
@@ -134,9 +172,7 @@ function Footer() {
         <div className="footer-bottom">
           <div className="footer-divider"></div>
           <div className="footer-bottom-content">
-            <p className="copyright">
-              © {currentYear} All rights reserved
-            </p>
+            <p className="copyright">© {currentYear} All rights reserved</p>
             <ul className="footer-links max-md:flex justify-center max-md:!flex-row items-center gap-4 max-md:list-disc max-md:list-inside">
               <li className="max-md:list-item md:list-none">
                 <Link to="/privacy-policy" className="footer-bottom-link">
