@@ -31,7 +31,7 @@ function LandingPageHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const headerBase = `fixed inset-x-0 top-0 z-50 w-full h-[${scrolled ? "84px" : "104px"}] transition-all duration-200`;
+  const headerBase = `fixed inset-x-0 ${scrolled ? "top-0" : "top-6"} z-50 w-full h-[${scrolled ? "84px" : "94px"}] transition-all duration-200`;
   const headerState = scrolled
     ? "bg-white shadow-[0_1px_2px_rgba(15,23,42,0.5)] backdrop-blur"
     : "bg-transparent";
