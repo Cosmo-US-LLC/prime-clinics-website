@@ -1,7 +1,7 @@
 /* Manrope Font Family */
 @font-face {
-  font-family: 'Manrope';
-  src: url('../fonts/Manrope/Manrope-VariableFont_wght.ttf') format('truetype');
+  font-family: "Manrope";
+  src: url("../fonts/Manrope/Manrope-VariableFont_wght.ttf") format("truetype");
   font-weight: 200 800;
   font-style: normal;
   font-display: swap;
@@ -9,56 +9,56 @@
 
 /* Manrope Static Fonts (fallback for older browsers) */
 @font-face {
-  font-family: 'Manrope';
-  src: url('../fonts/Manrope/static/Manrope-ExtraLight.ttf') format('truetype');
+  font-family: "Manrope";
+  src: url("../fonts/Manrope/static/Manrope-ExtraLight.ttf") format("truetype");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Manrope';
-  src: url('../fonts/Manrope/static/Manrope-Light.ttf') format('truetype');
+  font-family: "Manrope";
+  src: url("../fonts/Manrope/static/Manrope-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Manrope';
-  src: url('../fonts/Manrope/static/Manrope-Regular.ttf') format('truetype');
+  font-family: "Manrope";
+  src: url("../fonts/Manrope/static/Manrope-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Manrope';
-  src: url('../fonts/Manrope/static/Manrope-Medium.ttf') format('truetype');
+  font-family: "Manrope";
+  src: url("../fonts/Manrope/static/Manrope-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Manrope';
-  src: url('../fonts/Manrope/static/Manrope-SemiBold.ttf') format('truetype');
+  font-family: "Manrope";
+  src: url("../fonts/Manrope/static/Manrope-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Manrope';
-  src: url('../fonts/Manrope/static/Manrope-Bold.ttf') format('truetype');
+  font-family: "Manrope";
+  src: url("../fonts/Manrope/static/Manrope-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Manrope';
-  src: url('../fonts/Manrope/static/Manrope-ExtraBold.ttf') format('truetype');
+  font-family: "Manrope";
+  src: url("../fonts/Manrope/static/Manrope-ExtraBold.ttf") format("truetype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -66,8 +66,8 @@
 
 /* Oswald Font Family */
 @font-face {
-  font-family: 'Oswald';
-  src: url('../fonts/Oswald/Oswald-VariableFont_wght.ttf') format('truetype');
+  font-family: "Oswald";
+  src: url("../fonts/Oswald/Oswald-VariableFont_wght.ttf") format("truetype");
   font-weight: 200 700;
   font-style: normal;
   font-display: swap;
@@ -75,51 +75,69 @@
 
 /* Oswald Static Fonts (fallback for older browsers) */
 @font-face {
-  font-family: 'Oswald';
-  src: url('../fonts/Oswald/static/Oswald-ExtraLight.ttf') format('truetype');
+  font-family: "Oswald";
+  src: url("../fonts/Oswald/static/Oswald-ExtraLight.ttf") format("truetype");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Oswald';
-  src: url('../fonts/Oswald/static/Oswald-Light.ttf') format('truetype');
+  font-family: "Oswald";
+  src: url("../fonts/Oswald/static/Oswald-Light.ttf") format("truetype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Oswald';
-  src: url('../fonts/Oswald/static/Oswald-Regular.ttf') format('truetype');
+  font-family: "Oswald";
+  src: url("../fonts/Oswald/static/Oswald-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Oswald';
-  src: url('../fonts/Oswald/static/Oswald-Medium.ttf') format('truetype');
+  font-family: "Oswald";
+  src: url("../fonts/Oswald/static/Oswald-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Oswald';
-  src: url('../fonts/Oswald/static/Oswald-SemiBold.ttf') format('truetype');
+  font-family: "Oswald";
+  src: url("../fonts/Oswald/static/Oswald-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Oswald';
-  src: url('../fonts/Oswald/static/Oswald-Bold.ttf') format('truetype');
+  font-family: "Oswald";
+  src: url("../fonts/Oswald/static/Oswald-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
+}
+
+.heading-2 {
+  font-family: Oswald;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 56px;
+}
+
+/* Header 4 24px/Bold */
+.heading-3 {
+  font-family: Oswald;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px; /* 133.333% */
+  text-transform: uppercase;
 }
 
 /* Button Classes */
@@ -130,7 +148,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  color: #FFF;
+  color: #fff;
   font-family: Manrope;
   font-size: 16px;
   font-style: normal;
@@ -138,7 +156,7 @@
   line-height: 24px;
   /* border: 2px solid #2463D8; */
   border-radius: 8px;
-  background-color: #2463D8;
+  background-color: #2463d8;
   cursor: pointer;
   transition: all 0.1s ease-in-out;
 }
@@ -170,7 +188,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-  color: #2463D8;
+  color: #2463d8;
   font-family: Manrope;
   font-size: 16px;
   font-style: normal;
@@ -178,7 +196,7 @@
   line-height: 24px;
   /* border: 2px solid #2463D8; */
   border-radius: 8px;
-  background-color: #FFF;
+  background-color: #fff;
   cursor: pointer;
   transition: all 0.1s ease-in-out;
 }
@@ -186,5 +204,16 @@
 .btn-primary-2:hover {
   background-color: #e0e6f2;
   /* border: 2px solid #2463D8; */
-  color: #2463D8;
+  color: #2463d8;
+}
+
+@media (max-width: 768px) {
+  .heading-2 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .heading-3 {
+    font-size: 20px;
+    line-height: 28px;
+  }
 }

@@ -5,10 +5,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Plus, Minus } from "lucide-react";
-
-const FAQ_IMAGE =
-  "https://www.figma.com/api/mcp/asset/257eb8ba-45fa-4495-83f6-df4b81d791e9";
+import { X, Minus } from "lucide-react";
+import FAQ_IMAGE from "@/assets/images/home/faqs/faqs_image.webp";
 
 const FAQ_ITEMS = [
   {
@@ -46,14 +44,14 @@ const FAQ_ITEMS = [
 function HomeFAQ() {
   return (
     <section
-      className="w-full bg-[#F9FAFB] px-4 py-12 md:px-12 md:py-20"
+      className="w-full bg-[#F9FAFB] py-12 md:py-20"
       aria-label="Frequently asked questions"
     >
-      <div className="mx-auto flex max-w-[1280px] flex-col gap-10 md:flex-row md:items-start md:gap-20">
+      <div className="mx-auto flex max-w-[1280px] md:px-8 px-4 flex-col gap-10 md:flex-row md:items-start md:gap-20">
         {/* Left: Heading + description + image */}
         <div className="flex flex-1 flex-col gap-6">
           <div className="flex flex-col gap-4">
-            <h2 className="font-display text-[32px] md:text-[48px] font-bold leading-[40px] md:leading-[56px] text-[#040A16] uppercase m-0">
+            <h2 className="font-display heading-2 text-[#040A16] uppercase m-0">
               Frequently Asked Questions
             </h2>
             <p className="font-sans text-[16px] leading-[24px] text-[#030712] m-0">
@@ -71,18 +69,18 @@ function HomeFAQ() {
         </div>
 
         {/* Right: Accordion */}
-        <div className="flex w-full flex-col gap-4 md:max-w-[640px] md:shrink-0">
+        <div className="flex w-full flex-col gap-4 md:max-w-[520px] md:shrink-0">
           <Accordion
             type="single"
             collapsible
             defaultValue="item-0"
-            className="w-full"
+            className="w-full space-y-4"
           >
             {FAQ_ITEMS.map((item, index) => (
               <AccordionItem
                 key={item.question}
                 value={`item-${index}`}
-                className="border border-[#F3F4F6] bg-white rounded-xl px-5 py-5 data-[state=open]:border-[#F3F4F6]"
+                className="border border-[#F3F4F6] bg-white rounded-xl  px-5 py-5 data-[state=open]:border-[#F3F4F6]"
               >
                 <AccordionTrigger className="hover:no-underline [&>svg]:hidden group py-0">
                   <div className="flex w-full items-start justify-between gap-4">
@@ -90,13 +88,13 @@ function HomeFAQ() {
                       {item.question}
                     </p>
                     <div className="shrink-0 mt-0.5 relative size-6 flex items-center justify-center">
-                      <Plus className="absolute size-6 text-[#030712] [.group[data-state=open]_&]:hidden" />
-                      <Minus className="absolute size-6 text-[#030712] hidden [.group[data-state=open]_&]:block" />
+                      <X className="absolute size-5 text-[#030712] [.group[data-state=open]_&]:hidden" />
+                      <Minus className="absolute size-5 text-[#030712] hidden [.group[data-state=open]_&]:block" />
                     </div>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="pt-2 pb-0">
-                  <p className="font-sans text-[16px] leading-[24px] text-[#1F2937] m-0">
+                  <p className="font-sans text-[16px] font-normal leading-[24px] text-[#1F2937] m-0">
                     {item.answer}
                   </p>
                 </AccordionContent>

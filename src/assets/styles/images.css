@@ -2,9 +2,11 @@
 .home_hero {
   background-image: url("../images/home/home_hero/home_hero_desktop.webp");
   background-size: cover;
-  background-position: tops;
+  background-position: 100% 100%;
   background-repeat: no-repeat;
   width: 100%;
+  min-height: 700px;
+  height: 100vh;
 }
 
 /* Wait list page images */

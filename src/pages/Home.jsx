@@ -16,7 +16,7 @@ function Home() {
       <HomeOurSpecialties />
       <HomeSignatureProcess />
       <HomeKnowYourNumbers />
-      <HomeFounder />
+      {/* <HomeFounder /> */}
       <HomeTestimonials />
       <HomeFAQ />
       <StepIntoPrime />

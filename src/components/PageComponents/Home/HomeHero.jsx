@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function HomeHero() {
   return (
     <section
-      className="relative w-full h-[100vh] flex overflow-hidden home_hero"
+      className="relative w-full flex overflow-hidden home_hero"
       aria-label="Hero"
     >
       <div className="max-w-[1280px] mx-auto w-full md:px-8 px-4 py-16 md:py-[80px] flex justify-start items-end">
@@ -16,7 +16,7 @@ function HomeHero() {
                 Performance
               </span>
             </h1>
-            <p className="font-sans text-[18px] font-normal leading-[26px] text-white m-0 max-w-[545px]">
+            <p className="font-sans text-[18px] font-normal leading-[26px] text-white m-0 max-w-[495px]">
               Precision performance science designed to elevate strength,
               clarity, vitality, and longevity.
             </p>
@@ -24,7 +24,7 @@ function HomeHero() {
           <div>
             <Link
               to="/free-dexa-scan"
-              className="inline-flex items-center justify-center px-6 py-4 rounded-lg bg-[#2463D8] text-white font-sans text-base font-bold leading-6 hover:bg-[#1a4fa8] transition-colors"
+              className="inline-flex btn-primary text-white w-fit"
             >
               Begin Your Journey
             </Link>

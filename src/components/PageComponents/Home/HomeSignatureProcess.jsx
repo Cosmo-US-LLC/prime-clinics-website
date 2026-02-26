@@ -25,17 +25,17 @@ const STEPS = [
 function HomeSignatureProcess() {
   return (
     <section
-      className="w-full bg-white px-4 md:px-[60px] py-12 md:py-20"
+      className="w-full bg-white py-12 md:py-16"
       aria-label="Our signature process"
     >
-      <div className="mx-auto flex max-w-[1280px] flex-col items-center gap-10 md:gap-12">
+      <div className="mx-auto flex max-w-[1280px] px-4 md:px-8 flex-col items-center gap-6 md:gap-5">
         {/* Heading block */}
-        <div className="flex flex-col items-center gap-4 text-center">
+        <div className="flex flex-col items-center gap-3 text-center">
           <p className="font-sans text-[14px] md:text-[20px] font-bold leading-[20px] md:leading-[28px] tracking-widest text-[#2463D8] uppercase m-0">
             How It Works
           </p>
           <div className="flex flex-col gap-2 max-w-[780px]">
-            <h2 className="font-display text-[32px] md:text-[48px] font-bold leading-[40px] md:leading-[56px] text-[#040A16] uppercase m-0">
+            <h2 className="heading-2 text-[#040A16] uppercase m-0">
               Our Signature Process
             </h2>
             <p className="font-sans text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-[#030712] m-0">
@@ -45,19 +45,19 @@ function HomeSignatureProcess() {
         </div>
 
         {/* Steps row */}
-        <div className="grid w-full gap-6 md:grid-cols-3 md:gap-6">
+        <div className="grid w-full gap-6 md:grid-cols-3 md:gap-4">
           {STEPS.map((step) => (
             <article
               key={step.number}
               className="flex flex-col items-center gap-8 bg-white px-6 py-8 md:px-6 md:py-12 text-center"
             >
-              <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-[#2463D8]">
+              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-[8px] bg-[#2463D8]">
                 <span className="font-display text-[40px] font-semibold leading-[56px] text-white">
                   {step.number}
                 </span>
               </div>
-              <div className="flex flex-col gap-3">
-                <h3 className="font-display text-[20px] md:text-[24px] font-bold leading-[28px] md:leading-[32px] text-[#040A16] uppercase m-0">
+              <div className="flex flex-col gap-3 justify-center items-center">
+                <h3 className="heading-3 text-[#040A16] max-w-[300px] uppercase m-0">
                   {step.title}
                 </h3>
                 <p className="font-sans text-[16px] md:text-[18px] leading-[24px] md:leading-[26px] text-[#020120] m-0">
@@ -69,10 +69,7 @@ function HomeSignatureProcess() {
         </div>
 
         {/* CTA */}
-        <Link
-          to="/free-dexa-scan"
-          className="inline-flex items-center justify-center rounded-lg bg-[#2463D8] px-6 py-4 font-sans text-[16px] font-bold leading-[24px] text-white hover:bg-[#1a4fa8] transition-colors"
-        >
+        <Link to="/free-dexa-scan" className="inline-flex btn-primary">
           Get Free Consultation
         </Link>
       </div>
