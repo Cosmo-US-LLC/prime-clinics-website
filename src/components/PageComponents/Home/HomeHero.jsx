@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function HomeHero() {
   return (
     <section
-      className="relative w-full flex overflow-hidden home_hero"
+      className="relative w-full overflow-hidden flex home_hero"
       aria-label="Hero"
     >
       <div className="max-w-[1280px] mx-auto w-full md:px-8 px-4 py-16 md:py-[80px] flex justify-start items-end">
