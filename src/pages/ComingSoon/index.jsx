@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const SERVICE_CARDS = [
   { label: "Physical Health", image: "/images/coming-soon/card-physical-health.jpg" },
@@ -9,6 +9,105 @@ const SERVICE_CARDS = [
   { label: "Mental Fitness", image: "/images/coming-soon/card-mental.png" },
   { label: "Joint Rehabilitation", image: "/images/coming-soon/card-joint.png" },
 ];
+
+function EmailForm() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [errorMsg, setErrorMsg] = useState("");
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    if (!email || !email.includes("@")) {
+      setErrorMsg("Please enter a valid email address.");
+      setStatus("error");
+      return;
+    }
+    setStatus("loading");
+    try {
+      // Push to Klaviyo via their client-side identify API
+      window._learnq = window._learnq || [];
+      window._learnq.push(["identify", { $email: email.trim().toLowerCase() }]);
+      setStatus("success");
+      setEmail("");
+    } catch {
+      setErrorMsg("Something went wrong. Please try again.");
+      setStatus("error");
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div className="mb-4 md:mb-6 max-w-[382px]">
+        <div
+          className="rounded-lg px-6 py-4"
+          style={{
+            background: "rgba(255,255,255,0.1)",
+            backdropFilter: "blur(8px)",
+            border: "1px solid rgba(255,255,255,0.3)",
+          }}
+        >
+          <p className="text-white font-semibold text-[16px] font-sans">
+            Thanks! We&apos;ll notify you when we open.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="mb-4 md:mb-6">
+      <form onSubmit={handleSubmit}>
+        <div
+          className="flex items-center rounded-lg max-w-[335px] md:max-w-[382px]"
+          style={{
+            background: "#FFFFFF",
+            border: "1px solid #FFFFFF",
+            padding: "8px",
+          }}
+        >
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              if (status === "error") setStatus("idle");
+            }}
+            placeholder="Enter your email"
+            className="flex-1 min-w-0 bg-transparent outline-none font-sans"
+            style={{
+              padding: "0 8px",
+              fontSize: "16px",
+              lineHeight: "24px",
+              color: "#050505",
+            }}
+          />
+          <button
+            type="submit"
+            disabled={status === "loading"}
+            className="shrink-0 font-sans font-bold cursor-pointer disabled:opacity-60"
+            style={{
+              background: "#2463D8",
+              color: "#FFFFFF",
+              fontSize: "16px",
+              lineHeight: "24px",
+              padding: "10px 24px",
+              borderRadius: "8px",
+              border: "none",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {status === "loading" ? "..." : "Notify Me"}
+          </button>
+        </div>
+        {status === "error" && (
+          <p className="text-red-400 text-sm mt-2">{errorMsg}</p>
+        )}
+      </form>
+      {/* Hidden Klaviyo form for tracking/automation */}
+      <div className="klaviyo-form-XFgySn" style={{ display: "none" }}></div>
+    </div>
+  );
+}
 
 function ComingSoon() {
   useEffect(() => {
@@ -105,10 +204,8 @@ function ComingSoon() {
               our opening.
             </p>
 
-            {/* Klaviyo Form */}
-            <div className="mb-4 md:mb-6 max-w-[382px]">
-              <div className="klaviyo-form-XFgySn"></div>
-            </div>
+            {/* Email Signup Form → Klaviyo */}
+            <EmailForm />
           </div>
 
           {/* Bottom spacer */}
