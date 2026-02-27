@@ -30,6 +30,16 @@
   height: 100vh;
 }
 
+.coming_soon_hero {
+  background-image: url("../images/coming_soon/coming_soon_desktop.webp");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 100%;
+  /* min-height: 700px; */
+  /* height: 100vh; */
+}
+
 /* Wait list page images */
 
 .DEXA_scan_hero {
@@ -74,6 +84,10 @@
 @media (max-width: 768px) {
   .home_hero {
     background-image: url("../images/home/home_hero/home_hero_mobile.webp");
+  }
+
+  .coming_soon_hero {
+    background-image: url("../images/coming_soon/coming_soon_mobile.webp");
   }
 
   /* Wait list page images */

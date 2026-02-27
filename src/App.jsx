@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import VipAccess from "./pages/VipAccess";
+import ComingSoon from "./pages/ComingSoon";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           />
         </Route>
         <Route path="*" element={<NotFound />} />
+        <Route path="/coming-soon" element={<ComingSoon />} />
       </Routes>
     </>
   );
