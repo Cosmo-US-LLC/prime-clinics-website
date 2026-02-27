@@ -134,3 +134,103 @@
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* ── Klaviyo Form Overrides (Coming Soon page) ── */
+.klaviyo-form-XFgySn {
+  /* Kill default white box */
+  background: transparent !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  max-width: 382px !important;
+}
+
+/* Outer Klaviyo wrapper — remove background/padding */
+.klaviyo-form-XFgySn > div,
+.klaviyo-form-XFgySn form,
+.klaviyo-form-XFgySn [data-testid="form-row"] {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Make form row inline (input + button side by side) */
+.klaviyo-form-XFgySn form {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 0 !important;
+  background: white !important;
+  border-radius: 8px !important;
+  padding: 6px !important;
+  max-width: 382px !important;
+}
+
+/* Email input */
+.klaviyo-form-XFgySn form input[type="email"],
+.klaviyo-form-XFgySn form input[type="text"] {
+  flex: 1 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 8px !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  color: #050505 !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
+  min-width: 0 !important;
+  font-family: 'Manrope', sans-serif !important;
+}
+
+.klaviyo-form-XFgySn form input::placeholder {
+  opacity: 0.5 !important;
+  color: #050505 !important;
+}
+
+/* Submit button */
+.klaviyo-form-XFgySn form button[type="submit"],
+.klaviyo-form-XFgySn form .klaviyo-form-version-cid button {
+  background-color: #2463D8 !important;
+  color: white !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
+  border: none !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  font-family: 'Manrope', sans-serif !important;
+  margin: 0 !important;
+  width: auto !important;
+  flex-shrink: 0 !important;
+}
+
+.klaviyo-form-XFgySn form button[type="submit"]:hover {
+  background-color: #1a4fa8 !important;
+}
+
+/* Hide Klaviyo branding / extra wrappers */
+.klaviyo-form-XFgySn .go901652498,
+.klaviyo-form-XFgySn [data-testid="form-component"] > div:not(:has(form)):not(:has(input)) {
+  display: none !important;
+}
+
+/* Success state — style the thank you message */
+.klaviyo-form-XFgySn [data-testid="form-row"]:has(p),
+.klaviyo-form-XFgySn .go3186498498 {
+  color: white !important;
+  background: rgba(255,255,255,0.1) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255,255,255,0.3) !important;
+  border-radius: 8px !important;
+  padding: 16px 24px !important;
+}
+
+.klaviyo-form-XFgySn p {
+  color: white !important;
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+}
