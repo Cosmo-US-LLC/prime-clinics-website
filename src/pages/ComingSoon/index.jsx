@@ -142,34 +142,28 @@ function ComingSoon() {
   return (
     <main className="h-[100dvh] p-2">
       <div className="relative w-full h-full rounded-2xl overflow-hidden flex flex-col">
-        {/* Background Image — Desktop */}
+        {/* Background Image — Desktop (runner uphill) */}
         <div className="hidden md:block absolute inset-0">
           <img
-            src="/images/coming-soon/hero-bg.png"
-            alt="Prime Clinics billboard"
+            src="/images/coming-soon/hero-runner-desktop.webp"
+            alt="Runner sprinting uphill"
             className="w-full h-full object-cover"
+            style={{ objectPosition: "center 30%" }}
           />
-          <div className="absolute inset-0">
-            <img
-              src="/images/coming-soon/hero-billboard.png"
-              alt=""
-              className="w-full h-full object-cover"
-            />
-          </div>
         </div>
 
-        {/* Background Image — Mobile */}
+        {/* Background Image — Mobile (cyclist) */}
         <div className="md:hidden absolute inset-0">
           <img
-            src="/images/coming-soon/hero-mobile.png"
-            alt="Prime Clinics"
-            className="w-full h-full object-cover"
+            src="/images/coming-soon/hero-cyclist-mobile.webp"
+            alt="Cyclist riding"
+            className="w-full h-full object-cover object-top"
           />
         </div>
 
-        {/* Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent hidden md:block" />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent hidden md:block" />
 
         {/* Logo — top left */}
         <div className="relative z-20 px-4 md:px-[60px] py-4 shrink-0">
@@ -210,6 +204,60 @@ function ComingSoon() {
 
             {/* Email Signup Form → Klaviyo */}
             <EmailForm />
+
+            {/* Lead Generating Campaign CTAs */}
+            <p
+              className="text-white text-[13px] md:text-[14px] font-semibold uppercase tracking-wider mb-2"
+              style={{ textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
+            >
+              Limited-Time Offers
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 mb-4 md:mb-6">
+              <a
+                href="/free-dexa-scan"
+                className="group flex items-center gap-4 rounded-xl px-5 py-4 max-w-[335px] sm:max-w-none transition-all"
+                style={{
+                  background: "rgba(0,0,0,0.4)",
+                  backdropFilter: "blur(12px)",
+                  border: "1px solid rgba(255,255,255,0.2)",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(0,0,0,0.5)")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(0,0,0,0.4)")}
+              >
+                <div className="flex-1 min-w-0">
+                  <p className="font-bold text-[13px] md:text-[14px] uppercase tracking-wide" style={{ color: "#60A5FA" }}>Free DEXA Scan</p>
+                  <p className="text-white font-semibold text-[15px] md:text-[17px] leading-snug">Get a Free $145 Body Scan</p>
+                </div>
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
+                  style={{ background: "rgba(255,255,255,0.2)" }}
+                >
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+                </div>
+              </a>
+              <a
+                href="/free-dexa-scan-and-longevity-assessment"
+                className="group flex items-center gap-4 rounded-xl px-5 py-4 max-w-[335px] sm:max-w-none transition-all"
+                style={{
+                  background: "rgba(0,0,0,0.4)",
+                  backdropFilter: "blur(12px)",
+                  border: "1px solid rgba(255,255,255,0.2)",
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(0,0,0,0.5)")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(0,0,0,0.4)")}
+              >
+                <div className="flex-1 min-w-0">
+                  <p className="font-bold text-[13px] md:text-[14px] uppercase tracking-wide" style={{ color: "#60A5FA" }}>Longevity Assessment</p>
+                  <p className="text-white font-semibold text-[15px] md:text-[17px] leading-snug">Win a Free $300 Assessment</p>
+                </div>
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center shrink-0"
+                  style={{ background: "rgba(255,255,255,0.2)" }}
+                >
+                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
+                </div>
+              </a>
+            </div>
           </div>
 
           {/* Bottom spacer */}
