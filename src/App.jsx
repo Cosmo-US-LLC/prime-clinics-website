@@ -14,11 +14,11 @@ function App() {
     <>
       <ScrollToTop />
       <Routes>
-        {/* Coming Soon — standalone page, no Layout (no navbar/footer) */}
+        {/* Coming Soon — homepage, standalone (no navbar/footer) */}
+        <Route index element={<ComingSoon />} />
         <Route path="/coming-soon" element={<ComingSoon />} />
 
         <Route element={<Layout />}>
-          <Route index element={<DEXAScanWaitlist />} />
           <Route path="/free-dexa-scan" element={<DEXAScanWaitlist />} />
           <Route path="/free-dexa-scan-and-longevity-assessment" element={<WinaFree$300 />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
