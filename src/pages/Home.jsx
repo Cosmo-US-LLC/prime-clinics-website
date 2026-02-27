@@ -7,6 +7,7 @@ import HomeSignatureProcess from "@/components/PageComponents/Home/HomeSignature
 import HomeFounder from "@/components/PageComponents/Home/HomeFounder";
 import HomeFAQ from "@/components/PageComponents/Home/HomeFAQ";
 import HomeTestimonials from "@/components/PageComponents/Home/HomeTestimonials";
+import { HomeFAQData } from "@/constants/generalFaqData";
 
 function Home() {
   return (
@@ -18,7 +19,11 @@ function Home() {
       <HomeKnowYourNumbers />
       {/* <HomeFounder /> */}
       <HomeTestimonials />
-      <HomeFAQ />
+      <HomeFAQ
+        items={HomeFAQData}
+        heading="Frequently Asked Questions"
+        description="Everything you need to know about our services, privacy, and how we support your transformation."
+      />
       <StepIntoPrime />
     </>
   );

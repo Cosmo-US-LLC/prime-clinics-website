@@ -6,18 +6,20 @@ export const faqData = [
   },
   {
     question: "When will I get my voucher?",
-    answer: "Digital vouchers will be emailed to winners 15 days before the clinic officially opens.",
+    answer:
+      "Digital vouchers will be emailed to winners 15 days before the clinic officially opens.",
   },
   {
     question: "Is the scan safe?",
-    answer: "Yes. A DEXA scan is a quick, non-invasive, and low-radiation imaging process that takes less than 10 minutes.",
+    answer:
+      "Yes. A DEXA scan is a quick, non-invasive, and low-radiation imaging process that takes less than 10 minutes.",
   },
   {
     question: "Do I have to pay anything if I win?",
-    answer: "No. The 50 lucky winners receive the DEXA scan completely free. no hidden fees or charges.",
+    answer:
+      "No. The 50 lucky winners receive the DEXA scan completely free. no hidden fees or charges.",
   },
 ];
-
 
 export const faqDataWinAFree$300 = [
   {
@@ -31,11 +33,13 @@ export const faqDataWinAFree$300 = [
   },
   {
     question: "Is the DEXA scan safe?",
-    answer: "Yes. DEXA scans are quick, non-invasive, and use very low radiation.",
+    answer:
+      "Yes. DEXA scans are quick, non-invasive, and use very low radiation.",
   },
   {
     question: "Do I have to pay anything if I win?",
-    answer: "No. The 5 winners receive the full $300 assessment completely free.",
+    answer:
+      "No. The 5 winners receive the full $300 assessment completely free.",
   },
 ];
 

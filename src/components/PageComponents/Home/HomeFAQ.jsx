@@ -7,41 +7,13 @@ import {
 } from "@/components/ui/accordion";
 import { X, Minus } from "lucide-react";
 import FAQ_IMAGE from "@/assets/images/home/faqs/faqs_image.webp";
+import { generalFaqData } from "@/constants/generalFaqData";
 
-const FAQ_ITEMS = [
-  {
-    question: "How can I get started with Prime Clinic?",
-    answer:
-      "Appointments are arranged to fit your professional schedule. Most sessions last 30–60 minutes.",
-  },
-  {
-    question: "Is my privacy guaranteed?",
-    answer:
-      "Yes. All consultations and treatments are handled with strict clinical confidentiality.",
-  },
-  {
-    question: "Are the treatments safe?",
-    answer:
-      "Absolutely. All protocols are physician-supervised and grounded in evidence-based medical practice.",
-  },
-  {
-    question: "Can I combine multiple programs?",
-    answer:
-      "Yes. Our services are designed to be safely integrated to address multiple health and performance goals.",
-  },
-  {
-    question: "How long before I see results?",
-    answer:
-      "Cognitive improvements can appear quickly, while physiological and performance changes typically evolve over 3–6 months.",
-  },
-  {
-    question: "Are online consultations available?",
-    answer:
-      "Yes. Select sessions can be conducted via our secure telehealth platform for convenience and efficiency.",
-  },
-];
-
-function HomeFAQ() {
+function HomeFAQ({
+  heading = "Frequently Asked Questions",
+  description = "Everything you need to know about our services, privacy, and how we support your transformation.",
+  items = generalFaqData,
+}) {
   return (
     <section
       className="w-full bg-[#F9FAFB] py-12 md:py-20"
@@ -52,11 +24,10 @@ function HomeFAQ() {
         <div className="flex flex-1 flex-col gap-6">
           <div className="flex flex-col gap-4">
             <h2 className="font-display heading-2 text-[#040A16] text-center md:text-left uppercase m-0">
-              Frequently Asked Questions
+              {heading}
             </h2>
             <p className="font-sans text-[16px] leading-[24px] text-[#030712] m-0 text-center md:text-left">
-              Everything you need to know about our services, privacy, and how
-              we support your transformation.
+              {description}
             </p>
           </div>
           <div className="relative h-[280px] w-full overflow-hidden rounded-2xl md:h-[400px]">
@@ -76,7 +47,7 @@ function HomeFAQ() {
             defaultValue="item-0"
             className="w-full space-y-4"
           >
-            {FAQ_ITEMS.map((item, index) => (
+            {items.map((item, index) => (
               <AccordionItem
                 key={item.question}
                 value={`item-${index}`}

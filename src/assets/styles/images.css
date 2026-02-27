@@ -10,6 +10,26 @@
   display: flex-grow;
 }
 
+.vip_access_hero {
+  background-image: url("../images/vip_access/vip_hero/vip_hero_desktop.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 700px;
+  height: 100vh;
+}
+
+.ready_to_vip {
+  background-image: url("../images/vip_access/ready_to_vip/ready_to_vip.webp");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 560px;
+  height: 100vh;
+}
+
 /* Wait list page images */
 
 .DEXA_scan_hero {

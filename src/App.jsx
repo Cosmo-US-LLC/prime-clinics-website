@@ -9,6 +9,7 @@ import TermsAndConditions from "./pages/TermsAndConditions";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
+import VipAccess from "./pages/VipAccess";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         {/* Home uses landing header + footer */}
         <Route element={<LandingLayout />}>
           <Route index element={<Home />} />
+          <Route path="/vip-access" element={<VipAccess />} />
         </Route>
         {/* Other routes use main Navbar + Footer */}
         <Route element={<Layout />}>
