@@ -24,9 +24,38 @@ function EmailForm() {
     }
     setStatus("loading");
     try {
-      // Push to Klaviyo via their client-side identify API
-      window._learnq = window._learnq || [];
-      window._learnq.push(["identify", { $email: email.trim().toLowerCase() }]);
+      const res = await fetch(
+        "https://a.klaviyo.com/client/subscriptions/?company_id=Wnsp3Z",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            revision: "2024-10-15",
+          },
+          body: JSON.stringify({
+            data: {
+              type: "subscription",
+              attributes: {
+                custom_source: "Coming Soon Page",
+                profile: {
+                  data: {
+                    type: "profile",
+                    attributes: { email: email.trim().toLowerCase() },
+                  },
+                },
+              },
+              relationships: {
+                list: {
+                  data: { type: "list", id: "YqVRYU" },
+                },
+              },
+            },
+          }),
+        }
+      );
+      if (!res.ok && res.status !== 202) {
+        throw new Error("Subscription failed");
+      }
       setStatus("success");
       setEmail("");
     } catch {
