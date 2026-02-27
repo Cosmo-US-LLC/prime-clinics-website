@@ -181,8 +181,8 @@ function ComingSoon() {
 
         {/* Content area — scrollable on mobile, flex layout on desktop */}
         <div className="relative z-10 flex-1 flex flex-col px-4 md:px-[60px] pb-4 md:pb-8 overflow-y-auto md:overflow-visible">
-          {/* Spacer — desktop only, pushes content to ~40% from top */}
-          <div className="hidden md:block flex-[2]" />
+          {/* Spacer — pushes content down so background image is visible */}
+          <div className="flex-[1] md:flex-[2]" />
 
           {/* Main content block */}
           <div className="max-w-[1300px] w-full pt-2 md:pt-0">
@@ -260,8 +260,8 @@ function ComingSoon() {
             </div>
           </div>
 
-          {/* Bottom spacer — desktop only */}
-          <div className="hidden md:block flex-[3]" />
+          {/* Bottom spacer */}
+          <div className="flex-[0.5] md:flex-[3]" />
 
           {/* Service Cards — pinned to bottom of hero */}
           <div className="max-w-[1300px] w-full shrink-0 mt-auto md:mt-0">
