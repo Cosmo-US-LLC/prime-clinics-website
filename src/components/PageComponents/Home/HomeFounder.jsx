@@ -32,10 +32,11 @@ function HomeFounder() {
             </div>
 
             <p className="font-sans text-[16px] leading-[24px] text-[#040A16] m-0 max-w-[640px]">
-              True optimization requires visionary leadership. Under Lina&apos;s guidance,
-              Prime Clinics is redefining the standard of proactive patient care. Her
-              unwavering commitment to pioneering advanced regenerative medicine has
-              established a new benchmark for how we approach long-term human performance.
+              True optimization requires visionary leadership. Under Lina&apos;s
+              guidance, Prime Clinics is redefining the standard of proactive
+              patient care. Her unwavering commitment to pioneering advanced
+              regenerative medicine has established a new benchmark for how we
+              approach long-term human performance.
             </p>
           </div>
 
@@ -81,4 +82,3 @@ function HomeFounder() {
 }
 
 export default HomeFounder;
-

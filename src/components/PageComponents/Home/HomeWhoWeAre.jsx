@@ -1,4 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
+import Slide1 from "@/assets/images/home/who_we_are/who_we_are_slide1.webp";
+import Slide2 from "@/assets/images/home/who_we_are/who_we_are_slide2.webp";
+import Slide3 from "@/assets/images/home/who_we_are/who_we_are_slide3.webp";
 
 const SLIDES = [
   {
@@ -6,24 +9,21 @@ const SLIDES = [
     title: "Performance",
     description:
       "We engineer bespoke treatment plans designed to upgrade mobility, increase drive, and sharpen mental clarity for peak operation.",
-    image:
-      "https://www.figma.com/api/mcp/asset/3258e42d-8618-4bb5-b4ef-71d3759b187e",
+    image: Slide1,
   },
   {
     id: "longevity",
     title: "Longevity",
     description:
       "Extend your healthspan with preventative care, DNA analysis, and cellular optimization.",
-    image:
-      "https://www.figma.com/api/mcp/asset/966a682d-ccb8-4500-b9d7-91c94fb8be34",
+    image: Slide2,
   },
   {
     id: "aesthetics",
     title: "Aesthetics",
     description:
       "Enhance your appearance with safe, medical-grade treatments designed for the modern individual.",
-    image:
-      "https://www.figma.com/api/mcp/asset/63985161-dc3f-4f3d-b201-2b45d09225ee",
+    image: Slide3,
   },
 ];
 
@@ -41,10 +41,11 @@ function HomeWhoWeAre() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setTextActivated(true);
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.4 }
+      { threshold: 0.2 },
     );
 
     observer.observe(el);
@@ -54,13 +55,17 @@ function HomeWhoWeAre() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-white px-4 md:px-[60px] py-12 md:py-20 overflow-hidden"
+      className="relative w-full h-full bg-white py-12 md:py-20 overflow-hidden"
       aria-label="Who we are"
+      style={{
+        background:
+          "linear-gradient(180deg, #FFF 50%, rgba(142, 176, 239, 0.50) 100%, #FFF 0%)",
+      }}
     >
       {/* Background vertical gradient similar to Figma */}
-      <div className="pointer-events-none absolute inset-x-0 top-1/3 h-[60%] bg-linear-to-b from-white via-[#8EB0EF80] to-white" />
+      {/* <div className="pointer-events-none absolute inset-x-0 top-1/3 h-[60%] bg-linear-to-b from-white via-[#8EB0EF80] to-white" /> */}
 
-      <div className="relative z-10 mx-auto flex max-w-[1440px] flex-col gap-10">
+      <div className="relative z-10 mx-auto flex max-w-[1280px] px-4 md:px-8 flex-col gap-10">
         {/* Heading + description */}
         <div className="max-w-[800px] flex flex-col gap-4">
           <p className="font-sans text-[14px] md:text-[20px] font-bold leading-[20px] md:leading-[28px] tracking-widest text-[#2463D8] uppercase m-0">
@@ -68,8 +73,10 @@ function HomeWhoWeAre() {
           </p>
           <p className="font-sans text-[20px] md:text-[32px] leading-[30px] md:leading-[40px] m-0">
             <span
-              className={`transition-colors duration-500 ${
-                textActivated ? "text-[#030712]" : "text-black/30"
+              className={`inline-block transform transition-all duration-700 ease-out ${
+                textActivated
+                  ? "text-black/60 opacity-100 translate-y-0"
+                  : "text-[#030712]  translate-y-2"
               }`}
             >
               Prime Clinics is a performance and longevity clinic dedicated to
@@ -115,14 +122,16 @@ function HomeWhoWeAre() {
                     isActive ? "max-w-[520px]" : "max-w-full"
                   }`}
                 >
-                  <p className="font-display text-[18px] md:text-[24px] font-bold leading-[24px] md:leading-[32px] uppercase m-0">
+                  <h3 className="heading-3 text-white uppercase m-0">
                     {slide.title}
+                  </h3>
+                  <p
+                    className={`font-sans text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] m-0 block md:h-[60px] md:overflow-hidden ${
+                      isActive ? "md:block" : "md:hidden"
+                    }`}
+                  >
+                    {slide.description}
                   </p>
-                  {isActive && (
-                    <p className="font-sans text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] m-0">
-                      {slide.description}
-                    </p>
-                  )}
                 </div>
               </button>
             );
@@ -134,4 +143,3 @@ function HomeWhoWeAre() {
 }
 
 export default HomeWhoWeAre;
-

@@ -9,6 +9,8 @@ import TermsAndConditions from "./pages/TermsAndConditions";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
+import VipAccess from "./pages/VipAccess";
+import ComingSoon from "./pages/ComingSoon";
 
 function App() {
   return (
@@ -16,12 +18,13 @@ function App() {
       <ScrollToTop />
       <Routes>
         {/* Home uses landing header + footer */}
-        {/* <Route element={<LandingLayout />}>
+        <Route element={<LandingLayout />}>
           <Route index element={<Home />} />
-        </Route> */}
+          <Route path="/vip-access" element={<VipAccess />} />
+        </Route>
         {/* Other routes use main Navbar + Footer */}
         <Route element={<Layout />}>
-          <Route index element={<DEXAScanWaitlist />} />
+          {/* <Route index element={<DEXAScanWaitlist />} /> */}
           <Route path="/free-dexa-scan" element={<DEXAScanWaitlist />} />
           <Route
             path="/free-dexa-scan/thank-you"
@@ -42,6 +45,7 @@ function App() {
           />
         </Route>
         <Route path="*" element={<NotFound />} />
+        <Route path="/coming-soon" element={<ComingSoon />} />
       </Routes>
     </>
   );

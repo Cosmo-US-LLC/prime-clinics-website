@@ -2,9 +2,42 @@
 .home_hero {
   background-image: url("../images/home/home_hero/home_hero_desktop.webp");
   background-size: cover;
-  background-position: tops;
+  background-position: 100% 100%;
   background-repeat: no-repeat;
   width: 100%;
+  min-height: 700px;
+  height: 100vh;
+  display: flex-grow;
+}
+
+.vip_access_hero {
+  background-image: url("../images/vip_access/vip_hero/vip_hero_desktop.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 700px;
+  height: 100vh;
+}
+
+.ready_to_vip {
+  background-image: url("../images/vip_access/ready_to_vip/ready_to_vip.webp");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 560px;
+  height: 100vh;
+}
+
+.coming_soon_hero {
+  background-image: url("../images/coming_soon/coming_soon_desktop.webp");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 100%;
+  /* min-height: 700px; */
+  /* height: 100vh; */
 }
 
 /* Wait list page images */
@@ -51,6 +84,10 @@
 @media (max-width: 768px) {
   .home_hero {
     background-image: url("../images/home/home_hero/home_hero_mobile.webp");
+  }
+
+  .coming_soon_hero {
+    background-image: url("../images/coming_soon/coming_soon_mobile.webp");
   }
 
   /* Wait list page images */
