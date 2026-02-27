@@ -156,12 +156,6 @@ function ComingSoon() {
       document.head.appendChild(meta);
     }
 
-    // Set favicon
-    const favicon = document.querySelector('link[rel="icon"]');
-    if (favicon) {
-      favicon.setAttribute("href", "/fav.svg");
-      favicon.setAttribute("type", "image/svg+xml");
-    }
   }, []);
 
   return (
