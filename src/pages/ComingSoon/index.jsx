@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const SERVICE_CARDS = [
   { label: "Physical Health", image: "/images/coming-soon/card-physical-health.jpg" },
@@ -139,25 +139,6 @@ function EmailForm() {
 }
 
 function ComingSoon() {
-  useEffect(() => {
-    // Set page title and meta for this route
-    document.title = "Prime Clinics | Opening This Spring";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        "content",
-        "Step into your prime. Prime Clinics offers personalized solutions for physical health, hormone health, intimate health, regenerative aesthetics, weight management, mental fitness, and joint rehabilitation. Opening this spring — sign up to be the first to know."
-      );
-    } else {
-      const meta = document.createElement("meta");
-      meta.name = "description";
-      meta.content =
-        "Step into your prime. Prime Clinics offers personalized solutions for physical health, hormone health, intimate health, regenerative aesthetics, weight management, mental fitness, and joint rehabilitation. Opening this spring — sign up to be the first to know.";
-      document.head.appendChild(meta);
-    }
-
-  }, []);
-
   return (
     <main className="h-[100dvh] p-2">
       <div className="relative w-full h-full rounded-2xl overflow-hidden flex flex-col">
