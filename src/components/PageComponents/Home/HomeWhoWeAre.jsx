@@ -125,11 +125,13 @@ function HomeWhoWeAre() {
                   <h3 className="heading-3 text-white uppercase m-0">
                     {slide.title}
                   </h3>
-                  {isActive && (
-                    <p className="font-sans h-[60px] overflow-hidden text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] m-0">
-                      {slide.description}
-                    </p>
-                  )}
+                  <p
+                    className={`font-sans text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] m-0 block md:h-[60px] md:overflow-hidden ${
+                      isActive ? "md:block" : "md:hidden"
+                    }`}
+                  >
+                    {slide.description}
+                  </p>
                 </div>
               </button>
             );

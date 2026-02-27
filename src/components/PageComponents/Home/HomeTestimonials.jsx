@@ -58,16 +58,16 @@ const testimonials = [
 function HomeTestimonials() {
   return (
     <section
-      className="w-full bg-white py-12 md:py-20"
+      className="w-full bg-white pt-12 md:pt-20 pb-4 md:pb-20"
       aria-label="Testimonials"
     >
       <div className="mx-auto flex max-w-[1280px] px-4 md:px-8 flex-col gap-8 md:gap-12">
         {/* Heading row */}
         <div className="flex flex-col gap-4 text-[#040A16]">
-          <h2 className="heading-2 uppercase m-0 max-w-[780px]">
+          <h2 className="heading-2 uppercase text-center md:text-left m-0 max-w-[780px]">
             Real Stories from Prime Clinic Clients
           </h2>
-          <p className="font-sans text-[14px] md:text-[16px] leading-[22px] md:leading-[24px] text-[#040A16] m-0">
+          <p className="font-sans text-[14px] text-center md:text-left md:text-[16px] leading-[22px] md:leading-[24px] text-[#040A16] m-0">
             Hear from those who have transformed their health, performance, and
             confidence with us.
           </p>
@@ -87,9 +87,11 @@ function HomeTestimonials() {
                 <article className="flex h-full flex-col justify-between gap-8 rounded-[16px] bg-[#F9FAFB] p-6 shadow-[0px_0px_4px_rgba(255,255,255,0.15)]">
                   <div className="flex flex-col gap-4">
                     {/* Stars */}
-                    <div className="flex gap-1 text-[#FBBF24]">
+                    <div className="flex gap-1 text-[#2463D8]">
                       {Array.from({ length: 5 }).map((_, idx) => (
-                        <span key={idx}>★</span>
+                        <span style={{ fontSize: "24px" }} key={idx}>
+                          ★
+                        </span>
                       ))}
                     </div>
                     <p className="font-sans text-[18px] md:text-[20px] font-[500] leading-[24px] md:leading-[26px] text-[#030712] m-0">
@@ -119,9 +121,15 @@ function HomeTestimonials() {
             ))}
           </CarouselContent>
 
-          {/* shadcn carousel arrows */}
-          <CarouselPrevious className="hidden md:flex left-auto -top-16 right-17 translate-y-0 h-10 w-10 items-center justify-center rounded-full border border-[#D1D5DB] bg-white cursor-pointer text-[#4B5563] hover:text-white hover:bg-[#1a4fa8] hover:border-[#1a4fa8]" />
+          {/* Desktop arrows (top-right) */}
+          <CarouselPrevious className="hidden md:flex left-auto -top-16 right-16 translate-y-0 h-10 w-10 items-center justify-center rounded-full border border-[#D1D5DB] bg-white cursor-pointer text-[#4B5563] hover:text-white hover:bg-[#1a4fa8] hover:border-[#1a4fa8]" />
           <CarouselNext className="hidden md:flex right-4 -top-16 translate-y-0 h-10 w-10 items-center justify-center rounded-full border border-[#D1D5DB] bg-white cursor-pointer text-[#4B5563] hover:text-white hover:bg-[#1a4fa8] hover:border-[#1a4fa8]" />
+
+          {/* Mobile arrows (below cards) */}
+          <div className="mt-10 flex w-full items-center justify-center gap-4 md:hidden">
+            <CarouselPrevious className="static h-10 w-10 items-center justify-center rounded-full border border-[#D1D5DB] bg-white cursor-pointer text-[#4B5563] hover:text-white hover:bg-[#1a4fa8] hover:border-[#1a4fa8]" />
+            <CarouselNext className="static h-10 w-10 items-center justify-center rounded-full border border-[#D1D5DB] bg-white cursor-pointer text-[#4B5563] hover:text-white hover:bg-[#1a4fa8] hover:border-[#1a4fa8]" />
+          </div>
         </Carousel>
       </div>
     </section>

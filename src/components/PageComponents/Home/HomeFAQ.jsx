@@ -51,10 +51,10 @@ function HomeFAQ() {
         {/* Left: Heading + description + image */}
         <div className="flex flex-1 flex-col gap-6">
           <div className="flex flex-col gap-4">
-            <h2 className="font-display heading-2 text-[#040A16] uppercase m-0">
+            <h2 className="font-display heading-2 text-[#040A16] text-center md:text-left uppercase m-0">
               Frequently Asked Questions
             </h2>
-            <p className="font-sans text-[16px] leading-[24px] text-[#030712] m-0">
+            <p className="font-sans text-[16px] leading-[24px] text-[#030712] m-0 text-center md:text-left">
               Everything you need to know about our services, privacy, and how
               we support your transformation.
             </p>
