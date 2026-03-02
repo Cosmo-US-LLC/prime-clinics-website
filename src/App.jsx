@@ -18,6 +18,7 @@ import RegenerativeAesthetics from "./pages/Services/RegenerativeAesthetics";
 import WeightManagement from "./pages/Services/WeightManagement";
 import MentalFitness from "./pages/Services/MentalFitness";
 import JointRehabilitation from "./pages/Services/JointRehabilitation";
+import MeetTheTeam from "./pages/MeetTheTeam";
 
 function App() {
   return (
@@ -27,14 +28,30 @@ function App() {
         {/* Home uses landing header + footer */}
         <Route element={<LandingLayout />}>
           <Route index element={<Home />} />
-          <Route path="/services/physical-health" element={<PhysicalHealth />} />
+          <Route
+            path="/services/physical-health"
+            element={<PhysicalHealth />}
+          />
           <Route path="/services/hormone-health" element={<HormoneHealth />} />
-          <Route path="/services/intimate-health" element={<IntimateHealth />} />
-          <Route path="/services/regenerative-aesthetics" element={<RegenerativeAesthetics />} />
-          <Route path="/services/weight-management" element={<WeightManagement />} />
+          <Route
+            path="/services/intimate-health"
+            element={<IntimateHealth />}
+          />
+          <Route
+            path="/services/regenerative-aesthetics"
+            element={<RegenerativeAesthetics />}
+          />
+          <Route
+            path="/services/weight-management"
+            element={<WeightManagement />}
+          />
           <Route path="/services/mental-fitness" element={<MentalFitness />} />
-          <Route path="/services/joint-rehabilitation" element={<JointRehabilitation />} />
+          <Route
+            path="/services/joint-rehabilitation"
+            element={<JointRehabilitation />}
+          />
           <Route path="/vip-access" element={<VipAccess />} />
+          <Route path="/meet-the-team" element={<MeetTheTeam />} />
         </Route>
         {/* Other routes use main Navbar + Footer */}
         <Route element={<Layout />}>
