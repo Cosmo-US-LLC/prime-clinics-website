@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
 import LogoPrimary from "@/assets/icons/prime_logo_not_scrolled.svg";
 import LogoScrolled from "@/assets/icons/prime_logo_scrolled.svg";
@@ -80,6 +80,7 @@ function LandingPageHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -91,7 +92,7 @@ function LandingPageHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const headerBase = `fixed inset-x-0 ${scrolled ? "top-0" : "top-6"} z-50 w-full h-[${scrolled ? "84px" : "94px"}] transition-all duration-200`;
+  const headerBase = `fixed inset-x-0 z-[99999] ${scrolled ? "top-0" : "top-2"} z-50 w-full h-[${scrolled ? "84px" : "84px"}] transition-all duration-200`;
   const headerState = scrolled
     ? "bg-white shadow-[0_1px_2px_rgba(15,23,42,0.5)] backdrop-blur"
     : "bg-transparent";
@@ -127,63 +128,94 @@ function LandingPageHeader() {
 
         <nav className="hidden items-center gap-6 lg:flex">
           <ul className="flex items-center gap-4 list-none m-0 p-0">
-            {NAV_LINKS.map((item) =>
-              item.label === "Services" ? (
-                <li key={item.label} className="relative">
-                  <NavigationMenu>
-                    <NavigationMenuList>
-                      <NavigationMenuItem>
-                        <NavigationMenuTrigger
-                          className={`${linkBase} ${linkState} bg-transparent border-none px-2 py-4`}
-                        >
-                          <span>Services</span>
-                        </NavigationMenuTrigger>
-                        <NavigationMenuContent className="mt-3 rounded-2xl border border-slate-200 bg-[#f9fafb] px-8 py-6 shadow-xl min-w-[1040px]">
-                          <div className="flex flex-col gap-5">
-                            <div className="text-2xl font-bold uppercase tracking-tight text-slate-900">
-                              Our Services
+            {NAV_LINKS.map((item) => {
+              const isActive =
+                item.href === "/services"
+                  ? pathname.startsWith("/services")
+                  : pathname === item.href;
+
+              if (item.label === "Services") {
+                return (
+                  <li key={item.label} className="relative">
+                    <NavigationMenu>
+                      <NavigationMenuList>
+                        <NavigationMenuItem>
+                          <NavigationMenuTrigger
+                            className={`${linkBase} ${linkState} bg-transparent border-none px-2 py-4 relative group hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent ${
+                              isActive ? "font-semibold" : ""
+                            }`}
+                          >
+                            <span className="relative inline-flex items-center">
+                              <span>Services</span>
+                              <span
+                                className={`absolute -bottom-1 left-0 h-[3px] w-full bg-[#2463D8] origin-left transition-transform duration-300 ease-out ${
+                                  isActive
+                                    ? "scale-x-100"
+                                    : "scale-x-0 group-hover:scale-x-100"
+                                }`}
+                              />
+                            </span>
+                          </NavigationMenuTrigger>
+                          <NavigationMenuContent className="mt-3 rounded-2xl border border-slate-200 bg-[#f9fafb] px-8 py-6 shadow-xl min-w-[1040px]">
+                            <div className="flex flex-col gap-5">
+                              <div className="text-2xl font-bold uppercase tracking-tight text-slate-900">
+                                Our Services
+                              </div>
+                              <div className="grid gap-3 md:grid-cols-4 lg:grid-cols-4">
+                                {SERVICE_LINKS.map((service) => (
+                                  <Link
+                                    key={service.label}
+                                    to={service.href}
+                                    className="group flex flex-col gap-3"
+                                  >
+                                    <div className="relative h-36 w-[220px] rounded-[8px] overflow-hidden">
+                                      <img
+                                        src={service.image}
+                                        alt={service.label}
+                                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                                        loading="lazy"
+                                      />
+                                    </div>
+                                    <div className="pb-4">
+                                      <p className="text-[18px] leading-7 font-normal text-[#040a16]">
+                                        {service.label}
+                                      </p>
+                                    </div>
+                                  </Link>
+                                ))}
+                              </div>
                             </div>
-                            <div className="grid gap-3 md:grid-cols-4 lg:grid-cols-4">
-                              {SERVICE_LINKS.map((service) => (
-                                <Link
-                                  key={service.label}
-                                  to={service.href}
-                                  className="group flex flex-col gap-3"
-                                >
-                                  <div className="relative h-36 w-[220px] rounded-[8px] overflow-hidden">
-                                    <img
-                                      src={service.image}
-                                      alt={service.label}
-                                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                                      loading="lazy"
-                                    />
-                                  </div>
-                                  <div className="pb-4">
-                                    <p className="text-[18px] leading-7 font-normal text-[#040a16]">
-                                      {service.label}
-                                    </p>
-                                  </div>
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        </NavigationMenuContent>
-                      </NavigationMenuItem>
-                    </NavigationMenuList>
-                  </NavigationMenu>
-                </li>
-              ) : (
+                          </NavigationMenuContent>
+                        </NavigationMenuItem>
+                      </NavigationMenuList>
+                    </NavigationMenu>
+                  </li>
+                );
+              }
+
+              return (
                 <li key={item.label}>
                   <Link
                     to={item.href}
-                    className={`${linkBase} ${linkState}`}
+                    className={`${linkBase} ${linkState} relative group ${
+                      isActive ? "font-semibold" : ""
+                    }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <span>{item.label}</span>
+                    <span className="relative">
+                      {item.label}
+                      <span
+                        className={`pointer-events-none absolute -bottom-1 left-0 h-[3px] w-full bg-[#2463D8] origin-left transition-transform duration-300 ease-out ${
+                          isActive
+                            ? "scale-x-100"
+                            : "scale-x-0 group-hover:scale-x-100"
+                        }`}
+                      />
+                    </span>
                   </Link>
                 </li>
-              ),
-            )}
+              );
+            })}
           </ul>
           <Link
             to="/free-dexa-scan"
