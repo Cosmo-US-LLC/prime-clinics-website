@@ -11,6 +11,13 @@ import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import VipAccess from "./pages/VipAccess";
 import ComingSoon from "./pages/ComingSoon";
+import PhysicalHealth from "./pages/Services/PhysicalHealth";
+import HormoneHealth from "./pages/Services/HormoneHealth";
+import IntimateHealth from "./pages/Services/IntimateHealth";
+import RegenerativeAesthetics from "./pages/Services/RegenerativeAesthetics";
+import WeightManagement from "./pages/Services/WeightManagement";
+import MentalFitness from "./pages/Services/MentalFitness";
+import JointRehabilitation from "./pages/Services/JointRehabilitation";
 
 function App() {
   return (
@@ -20,6 +27,13 @@ function App() {
         {/* Home uses landing header + footer */}
         <Route element={<LandingLayout />}>
           <Route index element={<Home />} />
+          <Route path="/services/physical-health" element={<PhysicalHealth />} />
+          <Route path="/services/hormone-health" element={<HormoneHealth />} />
+          <Route path="/services/intimate-health" element={<IntimateHealth />} />
+          <Route path="/services/regenerative-aesthetics" element={<RegenerativeAesthetics />} />
+          <Route path="/services/weight-management" element={<WeightManagement />} />
+          <Route path="/services/mental-fitness" element={<MentalFitness />} />
+          <Route path="/services/joint-rehabilitation" element={<JointRehabilitation />} />
           <Route path="/vip-access" element={<VipAccess />} />
         </Route>
         {/* Other routes use main Navbar + Footer */}
