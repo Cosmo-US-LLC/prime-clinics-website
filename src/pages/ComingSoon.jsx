@@ -1,4 +1,5 @@
 import { useState } from "react";
+import usePageMeta from "@/hooks/usePageMeta";
 
 const SERVICE_CARDS = [
   {
@@ -154,6 +155,11 @@ function EmailForm() {
 }
 
 function ComingSoon() {
+  usePageMeta(
+    "Prime Clinics | Performance & Wellness – Opening Spring",
+    "Opening this Spring! Join the Prime Clinics waitlist for early access to elite performance, hormone health, regenerative aesthetics, and weight management.",
+  );
+
   return (
     <main className="h-[100dvh] p-2">
       <div className="relative w-full h-full rounded-2xl overflow-hidden flex flex-col">
