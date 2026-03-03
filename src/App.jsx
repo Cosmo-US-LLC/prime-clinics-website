@@ -27,9 +27,10 @@ function App() {
       <ScrollToTop />
       <Routes>
         {/* Home uses landing header + footer */}
-        <Route index element={<ComingSoon />} />
+        {/* <Route index element={<ComingSoon />} /> */}
         <Route element={<LandingLayout />}>
-          {/* <Route index element={<Home />} /> */}
+          <Route index element={<Home />} />
+          <Route path="/about" element={<AboutUs />} />
           <Route
             path="/services/physical-health"
             element={<PhysicalHealth />}
@@ -54,7 +55,6 @@ function App() {
           />
           <Route path="/vip-access" element={<VipAccess />} />
           <Route path="/meet-the-team" element={<MeetTheTeam />} />
-          
         </Route>
         {/* Other routes use main Navbar + Footer */}
         <Route element={<Layout />}>
