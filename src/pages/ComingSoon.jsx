@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const SERVICE_CARDS = [
   {
@@ -99,14 +99,14 @@ function EmailForm() {
   }
 
   return (
-    <div className="mb-4 md:mb-6">
+    <div className="mb-3 md:mb-6">
       <form onSubmit={handleSubmit}>
         <div
           className="flex items-center rounded-lg max-w-[335px] md:max-w-[382px]"
           style={{
             background: "#FFFFFF",
             border: "1px solid #FFFFFF",
-            padding: "8px",
+            padding: "6px 8px",
           }}
         >
           <input
@@ -154,62 +154,31 @@ function EmailForm() {
 }
 
 function ComingSoon() {
-  useEffect(() => {
-    // Set page title and meta for this route
-    document.title = "Prime Clinics | Opening This Spring";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute(
-        "content",
-        "Step into your prime. Prime Clinics offers personalized solutions for physical health, hormone health, intimate health, regenerative aesthetics, weight management, mental fitness, and joint rehabilitation. Opening this spring — sign up to be the first to know.",
-      );
-    } else {
-      const meta = document.createElement("meta");
-      meta.name = "description";
-      meta.content =
-        "Step into your prime. Prime Clinics offers personalized solutions for physical health, hormone health, intimate health, regenerative aesthetics, weight management, mental fitness, and joint rehabilitation. Opening this spring — sign up to be the first to know.";
-      document.head.appendChild(meta);
-    }
-
-    // Set favicon
-    const favicon = document.querySelector('link[rel="icon"]');
-    if (favicon) {
-      favicon.setAttribute("href", "/fav.svg");
-      favicon.setAttribute("type", "image/svg+xml");
-    }
-  }, []);
-
   return (
     <main className="h-[100dvh] p-2">
       <div className="relative w-full h-full rounded-2xl overflow-hidden flex flex-col">
-        {/* Background Image — Desktop */}
+        {/* Background Image — Desktop (runner uphill) */}
         <div className="hidden md:block absolute inset-0">
           <img
-            src="/images/coming-soon/hero-bg.png"
-            alt="Prime Clinics billboard"
+            src="/images/coming-soon/hero-runner-desktop.webp"
+            alt="Runner sprinting uphill"
             className="w-full h-full object-cover"
+            style={{ objectPosition: "center 30%" }}
           />
-          <div className="absolute inset-0">
-            <img
-              src="/images/coming-soon/hero-billboard.png"
-              alt=""
-              className="w-full h-full object-cover"
-            />
-          </div>
         </div>
 
-        {/* Background Image — Mobile */}
+        {/* Background Image — Mobile (cyclist) */}
         <div className="md:hidden absolute inset-0">
           <img
-            src="/images/coming-soon/hero-mobile.png"
-            alt="Prime Clinics"
-            className="w-full h-full object-cover"
+            src="/images/coming-soon/hero-cyclist-mobile.webp"
+            alt="Cyclist riding"
+            className="w-full h-full object-cover object-top"
           />
         </div>
 
-        {/* Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent hidden md:block" />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent hidden md:block" />
 
         {/* Logo — top left */}
         <div className="relative z-20 px-4 md:px-[60px] py-4 shrink-0">
@@ -225,39 +194,139 @@ function ComingSoon() {
           />
         </div>
 
-        {/* Content area — fills remaining space */}
-        <div className="relative z-10 flex-1 flex flex-col px-4 md:px-[60px] pb-6 md:pb-8">
-          {/* Spacer — pushes content to ~40% from top */}
-          <div className="flex-[2]" />
+        {/* Content area — scrollable on mobile, flex layout on desktop */}
+        <div className="relative z-10 flex-1 flex flex-col px-4 md:px-[60px] pb-4 md:pb-8 overflow-y-auto md:overflow-visible">
+          {/* Spacer — pushes content down so background image is visible */}
+          <div className="flex-[1] md:flex-[2]" />
 
           {/* Main content block */}
-          <div className="max-w-[1300px] w-full">
+          <div className="max-w-[1300px] w-full pt-2 md:pt-0">
             {/* Heading */}
-            <div className="text-white mb-2 md:mb-4">
-              <p className="font-display font-bold uppercase text-[20px] md:text-[24px] leading-[28px] md:leading-[32px]">
+            <div className="text-white mb-1 md:mb-4">
+              <p className="font-display font-bold uppercase text-[18px] md:text-[24px] leading-[24px] md:leading-[32px]">
                 Step into your prime
               </p>
-              <h1 className="font-display font-bold uppercase text-[48px] md:text-[64px] leading-[56px] md:leading-[72px]">
+              <h1 className="font-display font-bold uppercase text-[40px] md:text-[64px] leading-[46px] md:leading-[72px]">
                 Opening This Spring
               </h1>
             </div>
 
             {/* Description */}
-            <p className="text-white font-bold md:font-semibold text-[16px] md:text-[20px] leading-[24px] md:leading-[28px] mb-4 md:mb-6 max-w-[335px] md:max-w-none">
+            <p className="text-white font-bold md:font-semibold text-[15px] md:text-[20px] leading-[22px] md:leading-[28px] mb-3 md:mb-6 max-w-[335px] md:max-w-none">
               Be the first to know! Enter your email for the latest updates on
               our opening.
             </p>
 
             {/* Email Signup Form → Klaviyo */}
             <EmailForm />
+
+            {/* Lead Generating Campaign CTAs */}
+            <p
+              className="text-white text-[12px] md:text-[14px] font-semibold uppercase tracking-wider mb-1.5 md:mb-2"
+              style={{ textShadow: "0 1px 3px rgba(0,0,0,0.8)" }}
+            >
+              Limited-Time Offers
+            </p>
+            <div className="flex flex-col sm:flex-row gap-2 md:gap-3 mb-3 md:mb-6">
+              <a
+                href="/free-dexa-scan"
+                className="group flex items-center gap-3 md:gap-4 rounded-xl px-4 py-3 md:px-5 md:py-4 max-w-[335px] sm:max-w-none transition-all"
+                style={{
+                  background: "rgba(0,0,0,0.4)",
+                  backdropFilter: "blur(12px)",
+                  border: "1px solid rgba(255,255,255,0.2)",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.background = "rgba(0,0,0,0.5)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.background = "rgba(0,0,0,0.4)")
+                }
+              >
+                <div className="flex-1 min-w-0">
+                  <p
+                    className="font-bold text-[12px] md:text-[14px] uppercase tracking-wide"
+                    style={{ color: "#60A5FA" }}
+                  >
+                    Free DEXA Scan
+                  </p>
+                  <p className="text-white font-semibold text-[14px] md:text-[17px] leading-snug">
+                    Get a Free $145 Body Scan
+                  </p>
+                </div>
+                <div
+                  className="w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center shrink-0"
+                  style={{ background: "rgba(255,255,255,0.2)" }}
+                >
+                  <svg
+                    className="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+              </a>
+              <a
+                href="/free-dexa-scan-and-longevity-assessment"
+                className="group flex items-center gap-3 md:gap-4 rounded-xl px-4 py-3 md:px-5 md:py-4 max-w-[335px] sm:max-w-none transition-all"
+                style={{
+                  background: "rgba(0,0,0,0.4)",
+                  backdropFilter: "blur(12px)",
+                  border: "1px solid rgba(255,255,255,0.2)",
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.background = "rgba(0,0,0,0.5)")
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.background = "rgba(0,0,0,0.4)")
+                }
+              >
+                <div className="flex-1 min-w-0">
+                  <p
+                    className="font-bold text-[12px] md:text-[14px] uppercase tracking-wide"
+                    style={{ color: "#60A5FA" }}
+                  >
+                    Longevity Assessment
+                  </p>
+                  <p className="text-white font-semibold text-[14px] md:text-[17px] leading-snug">
+                    Win a Free $300 Assessment
+                  </p>
+                </div>
+                <div
+                  className="w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center shrink-0"
+                  style={{ background: "rgba(255,255,255,0.2)" }}
+                >
+                  <svg
+                    className="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </div>
+              </a>
+            </div>
           </div>
 
           {/* Bottom spacer */}
-          <div className="flex-[3]" />
+          <div className="flex-[0.5] md:flex-[3]" />
 
           {/* Service Cards — pinned to bottom of hero */}
-          <div className="max-w-[1300px] w-full shrink-0">
-            <p className="text-white text-[14px] md:text-[18px] leading-[20px] md:leading-[26px] font-semibold md:font-normal mb-2 max-w-[335px] md:max-w-none">
+          <div className="max-w-[1300px] w-full shrink-0 mt-auto md:mt-0">
+            <p className="text-white text-[13px] md:text-[18px] leading-[18px] md:leading-[26px] font-semibold md:font-normal mb-1.5 md:mb-2 max-w-[335px] md:max-w-none">
               Solutions designed around you because confidence starts from
               within.
             </p>
@@ -266,16 +335,16 @@ function ComingSoon() {
               {SERVICE_CARDS.map((card) => (
                 <div
                   key={card.label}
-                  className="flex-shrink-0 w-[160px] sm:w-[180px] md:flex-1 md:min-w-0 h-[108px] rounded-xl border border-[#959595]/70 backdrop-blur-[15px] bg-white/[0.01] shadow-[0_4px_40px_rgba(0,0,0,0.07)] p-[6px] flex flex-col gap-2 justify-center cursor-pointer hover:border-white/50 transition-colors"
+                  className="flex-shrink-0 w-[130px] sm:w-[180px] md:flex-1 md:min-w-0 h-[90px] md:h-[108px] rounded-xl border border-[#959595]/70 backdrop-blur-[15px] bg-white/[0.01] shadow-[0_4px_40px_rgba(0,0,0,0.07)] p-[5px] md:p-[6px] flex flex-col gap-1.5 md:gap-2 justify-center cursor-pointer hover:border-white/50 transition-colors"
                 >
-                  <div className="relative h-[71px] w-full rounded-md overflow-hidden">
+                  <div className="relative h-[56px] md:h-[71px] w-full rounded-md overflow-hidden">
                     <img
                       src={card.image}
                       alt={card.label}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <p className="text-white font-bold text-[12px] leading-[18px] px-[6px] truncate">
+                  <p className="text-white font-bold text-[11px] md:text-[12px] leading-[16px] md:leading-[18px] px-[4px] md:px-[6px] truncate">
                     {card.label}
                   </p>
                 </div>
