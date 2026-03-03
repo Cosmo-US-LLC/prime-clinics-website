@@ -1,9 +1,12 @@
 import desktop from "@/assets/images/services/services_health_hero/regenrative_health_desktop.webp";
 import mobile from "@/assets/images/services/services_health_hero/regenrative_health_mobile.webp";
-import solutionImg1 from "@/assets/images/home/services/service_card4.webp";
-import solutionImg2 from "@/assets/images/home/services/service_card5.webp";
-import solutionImg3 from "@/assets/images/home/services/service_card6.webp";
-import solutionImg4 from "@/assets/images/home/services/service_card7.webp";
+import introImg from "@/assets/images/services/services_intro/regenerative_intro.webp";
+import whyChooseImg from "@/assets/images/services/whyChoose/why_choose.webp";
+import membershipImg from "@/assets/images/services/prime_membership/prime_membership.webp";
+import solutionImg1 from "@/assets/images/services/solutions_we/rege_card_1.webp";
+import solutionImg2 from "@/assets/images/services/solutions_we/rege_card_2.webp";
+import solutionImg3 from "@/assets/images/services/solutions_we/rege_card_3.webp";
+import solutionImg4 from "@/assets/images/services/solutions_we/rege_card_4.webp";
 
 export default {
   seo: {
@@ -13,10 +16,10 @@ export default {
   },
   hero: {
     images: { desktop, mobile },
-    title: "Regenerative",
-    titleHighlight: "Aesthetics",
+    title: "Regenerative Aesthetics",
+    titleHighlight: "",
     description:
-      "Restore and rejuvenate with cutting-edge regenerative aesthetic treatments.",
+      "Sophisticated aesthetic treatments that enhance your physical presence and structural refinement.",
   },
   solutions: {
     heading: "Solutions We Provide",
@@ -67,6 +70,35 @@ export default {
       },
     ],
   },
+  benefits: {
+    heading: "Benefits of Regenerative Aesthetics",
+    items: [
+      {
+        icon: "arrow-up-circle",
+        title: "Structural Lift",
+        description:
+          "Restore lost facial volume to build masculine definition without looking plastic or overdone.",
+      },
+      {
+        icon: "scissors",
+        title: "Hair Restoration",
+        description:
+          "Reactivate dormant follicles to aggressively combat thinning and rebuild a powerful, dense hairline.",
+      },
+      {
+        icon: "dumbbell",
+        title: "Sculpted Physique",
+        description:
+          "Burn stubborn fat pockets while simultaneously building core muscle mass for a chiseled midsection.",
+      },
+      {
+        icon: "sparkles",
+        title: "Cellular Renewal",
+        description:
+          "Stimulate natural collagen production to reverse skin laxity and project a highly rested appearance.",
+      },
+    ],
+  },
   intro: {
     heading: "What are Regenerative Aesthetics?",
     tagline: "Appearance is not static.",
@@ -74,7 +106,113 @@ export default {
       "It is systematically preserved. Our membership model provides structured access to cellular diagnostics, structural therapies, body contouring technologies, and expert aesthetic guidance. Membership credits allow you to completely customize your refinement journey.",
     ctaLabel: "Book Your Assessment",
     ctaHref: "/free-dexa-scan",
-    image: desktop,
+    image: introImg,
     imageAlt: "Regenerative aesthetics",
+  },
+  whyChoose: {
+    heading: "Why Choose Prime",
+    image: whyChooseImg,
+    imageAlt: "Prime regenerative aesthetics consultation",
+    reasons: [
+      {
+        number: "1",
+        title: "Regenerative Philosophy",
+        description:
+          "We utilize your body's own growth factors to heal, lift, and restore naturally.",
+      },
+      {
+        number: "2",
+        title: "Dual-Action Technology",
+        description:
+          "We provide devices that build muscle while burning fat simultaneously.",
+      },
+      {
+        number: "3",
+        title: "Subtle Enhancements",
+        description:
+          "We focus purely on masculine and structural refinement, avoiding obvious over-treatment.",
+      },
+    ],
+  },
+  membership: {
+    heading: "PRIME Membership",
+    tagline: "Performance is not seasonal. It is systematic.",
+    description:
+      "Our membership model provides structured access to diagnostics, therapies, performance technologies, and clinical guidance. Credits allow you to customize your pathway while maintaining measurable accountability and progress tracking.",
+    ctaLabel: "Book Your Assessment",
+    ctaHref: "/free-dexa-scan",
+    image: membershipImg,
+    imageAlt: "Prime membership",
+  },
+  testimonials: {
+    heading: "Proven Results. Real Stories",
+    items: [
+      {
+        quote:
+          "TThe PRP and Exosome protocols saved my hairline. My shedding stopped fast, and the crown is visibly thicker.",
+        name: "Jonathan E.",
+      },
+      {
+        quote:
+          "Emsculpt NEO completely changed my core. It burned the stubborn belly fat and gave me definition the gym couldn't.",
+        name: "Marcus B.",
+      },
+      {
+        quote:
+          "I was worried about looking fake, but the jawline filler work was incredibly subtle. I just look sharper and more awake.",
+        name: "Chris D.",
+      },
+      {
+        quote:
+          "A true clinical approach to fitness. Eating based on my actual metabolic rate rather than a generic diet app changed everything.",
+        name: "James R.",
+      },
+    ],
+  },
+  faq: {
+    heading: "Frequently Asked Questions",
+    description:
+      "Common questions men have about regenerative aesthetic therapies, from subtle facial work to advanced body contouring.",
+    items: [
+      {
+        question:
+          "I am worried about looking frozen or like I have had work done. Will I?",
+        answer:
+          "No. Our entire philosophy for men is regenerative, not plastic. We strategically replace lost volume to restore your natural masculine structure so you look like a well-rested version of yourself, never overfilled.",
+      },
+      {
+        question: "Does PRP hair restoration actually grow brand new hair?",
+        answer:
+          "It reactivates follicles that are dormant, shrinking, or damaged. It is highly effective for thickening thinning hair and stopping current shedding. However, if a follicle is completely dead (shiny bald skin), a surgical transplant is required.",
+      },
+      {
+        question:
+          "Is there any downtime for facial fillers or scalp injections?",
+        answer:
+          "There is virtually zero downtime. You might experience very minor redness or mild swelling for 24 hours, but nothing that prevents you from going back to work or hitting the gym the next day.",
+      },
+      {
+        question:
+          "Is Emsculpt NEO really better than just doing sit-ups and dieting?",
+        answer:
+          "Yes. One 30-minute session creates 20,000 supramaximal contractions, which is physically impossible to achieve on your own. It forces extreme muscle growth while the radiofrequency simultaneously melts the fat layer above it.",
+      },
+      {
+        question:
+          "How long do the results from your structural dermal fillers actually last?",
+        answer:
+          "Longevity depends heavily on your metabolism and the specific area treated. Generally, our premium structural fillers maintain their defining volume for 12 to 24 months before a minor touch-up is required.",
+      },
+      {
+        question: "Is the PRP scalp injection process painful?",
+        answer:
+          "We prioritize your comfort entirely. We utilize clinical-grade topical numbing agents and specialized micro-needles, making the hair restoration process highly tolerable and virtually painless for most patients.",
+      },
+      {
+        question: "Can I combine Emsculpt NEO with other aesthetic treatments?",
+        answer:
+          "Absolutely. In fact, we frequently stack our therapies. Combining core contouring with facial structural refinement provides a comprehensive, full-body aesthetic upgrade in a very short timeframe.",
+      },
+    ],
   },
 };

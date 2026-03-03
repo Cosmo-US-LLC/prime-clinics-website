@@ -3,6 +3,11 @@ import usePageMeta from "@/hooks/usePageMeta";
 import ServicesHero from "@/components/PageComponents/Services/ServicesHero";
 import ServicesIntroSection from "@/components/PageComponents/Services/ServicesIntroSection";
 import ServicesSolutionsSection from "@/components/PageComponents/Services/ServicesSolutionsSection";
+import ServicesBenefitsSection from "@/components/PageComponents/Services/ServicesBenefitsSection";
+import ServicesMembershipSection from "@/components/PageComponents/Services/ServicesMembershipSection";
+import ServicesTestimonialsSection from "@/components/PageComponents/Services/ServicesTestimonialsSection";
+import ServicesWhyChooseSection from "@/components/PageComponents/Services/ServicesWhyChooseSection";
+import HomeFAQ from "@/components/PageComponents/Home/HomeFAQ";
 import config from "./config";
 
 function WeightManagement() {
@@ -21,9 +26,32 @@ function WeightManagement() {
           cards={config.solutions.cards}
         />
       )}
+      {config.benefits && (
+        <ServicesBenefitsSection
+          heading={config.benefits.heading}
+          items={config.benefits.items}
+        />
+      )}
+      {config.whyChoose && <ServicesWhyChooseSection {...config.whyChoose} />}
+
+      {config.membership && (
+        <ServicesMembershipSection {...config.membership} />
+      )}
+      {config.testimonials && (
+        <ServicesTestimonialsSection
+          heading={config.testimonials.heading}
+          items={config.testimonials.items}
+        />
+      )}
+      {config.faq && (
+        <HomeFAQ
+          heading={config.faq.heading}
+          description={config.faq.description}
+          items={config.faq.items}
+        />
+      )}
     </div>
   );
 }
 
 export default WeightManagement;
-
