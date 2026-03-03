@@ -6,6 +6,8 @@ import ServicesSolutionsSection from "@/components/PageComponents/Services/Servi
 import ServicesBenefitsSection from "@/components/PageComponents/Services/ServicesBenefitsSection";
 import ServicesMembershipSection from "@/components/PageComponents/Services/ServicesMembershipSection";
 import ServicesTestimonialsSection from "@/components/PageComponents/Services/ServicesTestimonialsSection";
+import ServicesWhyChooseSection from "@/components/PageComponents/Services/ServicesWhyChooseSection";
+import HomeFAQ from "@/components/PageComponents/Home/HomeFAQ";
 import config from "./config";
 
 function MentalFitness() {
@@ -13,10 +15,7 @@ function MentalFitness() {
 
   return (
     <div>
-      <ServicesHero
-        {...config.hero}
-        currentPath="/services/mental-fitness"
-      />
+      <ServicesHero {...config.hero} currentPath="/services/mental-fitness" />
       <ServicesIntroSection {...config.intro} />
       {config.solutions && (
         <ServicesSolutionsSection
@@ -30,10 +29,24 @@ function MentalFitness() {
           items={config.benefits.items}
         />
       )}
+      {config.whyChoose && <ServicesWhyChooseSection {...config.whyChoose} />}
+
       {config.membership && (
         <ServicesMembershipSection {...config.membership} />
       )}
-      <ServicesTestimonialsSection />
+      {config.testimonials && (
+        <ServicesTestimonialsSection
+          heading={config.testimonials.heading}
+          items={config.testimonials.items}
+        />
+      )}
+      {config.faq && (
+        <HomeFAQ
+          heading={config.faq.heading}
+          description={config.faq.description}
+          items={config.faq.items}
+        />
+      )}
     </div>
   );
 }

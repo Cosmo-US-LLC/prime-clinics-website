@@ -26,9 +26,9 @@ function App() {
       <ScrollToTop />
       <Routes>
         {/* Home uses landing header + footer */}
-        <Route index element={<ComingSoon />} />
+        {/* <Route index element={<ComingSoon />} /> */}
         <Route element={<LandingLayout />}>
-          {/* <Route index element={<Home />} /> */}
+          <Route index element={<Home />} />
           <Route
             path="/services/physical-health"
             element={<PhysicalHealth />}

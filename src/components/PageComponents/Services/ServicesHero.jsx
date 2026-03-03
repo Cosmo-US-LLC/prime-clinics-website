@@ -9,7 +9,7 @@ function ServicesHero({
   currentPath,
 }) {
   return (
-    <section className="bg-[#fff] p-2 h-dvh">
+    <section className="bg-[#fff] p-2 h-[88dvh]">
       <div className="relative w-full h-full rounded-2xl overflow-hidden flex flex-col justify-end">
         <div className="hidden md:block absolute inset-0">
           <img
