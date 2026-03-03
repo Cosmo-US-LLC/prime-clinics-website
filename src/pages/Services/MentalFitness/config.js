@@ -55,6 +55,35 @@ export default {
       },
     ],
   },
+  benefits: {
+    heading: "Benefits of Mental Fitness",
+    items: [
+      {
+        icon: "eye",
+        title: "Cognitive Clarity",
+        description:
+          "Eliminate brain fog completely and drastically improve your deep concentration on complex executive tasks.",
+      },
+      {
+        icon: "heart",
+        title: "Stress Resilience",
+        description:
+          "Manage high stakes environments effortlessly without experiencing severe anxiety or long term burnout.",
+      },
+      {
+        icon: "smile",
+        title: "Elevated Mood",
+        description:
+          "Regulate neural pathways for sustained daily motivation, positive drive, and stable emotional well-being.",
+      },
+      {
+        icon: "brain",
+        title: "Neural Plasticity",
+        description:
+          "Rewire your brain for faster processing speed, improved memory retention, and heightened mental stamina.",
+      },
+    ],
+  },
   intro: {
     heading: "What does it mean to achieve total cognitive immersion?",
     tagline: "Clarity is not accidental.",
@@ -64,5 +93,15 @@ export default {
     ctaHref: "/free-dexa-scan",
     image: desktop,
     imageAlt: "Mental fitness and cognitive immersion",
+  },
+  membership: {
+    heading: "PRIME Membership",
+    tagline: "Performance is not seasonal. It is systematic.",
+    description:
+      "Our membership model provides structured access to diagnostics, therapies, performance technologies, and clinical guidance. Credits allow you to customize your pathway while maintaining measurable accountability and progress tracking.",
+    ctaLabel: "Book Your Assessment",
+    ctaHref: "/free-dexa-scan",
+    image: desktop,
+    imageAlt: "Prime membership",
   },
 };

@@ -55,6 +55,35 @@ export default {
       },
     ],
   },
+  benefits: {
+    heading: "Benefits of Weight Management",
+    items: [
+      {
+        icon: "scale",
+        title: "Sustainable Fat Loss",
+        description:
+          "Lower your metabolic set point permanently to efficiently burn fat and keep the weight off for good.",
+      },
+      {
+        icon: "brain",
+        title: "Appetite Regulation",
+        description:
+          'Quiet constant "food noise" and eliminate daily cravings naturally without utilizing stimulants.',
+      },
+      {
+        icon: "dumbbell",
+        title: "Muscle Preservation",
+        description:
+          "Ensure the weight lost is purely fat so you fully preserve your structural athletic shape.",
+      },
+      {
+        icon: "syringe",
+        title: "Insulin Sensitivity",
+        description:
+          "Correct high fasting insulin levels to fundamentally reverse metabolic resistance and stabilize your energy.",
+      },
+    ],
+  },
   intro: {
     heading: "What is Metabolic Weight Management?",
     tagline: "Transformation is not a fad.",
@@ -64,6 +93,16 @@ export default {
     ctaHref: "/free-dexa-scan",
     image: desktop,
     imageAlt: "Metabolic weight management",
+  },
+  membership: {
+    heading: "PRIME Membership",
+    tagline: "Performance is not seasonal. It is systematic.",
+    description:
+      "Our membership model provides structured access to diagnostics, therapies, performance technologies, and clinical guidance. Credits allow you to customize your pathway while maintaining measurable accountability and progress tracking.",
+    ctaLabel: "Book Your Assessment",
+    ctaHref: "/free-dexa-scan",
+    image: desktop,
+    imageAlt: "Prime membership",
   },
 };
 

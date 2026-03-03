@@ -67,6 +67,35 @@ export default {
       },
     ],
   },
+  benefits: {
+    heading: "Benefits of Hormone Health Optimization",
+    items: [
+      {
+        icon: "heart",
+        title: "Renewed Vitality",
+        description:
+          "Eliminate daily lethargy and reclaim your morning-to-night stamina for peak daily performance.",
+      },
+      {
+        icon: "scale",
+        title: "Body Composition",
+        description:
+          "Support vital muscle retention and target stubborn abdominal fat to reveal your athletic baseline.",
+      },
+      {
+        icon: "smile",
+        title: "Mood Stabilization",
+        description:
+          "Regulate your neurochemistry to reduce irritability, improve patience, and sustain mental clarity.",
+      },
+      {
+        icon: "sparkles",
+        title: "Restored Drive",
+        description:
+          "Reawaken your natural libido and intimate confidence with precisely balanced physiological hormone ranges.",
+      },
+    ],
+  },
   intro: {
     heading: "What is Hormonal Restoration?",
     tagline: "Vitality is not accidental.",
@@ -76,5 +105,15 @@ export default {
     ctaHref: "/free-dexa-scan",
     image: desktop,
     imageAlt: "Hormonal restoration",
+  },
+  membership: {
+    heading: "PRIME Membership",
+    tagline: "Performance is not seasonal. It is systematic.",
+    description:
+      "Our membership model provides structured access to diagnostics, therapies, performance technologies, and clinical guidance. Credits allow you to customize your pathway while maintaining measurable accountability and progress tracking.",
+    ctaLabel: "Book Your Assessment",
+    ctaHref: "/free-dexa-scan",
+    image: desktop,
+    imageAlt: "Prime membership",
   },
 };

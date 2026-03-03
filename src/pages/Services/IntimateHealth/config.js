@@ -55,6 +55,35 @@ export default {
       },
     ],
   },
+  benefits: {
+    heading: "Benefits of Intimate Health Optimization",
+    items: [
+      {
+        icon: "shield",
+        title: "Restored Confidence",
+        description:
+          "Overcome performance anxiety with highly reliable physical function and spontaneous readiness.",
+      },
+      {
+        icon: "leaf",
+        title: "Enhanced Sensitivity",
+        description:
+          "Improve nerve response and stimulate healthier tissue regeneration for a profound physical connection.",
+      },
+      {
+        icon: "bone",
+        title: "Pelvic Strength",
+        description:
+          "Gain total muscular control over stress urinary incontinence and underlying pelvic floor weakness.",
+      },
+      {
+        icon: "activity",
+        title: "Vascular Rejuvenation",
+        description:
+          "Treat the root cause of dysfunction by actively building new blood vessels for lasting improvement.",
+      },
+    ],
+  },
   intro: {
     heading: "What is Intimate Health Restoration?",
     tagline: "Confidence is not left to chance.",
@@ -64,5 +93,15 @@ export default {
     ctaHref: "/free-dexa-scan",
     image: desktop,
     imageAlt: "Intimate health restoration",
+  },
+  membership: {
+    heading: "PRIME Membership",
+    tagline: "Performance is not seasonal. It is systematic.",
+    description:
+      "Our membership model provides structured access to diagnostics, therapies, performance technologies, and clinical guidance. Credits allow you to customize your pathway while maintaining measurable accountability and progress tracking.",
+    ctaLabel: "Book Your Assessment",
+    ctaHref: "/free-dexa-scan",
+    image: desktop,
+    imageAlt: "Prime membership",
   },
 };

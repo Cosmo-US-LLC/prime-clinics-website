@@ -67,6 +67,35 @@ export default {
       },
     ],
   },
+  benefits: {
+    heading: "Benefits of Joint Rehabilitation",
+    items: [
+      {
+        icon: "bandage",
+        title: "Accelerated Healing",
+        description:
+          "Vastly speed up the biological repair of micro tears in heavily used tendons and ligaments.",
+      },
+      {
+        icon: "heart",
+        title: "Non Surgical Relief",
+        description:
+          "Alleviate chronic joint discomfort entirely without relying on systemic painkillers or invasive procedures.",
+      },
+      {
+        icon: "move",
+        title: "Restored Mobility",
+        description:
+          "Regain your full natural range of motion and eliminate frustrating joint clicking or morning stiffness.",
+      },
+      {
+        icon: "bone",
+        title: "Structural Integrity",
+        description:
+          "Correct the underlying muscular imbalances that cause joint strain to protect your long term biomechanics.",
+      },
+    ],
+  },
   intro: {
     heading: "What is Regenerative Orthopedics?",
     tagline: "Recovery is not passive.",
@@ -76,5 +105,15 @@ export default {
     ctaHref: "/free-dexa-scan",
     image: desktop,
     imageAlt: "Regenerative orthopedics",
+  },
+  membership: {
+    heading: "PRIME Membership",
+    tagline: "Performance is not seasonal. It is systematic.",
+    description:
+      "Our membership model provides structured access to diagnostics, therapies, performance technologies, and clinical guidance. Credits allow you to customize your pathway while maintaining measurable accountability and progress tracking.",
+    ctaLabel: "Book Your Assessment",
+    ctaHref: "/free-dexa-scan",
+    image: desktop,
+    imageAlt: "Prime membership",
   },
 };
