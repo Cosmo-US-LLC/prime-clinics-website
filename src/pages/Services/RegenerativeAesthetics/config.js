@@ -67,6 +67,35 @@ export default {
       },
     ],
   },
+  benefits: {
+    heading: "Benefits of Regenerative Aesthetics",
+    items: [
+      {
+        icon: "arrow-up-circle",
+        title: "Structural Lift",
+        description:
+          "Restore lost facial volume to build masculine definition without looking plastic or overdone.",
+      },
+      {
+        icon: "scissors",
+        title: "Hair Restoration",
+        description:
+          "Reactivate dormant follicles to aggressively combat thinning and rebuild a powerful, dense hairline.",
+      },
+      {
+        icon: "dumbbell",
+        title: "Sculpted Physique",
+        description:
+          "Burn stubborn fat pockets while simultaneously building core muscle mass for a chiseled midsection.",
+      },
+      {
+        icon: "sparkles",
+        title: "Cellular Renewal",
+        description:
+          "Stimulate natural collagen production to reverse skin laxity and project a highly rested appearance.",
+      },
+    ],
+  },
   intro: {
     heading: "What are Regenerative Aesthetics?",
     tagline: "Appearance is not static.",
@@ -76,5 +105,15 @@ export default {
     ctaHref: "/free-dexa-scan",
     image: desktop,
     imageAlt: "Regenerative aesthetics",
+  },
+  membership: {
+    heading: "PRIME Membership",
+    tagline: "Performance is not seasonal. It is systematic.",
+    description:
+      "Our membership model provides structured access to diagnostics, therapies, performance technologies, and clinical guidance. Credits allow you to customize your pathway while maintaining measurable accountability and progress tracking.",
+    ctaLabel: "Book Your Assessment",
+    ctaHref: "/free-dexa-scan",
+    image: desktop,
+    imageAlt: "Prime membership",
   },
 };

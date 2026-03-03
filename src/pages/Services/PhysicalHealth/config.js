@@ -94,6 +94,16 @@ export default {
     image: desktop,
     imageAlt: "Physical performance optimization",
   },
+  membership: {
+    heading: "PRIME Membership",
+    tagline: "Performance is not seasonal. It is systematic.",
+    description:
+      "Our membership model provides structured access to diagnostics, therapies, performance technologies, and clinical guidance. Credits allow you to customize your pathway while maintaining measurable accountability and progress tracking.",
+    ctaLabel: "Book Your Assessment",
+    ctaHref: "/free-dexa-scan",
+    image: desktop,
+    imageAlt: "Prime membership",
+  },
   faq: {
     heading: "Frequently Asked Questions",
     description: "Detail FAQs regarding the service.",
