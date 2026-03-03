@@ -7,33 +7,13 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 
-const DEFAULT_TESTIMONIALS = [
-  {
-    quote:
-      "The biomechanical assessment completely changed my training. I finally fixed my squat depth and broke my plateau safely.",
-    name: "Mark T.",
-  },
-  {
-    quote:
-      "The EMS devices are incredible. I am getting more strength gains in half the time, and my recovery is much faster.",
-    name: "David L.",
-  },
-  {
-    quote:
-      "A true clinical approach to fitness. Eating based on my actual metabolic rate rather than a generic diet app changed everything.",
-    name: "James R.",
-  },
-];
-
 /**
  * "Proven Results. Real Stories" testimonials carousel for service pages.
  * Layout and arrows follow Figma 3187:16646 and HomeTestimonials/ServicesSolutionsSection.
+ * Content is provided via per-service config.
  */
-function ServicesTestimonialsSection({
-  heading = "Proven Results. Real Stories",
-  testimonials = DEFAULT_TESTIMONIALS,
-}) {
-  if (!testimonials.length) return null;
+function ServicesTestimonialsSection({ heading, items = [] }) {
+  if (!heading || !items.length) return null;
 
   return (
     <section
@@ -53,7 +33,7 @@ function ServicesTestimonialsSection({
           className="relative w-full"
         >
           <CarouselContent>
-            {testimonials.map((t, index) => (
+            {items.map((t, index) => (
               <CarouselItem
                 key={index}
                 className="md:basis-1/2 lg:basis-1/3"

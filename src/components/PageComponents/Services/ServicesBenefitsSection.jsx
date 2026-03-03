@@ -45,6 +45,8 @@ const BENEFIT_ICONS = {
  * "Benefits of [Service]" section — row of cards with icon, title, description.
  * Matches Figma 3187:17218 layout. Same structure per service, content from config.
  * items[].icon: key of BENEFIT_ICONS (e.g. "activity", "shield", "zap", "trending-up").
+ * items[].iconComponent (optional): custom React SVG component. When provided,
+ * it will be used instead of the Lucide icon.
  */
 function ServicesBenefitsSection({ heading, items = [] }) {
   if (!items.length) return null;
@@ -57,7 +59,8 @@ function ServicesBenefitsSection({ heading, items = [] }) {
         </h2>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item, index) => {
-            const IconComponent = BENEFIT_ICONS[item.icon] ?? Activity;
+            const IconComponent =
+              item.iconComponent || BENEFIT_ICONS[item.icon] || Activity;
             return (
               <article
                 key={index}
