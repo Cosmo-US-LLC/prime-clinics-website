@@ -22,6 +22,8 @@ import MeetTheTeam from "./pages/MeetTheTeam";
 import AboutUs from "./pages/AboutUs";
 import PrimeWaitlist from "./pages/Waitlist/PrimeWaitlist";
 import MedicalPrescriptions from "./pages/MedicalPrescriptions";
+import Careers from "./pages/Careers";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   return (
@@ -61,6 +63,8 @@ function App() {
           />
           <Route path="/vip-access" element={<VipAccess />} />
           <Route path="/waitlist" element={<PrimeWaitlist />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/meet-the-team" element={<MeetTheTeam />} />
         </Route>
         {/* Other routes use main Navbar + Footer */}

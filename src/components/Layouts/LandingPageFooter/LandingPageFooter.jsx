@@ -20,7 +20,7 @@ const QUICK_LINKS = [
   { label: "VIP Access", to: "/vip-access" },
   { label: "Careers", to: "/careers" },
   { label: "Meet the Team", to: "/meet-the-team" },
-  { label: "Contact Us", to: "/contact" },
+  { label: "Contact Us", to: "/contact-us" },
 ];
 
 const OUR_SERVICES = [
