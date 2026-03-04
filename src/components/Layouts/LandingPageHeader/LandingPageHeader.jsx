@@ -35,7 +35,7 @@ const NAV_LINKS = [
   { label: "Private Prescriptions", href: "/private-prescriptions" },
   { label: "Careers", href: "/careers" },
   { label: "VIP Access", href: "/vip-access" },
-  { label: "Contact", href: "/contact" },
+  { label: "Contact", href: "/contact-us" },
 ];
 
 const SERVICE_LINKS = [
