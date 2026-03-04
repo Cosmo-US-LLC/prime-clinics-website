@@ -15,7 +15,7 @@ import Logo from "@/assets/icons/Prime_Logo.svg";
 
 const QUICK_LINKS = [
   { label: "Home", to: "/" },
-  { label: "About Us", to: "/about" },
+  { label: "About Us", to: "/about-us" },
   { label: "Membership", to: "/membership" },
   { label: "VIP Access", to: "/vip-access" },
   { label: "Careers", to: "/careers" },

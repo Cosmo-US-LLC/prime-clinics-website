@@ -20,6 +20,8 @@ import MentalFitness from "./pages/Services/MentalFitness";
 import JointRehabilitation from "./pages/Services/JointRehabilitation";
 import MeetTheTeam from "./pages/MeetTheTeam";
 import AboutUs from "./pages/AboutUs";
+import PrimeWaitlist from "./pages/Waitlist/PrimeWaitlist";
+import MedicalPrescriptions from "./pages/MedicalPrescriptions";
 
 function App() {
   return (
@@ -27,9 +29,10 @@ function App() {
       <ScrollToTop />
       <Routes>
         {/* Home uses landing header + footer */}
-        <Route index element={<ComingSoon />} />
+        {/* <Route index element={<ComingSoon />} /> */}
         <Route element={<LandingLayout />}>
-          {/* <Route index element={<Home />} /> */}
+          <Route index element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
           <Route
             path="/services/physical-health"
             element={<PhysicalHealth />}
@@ -52,9 +55,13 @@ function App() {
             path="/services/joint-rehabilitation"
             element={<JointRehabilitation />}
           />
+          <Route
+            path="/private-prescriptions"
+            element={<MedicalPrescriptions />}
+          />
           <Route path="/vip-access" element={<VipAccess />} />
+          <Route path="/waitlist" element={<PrimeWaitlist />} />
           <Route path="/meet-the-team" element={<MeetTheTeam />} />
-          
         </Route>
         {/* Other routes use main Navbar + Footer */}
         <Route element={<Layout />}>

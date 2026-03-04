@@ -26,7 +26,7 @@ import card6 from "@/assets/images/home/services/service_card6.webp";
 import card7 from "@/assets/images/home/services/service_card7.webp";
 
 const NAV_LINKS = [
-  { label: "About Us", href: "/about" },
+  { label: "About Us", href: "/about-us" },
   {
     label: "Services",
     href: "/services",
@@ -92,16 +92,25 @@ function LandingPageHeader() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const headerBase = `fixed inset-x-0 z-[99999] ${scrolled ? "top-0" : "top-2"} z-50 w-full h-[${scrolled ? "84px" : "84px"}] transition-all duration-200`;
+  const headerBase = `fixed inset-x-0 z-[99999] ${scrolled ? "top-0" : "top-2"} z-50 w-full h-[${scrolled ? "80px" : "80px"}] transition-all duration-200`;
   const headerState = scrolled
-    ? "bg-white shadow-[0_1px_2px_rgba(15,23,42,0.5)] backdrop-blur"
+    ? "bg-white shadow-md backdrop-blur"
     : "bg-transparent";
+
+  // Pages with a full-bleed hero where we want light nav links at the top.
+  const hasHeroOverlay =
+    pathname === "/" ||
+    pathname.startsWith("/services") ||
+    pathname === "/vip-access" ||
+    pathname === "/private-prescriptions" ||
+    pathname === "/about-us";
 
   const linkBase =
     "flex items-center gap-1.5 px-2 py-4 text-[16px] font-medium leading-6 whitespace-nowrap transition-colors";
-  const linkState = scrolled
-    ? "text-[#030712] hover:text-[#2463D8]"
-    : "text-white hover:text-[#E5EDFF]";
+  const linkState =
+    scrolled || !hasHeroOverlay
+      ? "text-[#030712] hover:text-[#2463D8]"
+      : "text-white hover:text-white/90";
 
   // mobileLinkBase is no longer used; keep naming for potential future reuse
   const MOBILE_LINK_BASE =
@@ -119,7 +128,7 @@ function LandingPageHeader() {
           aria-label="Prime Clinics home"
         >
           <img
-            src={scrolled ? LogoScrolled : LogoPrimary}
+            src={scrolled || !hasHeroOverlay ? LogoScrolled : LogoPrimary}
             alt="Prime Clinics Logo"
             className="block h-full w-auto select-none"
             draggable={false}
@@ -260,7 +269,7 @@ function LandingPageHeader() {
                   draggable={false}
                 />
               </Link>
-              <SheetClose asChild>
+              {/* <SheetClose asChild>
                 <button
                   type="button"
                   className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/30 text-white hover:bg-white/10"
@@ -268,7 +277,7 @@ function LandingPageHeader() {
                 >
                   <X size={18} />
                 </button>
-              </SheetClose>
+              </SheetClose> */}
             </div>
 
             <nav className="flex flex-col gap-2">
