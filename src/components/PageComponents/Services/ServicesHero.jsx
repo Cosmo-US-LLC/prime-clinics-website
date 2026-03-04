@@ -29,7 +29,7 @@ function ServicesHero({
 
         <div className="max-w-[1280px] mx-auto w-full md:px-8 px-4 py-16 md:py-[100px] flex justify-start items-end">
           <div className="relative z-10 flex flex-col gap-6 max-w-full md:max-w-[625px]">
-            <h1 className="font-display text-[42px] md:text-[64px] font-bold leading-[72px] text-white uppercase m-0 drop-shadow-[0px_0px_4px_rgba(0,0,0,0.25)] tracking-normal">
+            <h1 className="heading-1 text-white uppercase m-0 drop-shadow-[0px_0px_4px_rgba(0,0,0,0.25)]">
               {title}
               {titleHighlight ? (
                 <>

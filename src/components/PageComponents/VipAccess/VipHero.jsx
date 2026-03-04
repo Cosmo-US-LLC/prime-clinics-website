@@ -25,7 +25,7 @@ function VipHero() {
         <div className="max-w-[1280px] mx-auto w-full md:px-8 px-4 py-16 md:py-[80px] flex justify-start items-end">
           <div className="relative z-10 flex flex-col gap-6 max-w-full md:max-w-[545px]">
             <div className="flex flex-col gap-4">
-              <h1 className="font-display text-[42px] md:text-[64px] font-bold leading-[72px] text-white uppercase m-0 drop-shadow-[0px_0px_4px_rgba(0,0,0,0.25)] tracking-normal">
+              <h1 className="heading-1 text-white uppercase m-0 drop-shadow-[0px_0px_4px_rgba(0,0,0,0.25)]">
                 Step Into Prime
               </h1>
               <p className="font-sans text-[18px] font-normal leading-[26px] text-white m-0 max-w-[495px]">

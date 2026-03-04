@@ -23,9 +23,9 @@ function HomeHero() {
           />
         </div>
         <div className="max-w-[1280px] mx-auto w-full md:px-8 px-4 py-16 md:py-[80px] flex justify-start items-end">
-          <div className="relative z-10 flex flex-col gap-6 max-w-full md:max-w-[545px]">
+          <div className="relative z-10 flex flex-col gap-6 max-w-full md:max-w-[575px]">
             <div className="flex flex-col gap-4">
-              <h1 className="font-display text-[42px] md:text-[64px] font-bold leading-[72px] text-white uppercase m-0 drop-shadow-[0px_0px_4px_rgba(0,0,0,0.25)] tracking-normal">
+              <h1 className=" text-white uppercase m-0 heading-1">
                 A New Standard of{" "}
                 <span className="bg-linear-to-r from-[#2463D8] via-[#60A5FA] to-[#BFDBFE] bg-clip-text text-transparent">
                   Performance
