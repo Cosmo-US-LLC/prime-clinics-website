@@ -40,7 +40,7 @@ const SheetContent = React.forwardRef(function SheetContent(
     side === "right"
       ? "inset-y-0 right-0 h-full w-full max-w-sm border-l"
       : side === "left"
-        ? "inset-y-0 left-0 h-full w-[80vw] max-w-none border-r"
+        ? "inset-y-0 left-0 h-full w-[80vw] max-w-none "
         : side === "bottom"
           ? "inset-x-0 bottom-0 w-full border-t rounded-t-2xl"
           : "inset-x-0 top-0 w-full border-b rounded-b-2xl";
