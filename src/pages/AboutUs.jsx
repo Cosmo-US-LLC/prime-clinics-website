@@ -5,7 +5,6 @@ import OurPurposeYourPrime from "@/components/PageComponents/AboutUs/OurPurposeY
 import OurCommitment from "@/components/PageComponents/AboutUs/OurCommitment";
 import OurPhilosophy from "@/components/PageComponents/AboutUs/OurPhilosophy";
 import ReadyToOptimize from "@/components/PageComponents/AboutUs/ReadyToOptimize";
-// import StepIntoPrime from "@/components/PageComponents/AboutUs/StepIntoPrime";
 import StepIntoPrime from "@/components/PageComponents/Home/StepIntoPrime";
 
 function AboutUs() {
@@ -17,7 +16,6 @@ function AboutUs() {
             <OurPhilosophy/>
             <OurCommitment/>
             <ReadyToOptimize/> 
-            {/* <StepIntoPrime/> */}
             <StepIntoPrime />
         </>
     );
