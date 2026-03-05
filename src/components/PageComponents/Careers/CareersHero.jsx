@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import HomeHeroImageDesktop from "@/assets/images/medical_prescriptions/career_page_bg.webp";
-import HomeHeroImageMobile from "@/assets/images/medical_prescriptions/career_page_bg.webp";
+import HomeHeroImageDesktop from "@/assets/images/medical_prescriptions/career_hero_section.webp";
+import HomeHeroImageMobile from "@/assets/images/medical_prescriptions/career_hero_section.webp";
 import CareerCard1 from "@/assets/images/medical_prescriptions/career_hero_card_1.webp";
 import CareerCard2 from "@/assets/images/medical_prescriptions/career_hero_card_2.webp";
 
