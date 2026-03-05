@@ -7,6 +7,12 @@ import solutionImg1 from "@/assets/images/services/solutions_we/hor_card_1.webp"
 import solutionImg2 from "@/assets/images/services/solutions_we/hor_card_2.webp";
 import solutionImg3 from "@/assets/images/services/solutions_we/hor_card_3.webp";
 import solutionImg4 from "@/assets/images/services/solutions_we/hor_card_4.webp";
+import {
+  HormoneIcon1,
+  HormoneIcon2,
+  HormoneIcon3,
+  HormoneIcon4,
+} from "@/utils/knowYourNumbersIcons";
 
 export default {
   seo: {
@@ -74,25 +80,25 @@ export default {
     heading: "Benefits of Hormone Health Optimization",
     items: [
       {
-        icon: "heart",
+        iconComponent: HormoneIcon1,
         title: "Renewed Vitality",
         description:
           "Eliminate daily lethargy and reclaim your morning-to-night stamina for peak daily performance.",
       },
       {
-        icon: "scale",
+        iconComponent: HormoneIcon2,
         title: "Body Composition",
         description:
           "Support vital muscle retention and target stubborn abdominal fat to reveal your athletic baseline.",
       },
       {
-        icon: "smile",
+        iconComponent: HormoneIcon3,
         title: "Mood Stabilization",
         description:
           "Regulate your neurochemistry to reduce irritability, improve patience, and sustain mental clarity.",
       },
       {
-        icon: "sparkles",
+        iconComponent: HormoneIcon4,
         title: "Restored Drive",
         description:
           "Reawaken your natural libido and intimate confidence with precisely balanced physiological hormone ranges.",

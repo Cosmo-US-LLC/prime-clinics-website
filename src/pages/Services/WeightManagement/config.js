@@ -6,6 +6,12 @@ import membershipImg from "@/assets/images/services/prime_membership/prime_membe
 import solutionImg1 from "@/assets/images/services/solutions_we/weight_card_1.webp";
 import solutionImg2 from "@/assets/images/services/solutions_we/weight_card_2.webp";
 import solutionImg3 from "@/assets/images/services/solutions_we/weight_card_3.webp";
+import {
+  WeightIcon1,
+  WeightIcon2,
+  WeightIcon3,
+  WeightIcon4,
+} from "@/utils/knowYourNumbersIcons";
 
 export default {
   seo: {
@@ -62,25 +68,25 @@ export default {
     heading: "Benefits of Weight Management",
     items: [
       {
-        icon: "scale",
+        iconComponent: WeightIcon1,
         title: "Sustainable Fat Loss",
         description:
           "Lower your metabolic set point permanently to efficiently burn fat and keep the weight off for good.",
       },
       {
-        icon: "brain",
+        iconComponent: WeightIcon2,
         title: "Appetite Regulation",
         description:
           'Quiet constant "food noise" and eliminate daily cravings naturally without utilizing stimulants.',
       },
       {
-        icon: "dumbbell",
+        iconComponent: WeightIcon3,
         title: "Muscle Preservation",
         description:
           "Ensure the weight lost is purely fat so you fully preserve your structural athletic shape.",
       },
       {
-        icon: "syringe",
+        iconComponent: WeightIcon4,
         title: "Insulin Sensitivity",
         description:
           "Correct high fasting insulin levels to fundamentally reverse metabolic resistance and stabilize your energy.",
