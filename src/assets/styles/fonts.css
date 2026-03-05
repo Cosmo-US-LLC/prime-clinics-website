@@ -149,6 +149,14 @@
   text-transform: uppercase;
 }
 
+.body_text_1 {
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+}
+
 /* Button Classes */
 .btn-primary {
   display: flex;
@@ -228,5 +236,9 @@
   .heading-3 {
     font-size: 20px;
     line-height: 28px;
+  }
+  .body_text_1 {
+    font-size: 16px;
+    line-height: 24px;
   }
 }

@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Plus, X } from "lucide-react";
 import Slide1 from "@/assets/images/home/who_we_are/who_we_are_slide1.webp";
 import Slide2 from "@/assets/images/home/who_we_are/who_we_are_slide2.webp";
+import Slide2Mobile from "@/assets/images/home/who_we_are/who_we_are_mobile_slide2.webp";
 import Slide3 from "@/assets/images/home/who_we_are/who_we_are_slide3.webp";
 
 const SLIDES = [
@@ -10,6 +12,7 @@ const SLIDES = [
     description:
       "We engineer bespoke treatment plans designed to upgrade mobility, increase drive, and sharpen mental clarity for peak operation.",
     image: Slide1,
+    imageMobile: Slide1,
   },
   {
     id: "longevity",
@@ -17,6 +20,7 @@ const SLIDES = [
     description:
       "Extend your healthspan with preventative care, DNA analysis, and cellular optimization.",
     image: Slide2,
+    imageMobile: Slide2Mobile,
   },
   {
     id: "aesthetics",
@@ -24,11 +28,13 @@ const SLIDES = [
     description:
       "Enhance your appearance with safe, medical-grade treatments designed for the modern individual.",
     image: Slide3,
+    imageMobile: Slide3,
   },
 ];
 
 function HomeWhoWeAre() {
   const [activeId, setActiveId] = useState("performance");
+  const [mobileExpandedId, setMobileExpandedId] = useState(SLIDES[0].id);
   const [textActivated, setTextActivated] = useState(false);
   const sectionRef = useRef(null);
 
@@ -88,8 +94,60 @@ function HomeWhoWeAre() {
           </p>
         </div>
 
-        {/* Accordion slider row */}
-        <div className="flex flex-col gap-4 md:flex-row md:items-stretch md:gap-4">
+        {/* Mobile: stacked cards with expandable image + text */}
+        <div className="flex flex-col gap-4 md:hidden">
+          {SLIDES.map((slide) => {
+            const isExpanded = slide.id === mobileExpandedId;
+            return (
+              <button
+                key={slide.id}
+                type="button"
+                onClick={() =>
+                  setMobileExpandedId((prev) =>
+                    prev === slide.id ? null : slide.id,
+                  )
+                }
+                className="group relative flex cursor-pointer flex-col text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2463D8]"
+              >
+                <div
+                  className={`relative w-full overflow-hidden transition-all duration-300 ${
+                    isExpanded ? "h-[260px]" : "h-[160px]"
+                  }`}
+                >
+                  <img
+                    src={slide.image}
+                    alt={slide.title}
+                    className="h-full w-full rounded-2xl object-cover object-top transition-transform duration-500 ease-out"
+                  />
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl bg-linear-to-b from-transparent to-black/60" />
+                </div>
+
+                <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-2 px-4 py-4 text-white">
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="heading-3 text-white uppercase m-0">
+                      {slide.title}
+                    </h3>
+                    <span className="inline-flex h-5 w-5 items-center justify-center">
+                      {isExpanded ? (
+                        <X className="h-full w-full" aria-hidden />
+                      ) : (
+                        <Plus className="h-full w-full" aria-hidden />
+                      )}
+                    </span>
+                  </div>
+                  {isExpanded && (
+                    <p className="font-sans text-[14px] leading-[20px] m-0">
+                      {slide.description}
+                    </p>
+                  )}
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Desktop: horizontal interactive panels */}
+        <div className="hidden md:flex md:flex-row md:items-stretch md:gap-4">
           {SLIDES.map((slide) => {
             const isActive = slide.id === activeId;
             return (
@@ -99,10 +157,10 @@ function HomeWhoWeAre() {
                 onMouseEnter={() => setActiveId(slide.id)}
                 onFocus={() => setActiveId(slide.id)}
                 onClick={() => setActiveId(slide.id)}
-                className={`group relative flex h-[360px] md:h-[500px] cursor-pointer flex-col justify-end overflow-hidden rounded-2xl p-4 text-left transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2463D8] ${
+                className={`group relative flex h-[500px] cursor-pointer flex-col justify-end overflow-hidden rounded-2xl p-4 text-left transition-all duration-300 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2463D8] ${
                   isActive
-                    ? "md:flex-2 shadow-[0_24px_40px_rgba(15,23,42,0.5)]"
-                    : "md:flex-1"
+                    ? "flex-[2] shadow-[0_24px_40px_rgba(15,23,42,0.5)]"
+                    : "flex-1"
                 }`}
               >
                 {/* Image + gradient overlay */}
@@ -112,9 +170,7 @@ function HomeWhoWeAre() {
                     alt={slide.title}
                     className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                   />
-                  <div
-                    className={`absolute inset-0 bg-linear-to-b from-transparent to-black/80 rounded-2xl`}
-                  />
+                  <div className="absolute inset-0 rounded-2xl bg-linear-to-b from-transparent to-black/80" />
                 </div>
 
                 <div
@@ -126,8 +182,8 @@ function HomeWhoWeAre() {
                     {slide.title}
                   </h3>
                   <p
-                    className={`font-sans text-[14px] md:text-[16px] leading-[20px] md:leading-[24px] m-0 block md:h-[60px] md:overflow-hidden ${
-                      isActive ? "md:block" : "md:hidden"
+                    className={`font-sans text-[16px] leading-[24px] m-0 ${
+                      isActive ? "block" : "hidden"
                     }`}
                   >
                     {slide.description}
