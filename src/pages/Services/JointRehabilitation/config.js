@@ -7,6 +7,12 @@ import solutionImg1 from "@/assets/images/services/solutions_we/joing_card_1.web
 import solutionImg2 from "@/assets/images/services/solutions_we/joing_card_2.webp";
 import solutionImg3 from "@/assets/images/services/solutions_we/joing_card_3.webp";
 import solutionImg4 from "@/assets/images/services/solutions_we/joing_card_4.webp";
+import {
+  JointIcon1,
+  JointIcon2,
+  JointIcon3,
+  JointIcon4,
+} from "@/utils/knowYourNumbersIcons";
 
 export default {
   seo: {
@@ -74,25 +80,25 @@ export default {
     heading: "Benefits of Joint Rehabilitation",
     items: [
       {
-        icon: "bandage",
+        iconComponent: JointIcon1,
         title: "Accelerated Healing",
         description:
           "Vastly speed up the biological repair of micro tears in heavily used tendons and ligaments.",
       },
       {
-        icon: "heart",
+        iconComponent: JointIcon2,
         title: "Non Surgical Relief",
         description:
           "Alleviate chronic joint discomfort entirely without relying on systemic painkillers or invasive procedures.",
       },
       {
-        icon: "move",
+        iconComponent: JointIcon3,
         title: "Restored Mobility",
         description:
           "Regain your full natural range of motion and eliminate frustrating joint clicking or morning stiffness.",
       },
       {
-        icon: "bone",
+        iconComponent: JointIcon4,
         title: "Structural Integrity",
         description:
           "Correct the underlying muscular imbalances that cause joint strain to protect your long term biomechanics.",

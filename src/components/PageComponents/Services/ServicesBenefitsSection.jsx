@@ -64,7 +64,7 @@ function ServicesBenefitsSection({ heading, items = [] }) {
             return (
               <article
                 key={index}
-                className="flex flex-col gap-10 rounded-2xl bg-white p-6 shadow-[0px_5.358px_53.582px_0px_rgba(0,0,0,0.07)]"
+                className="flex flex-col gap-6 rounded-2xl bg-white p-6 shadow-[0px_5.358px_53.582px_0px_rgba(0,0,0,0.07)]"
               >
                 <div className="flex flex-col gap-6">
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center text-[#2463D8]">

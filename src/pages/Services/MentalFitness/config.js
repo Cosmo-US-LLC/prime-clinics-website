@@ -6,6 +6,12 @@ import membershipImg from "@/assets/images/services/prime_membership/prime_membe
 import solutionImg1 from "@/assets/images/services/solutions_we/mental_card_1.webp";
 import solutionImg2 from "@/assets/images/services/solutions_we/mental_card_2.webp";
 import solutionImg3 from "@/assets/images/services/solutions_we/mental_card_3.webp";
+import {
+  MentalIcon1,
+  MentalIcon2,
+  MentalIcon3,
+  MentalIcon4,
+} from "@/utils/knowYourNumbersIcons";
 
 export default {
   seo: {
@@ -62,25 +68,25 @@ export default {
     heading: "Benefits of Mental Fitness",
     items: [
       {
-        icon: "eye",
+        iconComponent: MentalIcon1,
         title: "Cognitive Clarity",
         description:
           "Eliminate brain fog completely and drastically improve your deep concentration on complex executive tasks.",
       },
       {
-        icon: "heart",
+        iconComponent: MentalIcon2,
         title: "Stress Resilience",
         description:
           "Manage high stakes environments effortlessly without experiencing severe anxiety or long term burnout.",
       },
       {
-        icon: "smile",
+        iconComponent: MentalIcon3,
         title: "Elevated Mood",
         description:
           "Regulate neural pathways for sustained daily motivation, positive drive, and stable emotional well-being.",
       },
       {
-        icon: "brain",
+        iconComponent: MentalIcon4,
         title: "Neural Plasticity",
         description:
           "Rewire your brain for faster processing speed, improved memory retention, and heightened mental stamina.",

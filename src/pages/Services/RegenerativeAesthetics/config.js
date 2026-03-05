@@ -7,6 +7,12 @@ import solutionImg1 from "@/assets/images/services/solutions_we/rege_card_1.webp
 import solutionImg2 from "@/assets/images/services/solutions_we/rege_card_2.webp";
 import solutionImg3 from "@/assets/images/services/solutions_we/rege_card_3.webp";
 import solutionImg4 from "@/assets/images/services/solutions_we/rege_card_4.webp";
+import {
+  RegenerativeIcon1,
+  RegenerativeIcon2,
+  RegenerativeIcon3,
+  RegenerativeIcon4,
+} from "@/utils/knowYourNumbersIcons";
 
 export default {
   seo: {
@@ -74,25 +80,25 @@ export default {
     heading: "Benefits of Regenerative Aesthetics",
     items: [
       {
-        icon: "arrow-up-circle",
+        iconComponent: RegenerativeIcon1,
         title: "Structural Lift",
         description:
           "Restore lost facial volume to build masculine definition without looking plastic or overdone.",
       },
       {
-        icon: "scissors",
+        iconComponent: RegenerativeIcon2,
         title: "Hair Restoration",
         description:
           "Reactivate dormant follicles to aggressively combat thinning and rebuild a powerful, dense hairline.",
       },
       {
-        icon: "dumbbell",
+        iconComponent: RegenerativeIcon3,
         title: "Sculpted Physique",
         description:
           "Burn stubborn fat pockets while simultaneously building core muscle mass for a chiseled midsection.",
       },
       {
-        icon: "sparkles",
+        iconComponent: RegenerativeIcon4,
         title: "Cellular Renewal",
         description:
           "Stimulate natural collagen production to reverse skin laxity and project a highly rested appearance.",

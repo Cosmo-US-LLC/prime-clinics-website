@@ -7,6 +7,12 @@ import membershipImg from "@/assets/images/services/prime_membership/prime_membe
 import solutionImg1 from "@/assets/images/services/solutions_we/inti_card_1.webp";
 import solutionImg2 from "@/assets/images/services/solutions_we/inti_card_2.webp";
 import solutionImg3 from "@/assets/images/services/solutions_we/inti_card_3.webp";
+import {
+  IntimateIcon1,
+  IntimateIcon2,
+  IntimateIcon3,
+  IntimateIcon4,
+} from "@/utils/knowYourNumbersIcons";
 
 export default {
   seo: {
@@ -63,25 +69,25 @@ export default {
     heading: "Benefits of Intimate Health Optimization",
     items: [
       {
-        icon: "shield",
+        iconComponent: IntimateIcon1,
         title: "Restored Confidence",
         description:
           "Overcome performance anxiety with highly reliable physical function and spontaneous readiness.",
       },
       {
-        icon: "leaf",
+        iconComponent: IntimateIcon2,
         title: "Enhanced Sensitivity",
         description:
           "Improve nerve response and stimulate healthier tissue regeneration for a profound physical connection.",
       },
       {
-        icon: "bone",
+        iconComponent: IntimateIcon3,
         title: "Pelvic Strength",
         description:
           "Gain total muscular control over stress urinary incontinence and underlying pelvic floor weakness.",
       },
       {
-        icon: "activity",
+        iconComponent: IntimateIcon4,
         title: "Vascular Rejuvenation",
         description:
           "Treat the root cause of dysfunction by actively building new blood vessels for lasting improvement.",
