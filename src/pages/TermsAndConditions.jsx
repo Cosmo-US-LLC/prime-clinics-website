@@ -1,16 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { AlertTriangle } from 'lucide-react';
+import usePageMeta from '@/hooks/usePageMeta';
 
 function TermsAndConditions() {
-  useEffect(() => {
-    document.title = 'Terms and Conditions | Prime Clinics';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Prime Clinics Terms and Conditions of Use - Read our terms of service and user agreement.');
-    }
-  }, []);
+  usePageMeta(
+    'Terms and Conditions: Legal & Site Usage | Prime Clinics',
+    "Review the terms and conditions for using Prime Clinics' medical and performance services. Legal guidelines for our digital and clinical platform."
+  );
 
   return (
     <div className="min-h-screen "

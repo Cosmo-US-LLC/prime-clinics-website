@@ -1,6 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ChevronDown, Menu, X } from "lucide-react";
+import {
+  ChevronDown,
+  Instagram,
+  Facebook,
+  Linkedin,
+  Store,
+  Mail,
+  Phone,
+  Menu,
+  X,
+} from "lucide-react";
 import LogoPrimary from "@/assets/icons/prime_logo_not_scrolled.svg";
 import LogoScrolled from "@/assets/icons/prime_logo_scrolled.svg";
 import {
@@ -9,13 +19,6 @@ import {
   SheetContent,
   SheetClose,
 } from "@/components/ui/sheet";
-import {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuTrigger,
-  NavigationMenuContent,
-} from "@/components/ui/navigation-menu";
 
 import card1 from "@/assets/images/home/services/service_card1.webp";
 import card2 from "@/assets/images/home/services/service_card2.webp";
@@ -80,6 +83,7 @@ function LandingPageHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [desktopServicesOpen, setDesktopServicesOpen] = useState(false);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -146,58 +150,64 @@ function LandingPageHeader() {
               if (item.label === "Services") {
                 return (
                   <li key={item.label} className="relative">
-                    <NavigationMenu>
-                      <NavigationMenuList>
-                        <NavigationMenuItem>
-                          <NavigationMenuTrigger
-                            className={`${linkBase} ${linkState} bg-transparent border-none px-2 py-4 relative group hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent ${
-                              isActive ? "font-semibold" : ""
-                            }`}
-                          >
-                            <span className="relative inline-flex items-center">
-                              <span>Services</span>
-                              <span
-                                className={`absolute -bottom-1 left-0 h-[3px] w-full bg-[#2463D8] origin-left transition-transform duration-300 ease-out ${
-                                  isActive
-                                    ? "scale-x-100"
-                                    : "scale-x-0 group-hover:scale-x-100"
-                                }`}
-                              />
-                            </span>
-                          </NavigationMenuTrigger>
-                          <NavigationMenuContent className="mt-3 rounded-2xl border border-slate-200 bg-[#f9fafb] px-8 py-6 shadow-xl min-w-[1040px]">
-                            <div className="flex flex-col gap-5">
-                              <div className="text-2xl font-bold uppercase tracking-tight text-slate-900">
-                                Our Services
-                              </div>
-                              <div className="grid gap-3 md:grid-cols-4 lg:grid-cols-4">
-                                {SERVICE_LINKS.map((service) => (
-                                  <Link
-                                    key={service.label}
-                                    to={service.href}
-                                    className="group flex flex-col gap-3"
-                                  >
-                                    <div className="relative h-36 w-[220px] rounded-[8px] overflow-hidden">
-                                      <img
-                                        src={service.image}
-                                        alt={service.label}
-                                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                                        loading="lazy"
-                                      />
-                                    </div>
-                                    <div className="pb-4">
-                                      <p className="text-[18px] leading-7 font-normal text-[#040a16]">
-                                        {service.label}
-                                      </p>
-                                    </div>
-                                  </Link>
-                                ))}
-                              </div>
-                            </div>
-                          </NavigationMenuContent>
-                        </NavigationMenuItem>
-                      </NavigationMenuList>
-                    </NavigationMenu>
+                    <button
+                      type="button"
+                      className={`${linkBase} ${linkState} relative group bg-transparent border-none`}
+                      onClick={() => setDesktopServicesOpen((open) => !open)}
+                    >
+                      <span className="relative inline-flex items-center gap-1.5">
+                        <span className={isActive ? "font-semibold" : ""}>
+                          Services
+                        </span>
+                        <ChevronDown
+                          className={`h-4 w-4 transition-transform ${
+                            desktopServicesOpen ? "rotate-180" : ""
+                          }`}
+                          aria-hidden
+                        />
+                        <span
+                          className={`pointer-events-none absolute -bottom-1 left-0 h-[3px] w-full bg-[#2463D8] origin-left transition-transform duration-300 ease-out ${
+                            isActive
+                              ? "scale-x-100"
+                              : "scale-x-0 group-hover:scale-x-100"
+                          }`}
+                        />
+                      </span>
+                    </button>
+
+                    {desktopServicesOpen && (
+                      <div className="absolute left-[-350%] top-full mt-3 min-w-[1040px] rounded-2xl border border-slate-200 bg-[#f9fafb] px-8 py-6 shadow-xl">
+                        <div className="flex flex-col gap-5">
+                          <div className="text-2xl font-bold uppercase tracking-tight text-slate-900">
+                            Our Services
+                          </div>
+                          <div className="grid gap-3 md:grid-cols-4 lg:grid-cols-4">
+                            {SERVICE_LINKS.map((service) => (
+                              <Link
+                                key={service.label}
+                                to={service.href}
+                                className="group flex flex-col gap-3"
+                                onClick={() => setDesktopServicesOpen(false)}
+                              >
+                                <div className="relative h-36 w-[220px] rounded-[8px] overflow-hidden">
+                                  <img
+                                    src={service.image}
+                                    alt={service.label}
+                                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                                    loading="lazy"
+                                  />
+                                </div>
+                                <div className="pb-4">
+                                  <p className="text-[18px] leading-7 font-normal text-[#040a16]">
+                                    {service.label}
+                                  </p>
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </li>
                 );
               }
@@ -240,7 +250,7 @@ function LandingPageHeader() {
             <button
               type="button"
               className={`inline-flex items-center justify-center rounded-md p-2 lg:hidden ${
-                scrolled
+                scrolled || !hasHeroOverlay
                   ? "text-[#030712] hover:text-[#2463D8]"
                   : "text-white hover:text-white/85"
               }`}
@@ -253,9 +263,9 @@ function LandingPageHeader() {
 
           <SheetContent
             side="left"
-            className="bg-slate-900 text-white px-6 py-4 lg:hidden"
+            className="bg-slate-900 text-white px-6 py-4 lg:hidden max-h-screen overflow-y-auto"
           >
-            <div className="mb-6 flex items-center justify-between">
+            {/* <div className="mb-6 flex items-center justify-between">
               <Link
                 to="/"
                 className="flex h-10 w-auto shrink-0 items-center"
@@ -269,7 +279,7 @@ function LandingPageHeader() {
                   draggable={false}
                 />
               </Link>
-              {/* <SheetClose asChild>
+              <SheetClose asChild>
                 <button
                   type="button"
                   className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/30 text-white hover:bg-white/10"
@@ -277,16 +287,16 @@ function LandingPageHeader() {
                 >
                   <X size={18} />
                 </button>
-              </SheetClose> */}
-            </div>
+              </SheetClose>
+            </div> */}
 
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-4 pt-24">
               {NAV_LINKS.map((item) =>
                 item.label === "Services" ? (
                   <div key={item.label} className="flex flex-col gap-1">
                     <button
                       type="button"
-                      className="flex w-full items-center justify-between rounded-lg px-2 py-3 text-[16px] font-medium leading-6 text-white hover:bg-white/10"
+                      className="flex w-full items-center justify-between rounded-lg px-2 py-2.5 text-[16px] font-medium leading-6 text-white hover:bg-white/10"
                       onClick={() => setMobileServicesOpen((open) => !open)}
                     >
                       <span>Services</span>
@@ -297,12 +307,12 @@ function LandingPageHeader() {
                       />
                     </button>
                     {mobileServicesOpen && (
-                      <div className="mt-1 flex flex-col gap-1 rounded-lg bg-slate-800/80 px-2 py-2">
+                      <div className="mt-1 flex flex-col gap-1 px-4 ">
                         {SERVICE_LINKS.map((service) => (
                           <SheetClose asChild key={service.label}>
                             <Link
                               to={service.href}
-                              className="block rounded-md px-2 py-2 text-sm text-slate-100 hover:bg-slate-700"
+                              className="block rounded-md px-2 py-2 text-[14px] text-slate-100 hover:bg-slate-700"
                               onClick={() => setMobileMenuOpen(false)}
                             >
                               {service.label}
@@ -316,7 +326,7 @@ function LandingPageHeader() {
                   <SheetClose asChild key={item.label}>
                     <Link
                       to={item.href}
-                      className="block rounded-lg px-2 py-3 text-[16px] font-medium leading-6 text-white hover:bg-white/10"
+                      className="block rounded-lg px-2 py-0 text-[16px] font-medium leading-6 text-white hover:bg-white/10"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.label}
@@ -324,10 +334,69 @@ function LandingPageHeader() {
                   </SheetClose>
                 ),
               )}
+              {/* Contact + Social (from footer / Figma) */}
+              <div className="mt-4 flex flex-col gap-4 border-t border-white/10 pt-6">
+                <p className="m-0 text-[16px] font-bold leading-[24px] text-white">
+                  Contact details
+                </p>
+                <div className="flex flex-col gap-3 text-[16px] leading-[24px]">
+                  <a
+                    href="tel:8004567890"
+                    className="flex items-center gap-3 text-white no-underline hover:text-white/85"
+                  >
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/40">
+                      <Phone size={16} />
+                    </span>
+                    <span>(800) 456 7890</span>
+                  </a>
+                  <a
+                    href="mailto:info@primeclinics.ca"
+                    className="flex items-center gap-3 text-white underline hover:text-white/85"
+                  >
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/40">
+                      <Mail size={16} />
+                    </span>
+                    <span>info@primeclinics.ca</span>
+                  </a>
+                </div>
+
+                <div className="mt-2 flex items-center gap-3">
+                  <a
+                    href="#"
+                    aria-label="Instagram"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white text-white hover:bg-[#2463D8] hover:border-[#2463D8]"
+                  >
+                    <Instagram size={18} />
+                  </a>
+                  <a
+                    href="#"
+                    aria-label="Facebook"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white text-white hover:bg-[#2463D8] hover:border-[#2463D8]"
+                  >
+                    <Facebook size={18} />
+                  </a>
+                  <a
+                    href="#"
+                    aria-label="LinkedIn"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white text-white hover:bg-[#2463D8] hover:border-[#2463D8]"
+                  >
+                    <Linkedin size={18} />
+                  </a>
+                  <a
+                    href="#"
+                    aria-label="Google Business"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-white text-white hover:bg-[#2463D8] hover:border-[#2463D8]"
+                  >
+                    <Store size={18} />
+                  </a>
+                </div>
+              </div>
+
+              {/* Join Waitlist below contact details, per Figma */}
               <SheetClose asChild>
                 <Link
                   to="/free-dexa-scan"
-                  className="mt-4 inline-flex w-full items-center justify-center rounded-lg bg-[#2463D8] px-6 py-3 text-[16px] font-bold leading-[24px] text-white hover:bg-[#1a4fa8]"
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-[#2463D8] px-6 py-3 text-[16px] font-bold leading-[24px] text-white hover:bg-[#1a4fa8]"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Join Waitlist

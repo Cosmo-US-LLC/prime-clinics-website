@@ -16,9 +16,9 @@ import {
 
 export default {
   seo: {
-    title: "Regenerative Aesthetics | Prime Clinics",
+    title: "Regenerative Aesthetics & Hair Restoration | Prime Clinics",
     description:
-      "Restore and rejuvenate with cutting-edge regenerative aesthetic treatments.",
+      "Look as good as you feel. Advanced regenerative treatments, hair restoration, and sculpted physique protocols at Prime Clinics.",
   },
   hero: {
     images: { desktop, mobile },

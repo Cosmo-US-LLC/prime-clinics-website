@@ -16,9 +16,9 @@ import {
 
 export default {
   seo: {
-    title: "Intimate Health | Prime Clinics",
+    title: "Private Intimate Health & Sexual Restoration | Prime Clinics",
     description:
-      "Comprehensive care for intimate wellness with discretion and medical expertise.",
+      "Regain your confidence. Innovative intimate health restoration focusing on vascular health and sensitivity with clinical precision at Prime Clinics.",
   },
   hero: {
     images: { desktop, mobile },

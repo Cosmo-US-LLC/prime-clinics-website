@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import usePageMeta from '@/hooks/usePageMeta';
 
 function PrivacyPolicy() {
-  useEffect(() => {
-    document.title = 'Privacy Policy | Prime Clinics';
-    
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Prime Clinics Privacy Policy - Learn how we collect, use, and protect your personal and health information.');
-    }
-  }, []);
+  usePageMeta(
+    'Privacy Policy: Data Protection & Security | Prime Clinics',
+    "Your privacy is our priority. Learn how Prime Clinics collects, uses, and protects your personal health information and performance data."
+  );
 
   return (
     <div className="min-h-screen "

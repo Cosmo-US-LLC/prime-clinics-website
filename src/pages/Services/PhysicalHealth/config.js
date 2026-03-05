@@ -15,9 +15,9 @@ import {
 
 export default {
   seo: {
-    title: "Physical Health | Prime Clinics",
+    title: "Physical Performance Optimization & Strength | Prime Clinics",
     description:
-      "Prime Clinics combines advanced diagnostics, precision training strategy, and medical-grade muscle technology to increase strength.",
+      "Reach your physical peak. Precision nutrition, injury prevention, and performance protocols designed for high achievers at Prime Clinics.",
   },
   hero: {
     images: { desktop, mobile },

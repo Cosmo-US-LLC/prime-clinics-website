@@ -16,9 +16,9 @@ import {
 
 export default {
   seo: {
-    title: "Joint Rehabilitation | Prime Clinics",
+    title: "Regenerative Orthopedics & Joint Rehab | Prime Clinics",
     description:
-      "Recover and rebuild with specialized joint rehabilitation and mobility programs.",
+      "Move without limits. Non-surgical joint rehabilitation and regenerative orthopedics to restore mobility and structural integrity at Prime Clinics.",
   },
   hero: {
     images: { desktop, mobile },

@@ -7,8 +7,14 @@ import MedicalPrescriptionsTestimonials from "@/components/PageComponents/Medica
 import ClinicStandard from "@/components/PageComponents/MedicalPrescriptions/ClinicStandard";
 import HomeFAQ from "@/components/PageComponents/Home/HomeFAQ";
 import { medicalPrescriptionsFaqData } from "@/constants/generalFaqData";
+import usePageMeta from "@/hooks/usePageMeta";
 
 function MedicalPrescriptions() {
+  usePageMeta(
+    "Private Sexual Wellness & Prescriptions | Prime Clinics",
+    "Expert care with zero compromise. Get discreet access to medical prescriptions for performance, vitality, and sexual wellness at Prime Clinics."
+  );
+
   return (
     <>
       <MedicalPrescriptionsHero />

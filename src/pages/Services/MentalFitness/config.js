@@ -15,9 +15,9 @@ import {
 
 export default {
   seo: {
-    title: "Mental Fitness | Prime Clinics",
+    title: "Cognitive Immersion & Mental Performance | Prime Clinics",
     description:
-      "Strengthen your mind with evidence-based mental health and performance support.",
+      "Achieve peak mental clarity and neural plasticity. Explore cognitive immersion and psychological performance protocols at Prime Clinics.",
   },
   hero: {
     images: { desktop, mobile },
