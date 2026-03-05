@@ -15,9 +15,9 @@ import {
 
 export default {
   seo: {
-    title: "Weight Management | Prime Clinics",
+    title: "Metabolic Weight Loss & Peptide Therapy | Prime Clinics",
     description:
-      "Science-backed weight management programs tailored to your health goals.",
+      "Science-backed weight management. Achieve sustainable fat loss and appetite regulation with medical weight loss protocols at Prime Clinics.",
   },
   hero: {
     images: { desktop, mobile },

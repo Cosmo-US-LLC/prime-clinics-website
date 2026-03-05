@@ -8,8 +8,8 @@ import usePageMeta from "@/hooks/usePageMeta";
  */
 function PrimeWaitlist() {
   usePageMeta(
-    "Join the Waitlist | Prime Clinics",
-    "Be among the first to experience Edmonton's premier Performance and Longevity Clinic. Join the PRIME waitlist.",
+    "Claim Your Spot: Join the Exclusive Waitlist | Prime Clinics",
+    "Be among the first to experience Edmonton's premier Performance and Longevity Clinic. Secure your place on the Prime Clinics waitlist today."
   );
 
   const [formData, setFormData] = useState({

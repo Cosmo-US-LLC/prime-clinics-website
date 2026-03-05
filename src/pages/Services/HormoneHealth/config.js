@@ -16,9 +16,9 @@ import {
 
 export default {
   seo: {
-    title: "Hormone Health | Prime Clinics",
+    title: "Hormone Health & Hormonal Restoration | Prime Clinics",
     description:
-      "Optimize your hormonal balance with advanced diagnostics and personalized treatment plans.",
+      "Restore your vitality. Advanced hormone optimization focusing on body composition, mood stabilization, and restored drive at Prime Clinics.",
   },
   hero: {
     images: { desktop, mobile },
