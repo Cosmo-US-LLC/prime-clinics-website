@@ -22,12 +22,12 @@ function AboutHero() {
           />
         </div>
         <div className="max-w-[1280px] mx-auto w-full md:px-8 px-4 py-16 md:py-[80px] flex justify-start items-end">
-          <div className="relative z-10 flex flex-col gap-6 max-w-full md:max-w-[545px]">
+          <div className="relative z-10 flex flex-col gap-6">
             <div className="flex flex-col gap-4">
-              <h1 className="heading-1 text-white uppercase m-0 drop-shadow-[0px_0px_4px_rgba(0,0,0,0.25)]">
+              <h1 className="heading-1 text-white md:max-w-[605px] max-w-[305px] uppercase m-0 drop-shadow-[0px_0px_4px_rgba(0,0,0,0.25)]">
                 BRIDGING MEDICINE & PERFORMANCE
               </h1>
-              <p className="font-sans text-[16px] md:text-[18px] font-normal leading-[26px] text-white m-0 max-w-[495px]">
+              <p className="font-sans text-[16px] md:text-[18px] max-w-full md:max-w-[495px] font-normal leading-[26px] text-white m-0 ">
                 We are an elite medical collective focused entirely on proactive
                 health, advanced regenerative therapies, and complete biological
                 optimization.
