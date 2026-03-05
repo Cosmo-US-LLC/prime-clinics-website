@@ -36,8 +36,8 @@ function CareersOpenPositions() {
     >
       <div className="mx-auto flex max-w-[1280px] flex-col gap-10 px-4 md:px-8 md:flex-row md:items-start">
         {/* Left: heading + description */}
-        <div className="flex w-full max-w-[590px] flex-col gap-5">
-          <h2 className="font-display m-0 text-[32px] font-bold uppercase leading-tight text-[#040A16] md:text-[48px] md:leading-[56px]">
+        <div className="flex w-full max-w-[590px] text-center md:text-left flex-col gap-5">
+          <h2 className="heading-2 uppercase m-0 text-[#040A16]">
             Open Positions
           </h2>
           <p className="font-sans m-0 text-[16px] font-normal leading-[24px] text-[#030712]">
@@ -53,9 +53,9 @@ function CareersOpenPositions() {
 
             return (
               <div key={role.title} className="flex flex-col gap-4">
-                <div className="flex flex-col items-start gap-4 md:flex-row md:items-center md:gap-8">
+                <div className="flex flex-col items-start text-center md:text-left gap-4 md:flex-row md:items-center md:gap-8">
                   <div className="flex-1">
-                    <h3 className="font-display m-0 text-[20px] md:text-[24px] font-bold uppercase leading-[28px] md:leading-[32px] text-[#040A16]">
+                    <h3 className="heading-3 m-0 uppercase text-[#040A16]">
                       {role.title}
                     </h3>
                     <p className="font-sans m-0 mt-2 text-[16px] font-normal leading-[24px] text-[#030712]">
@@ -64,13 +64,16 @@ function CareersOpenPositions() {
                   </div>
                   <button
                     type="button"
-                    className="inline-flex shrink-0 items-center justify-center rounded-[8px] bg-[#2463D8] px-6 py-3 font-sans text-[16px] font-bold leading-[24px] text-white transition-colors hover:bg-[#1a4fa8]"
+                    className="inline-flex w-fit mx-auto md:mx-0 shrink-0 btn-primary"
                   >
                     Apply Now
                   </button>
                 </div>
                 {!isLast && (
-                  <div className="h-px w-full bg-[#E5E7EB]" aria-hidden="true" />
+                  <div
+                    className="h-px w-full bg-[#E5E7EB]"
+                    aria-hidden="true"
+                  />
                 )}
               </div>
             );
@@ -82,4 +85,3 @@ function CareersOpenPositions() {
 }
 
 export default CareersOpenPositions;
-

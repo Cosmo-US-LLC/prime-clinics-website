@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { X, Minus } from "lucide-react";
+import { Plus, X } from "lucide-react";
 import FAQ_IMAGE from "@/assets/images/home/faqs/faqs_image.webp";
 import { generalFaqData } from "@/constants/generalFaqData";
 
@@ -59,8 +59,8 @@ function HomeFAQ({
                       {item.question}
                     </p>
                     <div className="shrink-0 mt-0.5 relative size-6 flex items-center justify-center">
-                      <X className="absolute size-5 text-[#030712] [.group[data-state=open]_&]:hidden" />
-                      <Minus className="absolute size-5 text-[#030712] hidden [.group[data-state=open]_&]:block" />
+                      <Plus className="absolute size-5 text-[#030712] [.group[data-state=open]_&]:hidden" />
+                      <X className="absolute size-5 text-[#030712] hidden [.group[data-state=open]_&]:block" />
                     </div>
                   </div>
                 </AccordionTrigger>
